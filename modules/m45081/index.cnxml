@@ -1,0 +1,2833 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>A multiresolution formulation of Wavelet Systems</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45081</md:content-id>
+  <md:title>A multiresolution formulation of Wavelet Systems</md:title>
+  <md:abstract/>
+  <md:uuid>476181d8-9096-43b1-ae7c-2e3e1885cb28</md:uuid>
+</metadata>
+
+<content>
+    <para id="id311083">Both the mathematics and the practical interpretations of wavelets seem to
+be best served by using the concept of resolution
+<link target-id="bid0"/>, <link target-id="bid1"/>, <link target-id="bid2"/>, <link target-id="bid3"/> to define the effects of changing scale.
+To do this, we will start with a <emphasis effect="italics">scaling function</emphasis><m:math overflow="scroll"><m:mspace width="0.25em"/><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+
+rather than directly with the wavelet <m:math overflow="scroll"><m:mrow><m:mi>ψ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>. After the scaling
+function is defined from the concept of resolution, the wavelet functions
+will be derived from it. This chapter will give a rather intuitive
+development of these ideas, which will be followed by more rigorous
+arguments in <link document="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients</link>. 
+</para><para id="id311507">This multiresolution formulation is obviously designed to represent signals
+where a single event is decomposed into finer and finer detail, but it
+turns out also to be valuable in
+representing signals where a time-frequency or time-scale description is
+desired even if no concept of resolution is needed. However, there are
+other cases where multiresolution is not appropriate, such as for the
+short-time Fourier transform or Gabor transform or for local sine or
+cosine bases or lapped orthogonal transforms, which are all discussed
+briefly later in this book.</para>
+    <section id="cid1">
+      <title>Signal Spaces</title>
+      <para id="id311528">In order to talk about the collection of functions or signals that can be
+represented by a sum of scaling functions and/or wavelets, we need some
+ideas and terminology from functional analysis. If these concepts are not
+familiar to you or the information in this section is not sufficient, you
+may want to skip ahead and read <link document="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients</link> or <link target-id="bid4"/>.</para><para id="id311545">A <emphasis effect="italics">function space</emphasis> is a linear vector space (finite or infinite
+dimensional) where the vectors are functions, the scalars are real numbers
+(sometime complex numbers), and scalar multiplication and vector addition
+are similar to that done in <link target-id="uid5" document="m45096"/>. The <emphasis effect="italics">inner product</emphasis> is a
+scalar <m:math overflow="scroll"><m:mi>a</m:mi></m:math> obtained from two vectors, <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>, by an integral.
+It is denoted</para><equation id="uid6">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>a</m:mi>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:msup>
+              <m:mi>f</m:mi>
+              <m:mo>*</m:mo>
+            </m:msup>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id311006">with the range of integration depending on the signal class being considered.
+This inner product defines a <emphasis effect="italics">norm</emphasis> or “length" of a vector which is
+denoted and defined by</para>
+      <equation id="uid8">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mrow>
+              <m:mo>∥</m:mo>
+              <m:mi>f</m:mi>
+              <m:mo>∥</m:mo>
+              <m:mspace width="0.166667em"/>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:msqrt>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:mo>〈</m:mo>
+                <m:mi>f</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>f</m:mi>
+                <m:mo>〉</m:mo>
+                <m:mo>|</m:mo>
+              </m:mrow>
+            </m:msqrt>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id311943">which is a simple generalization of the geometric operations and
+definitions in three-dimensional Euclidean space. Two signals (vectors)
+with non-zero norms are called <emphasis effect="italics">orthogonal</emphasis> if their inner product is
+zero. For example, with the Fourier series, we see that <m:math overflow="scroll"><m:mrow><m:mo form="prefix">sin</m:mo><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> is
+orthogonal to <m:math overflow="scroll"><m:mrow><m:mo form="prefix">sin</m:mo><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>.</para>
+      <para id="id311993">A space that is particularly important in signal processing is called 
+<m:math overflow="scroll"><m:mrow><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>. This is the space of all functions <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> with a well
+defined integral of the square of the modulus of the function. The “L" signifies a
+Lebesque integral, the “2" denotes the integral of the square of the
+modulus of the function, and <m:math overflow="scroll"><m:mi mathvariant="bold">R</m:mi></m:math> states that the independent variable of
+integration <m:math overflow="scroll"><m:mi>t</m:mi></m:math> is a number over the whole real line.
+For a function <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> to be a member of
+that space is denoted: <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> or simply <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math>.</para><para id="id312120">Although most of the definitions and derivations are in terms of signals
+that are in <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math>, many of the results hold for larger classes of signals.
+For example, polynomials are not in <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math> but can be expanded over any
+finite domain by most wavelet systems.</para>
+      <para id="id312152">In order to develop the wavelet expansion described in <link target-id="uid19" document="m45096"/>, we
+will need the idea of an expansion set or a basis set. If we start with
+the vector space of signals, <m:math overflow="scroll"><m:mi>S</m:mi></m:math>, then if any <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>∈</m:mo><m:mi>S</m:mi></m:mrow></m:math>
+can be expressed as <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>k</m:mi></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>φ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>, the set of
+functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> are called an expansion set for the space <m:math overflow="scroll"><m:mi>S</m:mi></m:math>. If the representation is unique, the set is a basis. Alternatively,
+one could start with the expansion set or basis set and define the space
+<m:math overflow="scroll"><m:mi>S</m:mi></m:math> as the set of all functions that can be expressed by <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>k</m:mi></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>φ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>. This is called the <emphasis effect="italics">span</emphasis> of the basis
+set. In several cases, the signal spaces that we will need are actually
+the <emphasis effect="italics">closure</emphasis> of the space spanned by the basis set. That means the
+space contains not only all signals that can be expressed by a
+linear combination of the basis functions, but also the signals which are
+the limit of these infinite expansions. The closure of a space is usually
+denoted by an over-line. </para></section>
+    <section id="cid2">
+      <title>The Scaling Function</title>
+      <para id="id312366">In order to use the idea of multiresolution, we will start by defining the
+scaling function and then define the wavelet in terms of it. As described
+for the wavelet in the previous chapter, we define a set of scaling
+functions in terms of integer translates
+of the basic scaling function by</para>
+      <equation id="uid10"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="28.90755pt"/>
+            <m:mi>k</m:mi>
+            <m:mo>∈</m:mo>
+            <m:mi mathvariant="bold">Z</m:mi>
+            <m:mspace width="28.90755pt"/>
+            <m:mi>φ</m:mi>
+            <m:mo>∈</m:mo>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id312450">The subspace of <m:math overflow="scroll"><m:mrow><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> spanned by these functions is defined as</para>
+      <equation id="uid11"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mover>
+              <m:mrow>
+                <m:msub>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:msub>
+                    <m:mi>φ</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id312544">for all integers <m:math overflow="scroll"><m:mi>k</m:mi></m:math> from minus infinity to infinity. The over-bar
+denotes closure. This means that</para>
+      <equation id="uid12"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mtext>for</m:mtext>
+            <m:mspace width="4.pt"/>
+            <m:mtext>any</m:mtext>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>∈</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id312676">One can generally increase the size of the subspace spanned by changing
+the time scale of the scaling functions. A two-dimensional family of
+functions is
+generated from the basic scaling function by scaling and translation by</para>
+      <equation id="uid13"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:msup>
+              <m:mn>2</m:mn>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mi>j</m:mi>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id312762">whose span over <m:math overflow="scroll"><m:mi>k</m:mi></m:math> is</para>
+      <equation id="uid14"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mover>
+              <m:mrow>
+                <m:msub>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:msub>
+                    <m:mi>φ</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:msup>
+                      <m:mn>2</m:mn>
+                      <m:mi>j</m:mi>
+                    </m:msup>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+            <m:mo>=</m:mo>
+            <m:mover>
+              <m:mrow>
+                <m:msub>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:msub>
+                    <m:mi>φ</m:mi>
+                    <m:mrow>
+                      <m:mi>j</m:mi>
+                      <m:mo>,</m:mo>
+                      <m:mi>k</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id312889">for all integers <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math>.
+This means that if <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:math>, then it can be expressed as</para>
+      <equation id="uid15"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.277778em"/>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mi>j</m:mi>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>+</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id313009">For <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>&gt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>, the span can be larger since <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is narrower
+and is translated in smaller steps. It, therefore, can represent finer
+detail. For <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>&lt;</m:mo><m:mn>0</m:mn></m:mrow></m:math>, <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is wider and is translated in
+larger steps. So these wider scaling functions can represent only coarse
+information, and the space they span is smaller. Another way to think
+about the effects of a change of scale is in terms of resolution. If one
+talks about photographic or optical resolution, then this idea of scale is
+the same as resolving power.</para><section id="uid16">
+        <title>Multiresolution Analysis</title>
+        <para id="id313110">In order to agree with our intuitive ideas of scale or resolution, we
+formulate the basic requirement of multiresolution analysis (MRA)
+<link target-id="bid2"/> by requiring a nesting of the spanned spaces as</para><equation id="uid18">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mo>⋯</m:mo>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mrow>
+                  <m:mo>-</m:mo>
+                  <m:mn>2</m:mn>
+                </m:mrow>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mrow>
+                  <m:mo>-</m:mo>
+                  <m:mn>1</m:mn>
+                </m:mrow>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:mo>⋯</m:mo>
+              <m:mo>⊂</m:mo>
+              <m:msup>
+                <m:mi>L</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id313213">or</para>
+        <equation id="uid19">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+              <m:mo>⊂</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                </m:mrow>
+              </m:msub>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mtext>for</m:mtext>
+              <m:mspace width="4.pt"/>
+              <m:mtext>all</m:mtext>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mi>j</m:mi>
+              <m:mo>∈</m:mo>
+              <m:mi mathvariant="bold">Z</m:mi>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id313295">with</para>
+        <equation id="uid20">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mrow>
+                  <m:mo>-</m:mo>
+                  <m:mi>∞</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mrow>
+                <m:mo>{</m:mo>
+                <m:mn>0</m:mn>
+                <m:mo>}</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="36.135pt"/>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mi>∞</m:mi>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:msup>
+                <m:mi>L</m:mi>
+                <m:mn>2</m:mn>
+              </m:msup>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id313378">The space that contains high resolution signals will contain those of lower
+resolution also.</para>
+        <para id="id313385">Because of the definition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math>, the spaces have to
+satisfy a natural scaling condition</para>
+        <equation id="uid21">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>∈</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mi>j</m:mi>
+              </m:msub>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mo>⇔</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>∈</m:mo>
+              <m:msub>
+                <m:mi>V</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                </m:mrow>
+              </m:msub>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id313497">which insures elements in a space are simply scaled versions of the elements
+in the next space. The relationship of the spanned spaces
+is illustrated in <link target-id="uid23"/>.</para><para id="id313508">The nesting of the spans of <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math>, denoted by <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math>
+and shown in <link target-id="uid18"/> and <link target-id="uid21"/> and graphically illustrated in
+<link target-id="uid23"/>, is achieved by requiring that <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:mrow></m:math>, which means that if <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> is in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math>, it is also in
+<m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:math>, the space spanned by <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>. This means <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+can be expressed in terms of a weighted sum of shifted <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> as</para><equation id="uid22"><m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mspace width="0.277778em"/>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mstyle scriptlevel="0" displaystyle="true">
+                <m:mrow>
+                  <m:mspace width="0.166667em"/>
+                  <m:munder>
+                    <m:mo>∑</m:mo>
+                    <m:mi>n</m:mi>
+                  </m:munder>
+                </m:mrow>
+              </m:mstyle>
+              <m:mspace width="0.166667em"/>
+              <m:mi>h</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>n</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:msqrt>
+                <m:mn>2</m:mn>
+              </m:msqrt>
+              <m:mspace width="0.277778em"/>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>t</m:mi>
+                <m:mo>-</m:mo>
+                <m:mi>n</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mi>n</m:mi>
+              <m:mo>∈</m:mo>
+              <m:mi mathvariant="bold">Z</m:mi>
+              <m:mspace width="0.277778em"/>
+            </m:mrow>
+          </m:math>
+        </equation><figure id="uid23"><media id="uid23_media" alt="Nested Vector Spaces Spanned by the Scaling Functions">
+            <image mime-type="image/png" src="../../media/nvsssf.png" id="uid23_onlineimage" width="410" print-width="3in"><!-- NOTE: attribute width changes image size online (pixels). original width is 410. --></image>
+           
+          </media>
+          
+        <caption>Nested Vector Spaces Spanned by the Scaling Functions</caption></figure><para id="id313833">where the coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> are a sequence of real or perhaps complex
+numbers called the scaling function coefficients (or the scaling filter or
+the scaling vector) and the <m:math overflow="scroll"><m:msqrt><m:mn>2</m:mn></m:msqrt></m:math> maintains the norm of the scaling
+function with the scale of two.
+</para>
+        <para id="id313879">This recursive equation is fundamental to
+the theory of the scaling functions and is, in some ways, analogous to a
+differential equation with coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> and solution <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+that may or may not exist or be unique. The equation is referred to by
+different names to describe different interpretations or points of view.
+It is called the
+refinement equation, the multiresolution analysis (MRA) equation, or the
+dilation equation.
+</para><para id="id313931">The Haar scaling function is the simple unit-width, unit-height pulse
+function <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> shown in <link target-id="fs-id1166890378187"/>, and it is obvious that
+<m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> can be used to construct <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> by</para><equation id="uid28"><m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>φ</m:mi>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mi>φ</m:mi>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+              <m:mo>+</m:mo>
+              <m:mi>φ</m:mi>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation><para id="id314049">which means <link target-id="uid22"/> is satisfied for coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt><m:mo>,</m:mo><m:mspace width="4pt"/><m:mspace width="4pt"/><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math>.</para>
+        <para id="id314115">The triangle scaling function (also a first order spline)
+in <link target-id="fs-id1166890378187"/> satisfies <link target-id="uid22"/> for
+<m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mrow><m:mn>2</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:mfrac><m:mo>,</m:mo><m:mspace width="4pt"/><m:mspace width="4pt"/><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mfrac><m:mo>,</m:mo><m:mspace width="4pt"/><m:mspace width="4pt"/><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>2</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mrow><m:mn>2</m:mn><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:mfrac><m:mo>,</m:mo></m:mrow></m:math> and the Daubechies scaling function
+shown in the first part of</para><figure id="fs-id1166890378187"><subfigure id="fs-id1166893443358">
+       <media id="fs-id1171410878420" alt="Haar Scaling Functions">
+        <image mime-type="png" src="../../media/haarsameas.png" width="300"/>
+       </media>
+ </subfigure>
+ <subfigure id="fs-id1166892563783">
+       <media id="fs-id1171410857145" alt="Triangle Scaling Functions">
+        <image mime-type="png" src="../../media/trianglesameas.png" width="300"/>
+       </media>
+ </subfigure>
+<caption>Haar and Triangle Scaling Functions</caption></figure><para id="id314372"><link target-id="fs-id1170698718849" document="m45098">Figure: Daubechies Scaling Functions</link> satisfies <link target-id="uid22"/> for
+<m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>=</m:mo><m:mo>{</m:mo><m:mn>0</m:mn><m:mo>.</m:mo><m:mn>483</m:mn><m:mo>,</m:mo><m:mn>0</m:mn><m:mo>.</m:mo><m:mn>8365</m:mn><m:mo>,</m:mo><m:mn>0</m:mn><m:mo>.</m:mo><m:mn>2241</m:mn><m:mo>,</m:mo><m:mo>-</m:mo><m:mn>0</m:mn><m:mo>.</m:mo><m:mn>1294</m:mn><m:mo>}</m:mo></m:mrow></m:math> as do all scaling functions
+for their corresponding scaling coefficients. Indeed, the design of
+wavelet systems is the choosing of the coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> and that
+is developed later.</para></section>
+    </section>
+    <section id="cid3">
+      <title>The Wavelet Functions</title>
+      <para id="id314468">The important features of a signal can better be described or
+parameterized, not by using <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> and increasing <m:math overflow="scroll"><m:mi>j</m:mi></m:math> to
+increase the size of the subspace spanned by the scaling functions, but by
+defining a slightly different set of functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+ that
+span the <emphasis effect="italics">differences</emphasis> between the spaces spanned by the various
+scales of the scaling function. These functions are the wavelets
+discussed in the introduction of this book.</para><para id="id314552">There are several advantages to requiring that the scaling functions and
+wavelets be orthogonal. Orthogonal basis functions allow simple calculation
+of expansion coefficients and have a Parseval's theorem that allows a
+partitioning of the signal energy in the wavelet transform domain.
+The orthogonal complement of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math> in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mrow><m:mi>j</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:msub></m:math> is
+defined as <m:math overflow="scroll"><m:msub><m:mi>W</m:mi><m:mi>j</m:mi></m:msub></m:math>. This means that all members of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math> are
+orthogonal to all members of <m:math overflow="scroll"><m:msub><m:mi>W</m:mi><m:mi>j</m:mi></m:msub></m:math>. We require</para>
+      <equation id="uid33"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:msub>
+                <m:mi>φ</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>ℓ</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mo>∫</m:mo>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="4pt"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>ℓ</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="4pt"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mn>0</m:mn>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id314782">for all appropriate <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi><m:mo>,</m:mo><m:mi>ℓ</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math>.</para>
+      <para id="id314814">The relationship of the various subspaces can be seen from the following
+expressions. From <link target-id="uid18"/> we see that we may start at any <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math>,
+say at <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math>, and write</para>
+      <equation id="uid34">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊂</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mo>⊂</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mo>⊂</m:mo>
+            <m:mo>⋯</m:mo>
+            <m:mo>⊂</m:mo>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id314918">We now define the wavelet spanned subspace <m:math overflow="scroll"><m:msub><m:mi>W</m:mi><m:mn>0</m:mn></m:msub></m:math> such that</para>
+      <equation id="uid35">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id314994">which extends to</para>
+      <equation id="uid36">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315069">In general this gives</para>
+      <equation id="uid37">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315137">when <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math> is the initial space spanned by the scaling function
+<m:math overflow="scroll"><m:mrow><m:mi>ϕ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math>. <link target-id="uid40"/> pictorially shows the nesting of the
+scaling function spaces <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math> for different scales <m:math overflow="scroll"><m:mi>j</m:mi></m:math> and how the
+wavelet spaces are the disjoint differences (except for the zero element)
+or, the orthogonal complements.</para><para id="id315210">The scale of the initial space is arbitrary and could be chosen at a
+higher resolution of, say, <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>10</m:mn></m:mrow></m:math> to give</para>
+      <equation id="uid38">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>10</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>10</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>11</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315290">or at a lower resolution such as <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mo>-</m:mo><m:mn>5</m:mn></m:mrow></m:math> to give</para>
+      <equation id="uid39">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>5</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>5</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>4</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <figure id="uid40"><media id="uid40_media" alt="Scaling Function and Wavelet Vector Spaces">
+          <image mime-type="image/png" src="../../media/sfwvs.png" id="uid40_onlineimage" width="500" print-width="3in"><!-- NOTE: attribute width changes image size online (pixels). original width is 698. --></image>
+   
+        </media>
+        
+      <caption>Scaling Function and Wavelet Vector Spaces</caption></figure><para id="id315396">or at even <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mo>-</m:mo><m:mi>∞</m:mi></m:mrow></m:math> where <link target-id="uid37"/> becomes</para>
+      <equation id="uid41">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:mo>⋯</m:mo>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315521">eliminating the scaling space altogether and allowing an expansion of the
+form in <link target-id="uid43" document="m45096"/>.</para><para id="id315529">Another way to describe the relation of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math> to the wavelet spaces
+is noting</para>
+      <equation id="uid42">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315609">which again shows that the scale of the scaling space can be chosen
+arbitrarily. In practice, it is usually chosen to represent the coarsest
+detail of interest in a signal.</para>
+      <para id="id315616">Since these wavelets reside in the space spanned by the next narrower
+scaling function, <m:math overflow="scroll"><m:mrow><m:msub><m:mi>W</m:mi><m:mn>0</m:mn></m:msub><m:mo>⊂</m:mo><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:mrow></m:math>, they can be represented
+by a weighted sum of shifted scaling function <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> defined in
+<link target-id="uid22"/> by</para><equation id="uid43"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:mi>ψ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mstyle scriptlevel="0" displaystyle="true">
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>n</m:mi>
+              </m:munder>
+            </m:mstyle>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>h</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msqrt>
+              <m:mn>2</m:mn>
+            </m:msqrt>
+            <m:mspace width="0.277778em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>,</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mi>n</m:mi>
+            <m:mo>∈</m:mo>
+            <m:mi mathvariant="bold">Z</m:mi>
+            <m:mspace width="0.277778em"/>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id315794">for some set of coefficients <m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>. From the requirement that the
+wavelets span the “difference" or orthogonal complement spaces, and the
+orthogonality of integer translates of the wavelet (or scaling function),
+it is shown in the Appendix in <link target-id="uid55" document="m45083"/> that the wavelet coefficients
+(modulo translations by integer multiples of two) are required by
+orthogonality to be related to the scaling function coefficients by</para><equation id="uid44">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>h</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mi>n</m:mi>
+            </m:msup>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>-</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315892">One example for a finite even length-<m:math overflow="scroll"><m:mi>N</m:mi></m:math><m:math overflow="scroll"><m:mrow><m:mspace width="0.25em"/><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> could be</para><equation id="uid45">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>h</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mi>n</m:mi>
+            </m:msup>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>N</m:mi>
+              <m:mo>-</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>-</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id315989">The function generated by <link target-id="uid43"/> gives the prototype or mother wavelet
+<m:math overflow="scroll"><m:mrow><m:mi>ψ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> for a class of expansion functions of the form</para>
+      <equation id="uid46">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mn>2</m:mn>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:mspace width="0.222222em"/>
+            <m:mi>ψ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mi>j</m:mi>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id316090">where <m:math overflow="scroll"><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup></m:math> is the scaling of <m:math overflow="scroll"><m:mi>t</m:mi></m:math> (<m:math overflow="scroll"><m:mi>j</m:mi></m:math> is the <m:math overflow="scroll"><m:msub><m:mo form="prefix">log</m:mo><m:mn>2</m:mn></m:msub></m:math> of the scale),
+<m:math overflow="scroll"><m:mrow><m:msup><m:mn>2</m:mn><m:mrow><m:mo>-</m:mo><m:mi>j</m:mi></m:mrow></m:msup><m:mi>k</m:mi></m:mrow></m:math> is the translation in <m:math overflow="scroll"><m:mi>t</m:mi></m:math>, and <m:math overflow="scroll"><m:msup><m:mn>2</m:mn><m:mrow><m:mi>j</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:msup></m:math> maintains the (perhaps
+unity) <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math> norm of the wavelet at different scales.</para>
+      <para id="id316208">The Haar and triangle wavelets that are associated with the scaling
+functions in <link target-id="fs-id1166890378187"/> are shown in <link target-id="fs-id1163842521824"/>. For the Haar
+wavelet, the coefficients in <link target-id="uid43"/> are <m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt><m:mo>,</m:mo><m:mspace width="4pt"/><m:mspace width="4pt"/><m:msub><m:mi>h</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math> which satisfy <link target-id="uid44"/>. The Daubechies wavelets
+associated with the scaling functions in <link target-id="fs-id1170698718849" document="m45098">Figure: Daubechies Scaling Functions</link> are shown in
+<link target-id="fs-id1164776891816" document="m45098">Figure: Daubechies Wavelets</link> with corresponding coefficients given later in the book
+in <link target-id="uid47" document="m45098">Table: Scaling Function and Wavelet Coefficients plus their Discrete Moments for
+Daubechies-8</link> and <link target-id="uid48" document="m45098">Table: Daubechies Scaling Function and Wavelet Coefficients plus their Moments</link>.</para><figure id="fs-id1163842521824">
+<subfigure id="fs-id1163847420215">
+       <media id="fs-id1167780411349" alt="Haar Wavelets">
+        <image mime-type="png" src="../../media/haarsameas2.png" width="300" print-width="3in"/>
+       </media>
+      <caption>Haar (same as <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>ψ</m:mtext>
+    <m:mi>D2</m:mi>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math>)</caption> 
+ </subfigure>
+
+ <subfigure id="fs-id1163838824643">
+       <media id="fs-id1167775018170" alt="Triangle Wavelets">
+        <image mime-type="png" src="../../media/trianglesameas2.png" width="300" print-width="3in"/>
+       </media>
+      <caption>Triangle (same as <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>ψ</m:mtext>
+    <m:mtext>S1</m:mtext>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math>)</caption> 
+</subfigure>
+</figure>
+
+<para id="id316468">We have now constructed a set of functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> and
+<m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> that could span all of <m:math overflow="scroll"><m:mrow><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>. According to <link target-id="uid37"/>, any function <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>∈</m:mo><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> could be written</para><equation id="uid48"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>k</m:mi>
+                <m:mo>=</m:mo>
+                <m:mo>-</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>+</m:mo>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>=</m:mo>
+                <m:mn>0</m:mn>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>k</m:mi>
+                <m:mo>=</m:mo>
+                <m:mo>-</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:mi>d</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>j</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id316738">as a series expansion in terms of the scaling function and wavelets.</para>
+      <para id="id316744">In this expansion, the first summation in <link target-id="uid48"/> gives a function that
+is a low resolution or coarse approximation of <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>. For each increasing
+index <m:math overflow="scroll"><m:mi>j</m:mi></m:math> in the second summation, a higher or finer resolution function is
+added, which adds increasing detail. This is somewhat analogous to a Fourier
+series where the higher frequency terms contain the detail of the signal.</para>
+      <para id="id316781">Later in this book, we will develop the property of having these
+expansion functions form an orthonormal basis or a tight frame, which
+allows the coefficients to be calculated by inner products as</para>
+      <equation id="uid49"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>c</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:msub>
+                <m:mi>φ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id316918">and</para>
+      <equation id="uid50"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>d</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mi>d</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>j</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              <m:mo>〉</m:mo>
+              </m:mrow>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id317073">The coefficient <m:math overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mo>(</m:mo><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> is sometimes written as <m:math overflow="scroll"><m:mrow><m:msub><m:mi>d</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> to emphasize the
+difference between the time translation index <m:math overflow="scroll"><m:mi>k</m:mi></m:math> and the scale parameter <m:math overflow="scroll"><m:mi>j</m:mi></m:math>.
+The coefficient <m:math overflow="scroll"><m:mrow><m:mi>c</m:mi><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> is also sometimes written as <m:math overflow="scroll"><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> or <m:math overflow="scroll"><m:mrow><m:mi>c</m:mi><m:mo>(</m:mo><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> if
+a more general “starting scale" other than <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> for the lower limit on
+the sum in <link target-id="uid48"/> is used.</para>
+      <para id="id317217">It is important at this point to recognize the relationship of the scaling
+function part of the expansion <link target-id="uid48"/> to the wavelet part of the
+expansion. From the representation of the nested spaces in <link target-id="uid37"/> we see
+that the scaling function can be defined at any scale <m:math overflow="scroll"><m:mi>j</m:mi></m:math>. 
+<link target-id="uid48"/> uses <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> to denote the family of scaling functions.</para><para id="id317260">You may want to examine the Haar system example at the end of this chapter
+just now to see these features illustrated.</para>
+    </section>
+    <section id="cid4">
+      <title>The Discrete Wavelet Transform</title>
+      <para id="id317279">Since</para>
+      <equation id="uid52">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mi>L</m:mi>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>=</m:mo>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:msub>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:msub>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+                <m:mo>+</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:mo>⋯</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id317366">using <link target-id="uid13"/> and <link target-id="uid46"/>,
+a more general statement of the expansion <link target-id="uid48"/> can be given by</para>
+      <equation id="uid53"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:msub>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msup>
+              <m:mn>2</m:mn>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>+</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>=</m:mo>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:msub>
+              <m:mi>d</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msup>
+              <m:mn>2</m:mn>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:mspace width="0.166667em"/>
+            <m:mi>ψ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mi>j</m:mi>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id317580">or</para>
+      <equation id="uid54"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:msub>
+                <m:mi>j</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>+</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>=</m:mo>
+                <m:msub>
+                  <m:mi>j</m:mi>
+                  <m:mn>0</m:mn>
+                </m:msub>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:msub>
+              <m:mi>d</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id317738">where <m:math overflow="scroll"><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub></m:math> could be zero as in <link target-id="uid37"/> and <link target-id="uid48"/>, it could be ten
+as in <link target-id="uid38"/>, or it could be negative infinity as in <link target-id="uid43" document="m45096"/> and
+<link target-id="uid41"/> where no scaling functions are used. The choice of <m:math overflow="scroll"><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub></m:math> sets
+the coarsest scale whose space is spanned by <m:math overflow="scroll"><m:mrow><m:msub><m:mi>φ</m:mi><m:mrow><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>. The
+rest of <m:math overflow="scroll"><m:mrow><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is spanned by the wavelets which provide the high
+resolution details of the signal. In practice where one is given only the
+samples of a signal, not the signal itself, there is a highest
+resolution when the finest scale is the sample level.</para><para id="id317856">The coefficients in this wavelet expansion are called the <emphasis effect="italics">discrete
+wavelet transform</emphasis> (DWT) of the signal <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>. If certain conditions
+described later are satisfied, these wavelet coefficients
+completely describe the original signal and can be used in a way similar to
+Fourier series coefficients for analysis, description, approximation, and
+filtering. If the wavelet system is orthogonal, these coefficients can
+be calculated by inner products</para>
+      <equation id="uid55"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>c</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+            </m:mrow>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mo>∫</m:mo>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id317999">and</para>
+      <equation id="uid56"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>d</m:mi>
+              <m:mi>j</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+            </m:mrow>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mo>∫</m:mo>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id318129">If the scaling function is well-behaved, then at a high scale, the scaling is
+similar to a Dirac delta function and the inner product simply samples the
+function. In other words, at high enough resolution, samples of the signal
+are very close to the scaling coefficients. More is said about this later.
+It has been shown <link target-id="bid5"/> that wavelet systems form an unconditional
+basis for a large class of signals. That is discussed in <link document="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients</link>
+but means that even for the worst case signal in the class, the wavelet
+expansion coefficients drop off rapidly as <m:math overflow="scroll"><m:mi>j</m:mi></m:math> and <m:math overflow="scroll"><m:mi>k</m:mi></m:math> increase. This is
+why the DWT is efficient for signal and image compression.</para><para id="id318167">The DWT is similar to a Fourier series but, in many ways, is much more
+flexible and informative. It can be made periodic like a Fourier series
+to represent periodic signals efficiently. However, unlike a Fourier
+series, it can be used directly on non-periodic transient signals with
+excellent results. An example of the DWT of a pulse was illustrated in
+<link target-id="uid18" document="m45094">Figure: Two-Stage Two-Band Analysis Tree</link>. Other examples are illustrated just after the next
+section.</para></section>
+    <section id="cid5">
+      <title>A Parseval's Theorem</title>
+      <para id="id318194">If the scaling functions and wavelets form an orthonormal
+basis<footnote id="uid58">or a tight frame defined in <link document="m45090">Chapter: Bases, Orthogonal Bases, Biorthogonal Bases, Frames, Right Frames, and unconditional Bases</link></footnote>, there is a
+Parseval's theorem that relates the energy of the signal <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> to the
+energy in each of the components and their wavelet coefficients. That is
+one reason why orthonormality is important.</para><para id="id318228">For the general wavelet expansion of <link target-id="uid48"/> or <link target-id="uid54"/>,
+Parseval's theorem is</para>
+      <equation id="uid59">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mrow>
+                <m:mo>∫</m:mo>
+                <m:mo>|</m:mo>
+                <m:mi>g</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mspace width="0.277778em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+            <m:mo>=</m:mo>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>l</m:mi>
+                <m:mo>=</m:mo>
+                <m:mo>-</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:mi>c</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>l</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>+</m:mo>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>=</m:mo>
+                <m:mn>0</m:mn>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:munderover>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>k</m:mi>
+                <m:mo>=</m:mo>
+                <m:mo>-</m:mo>
+                <m:mi>∞</m:mi>
+              </m:mrow>
+              <m:mi>∞</m:mi>
+            </m:munderover>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:msub>
+                  <m:mi>d</m:mi>
+                  <m:mi>j</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>k</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id318389">with the energy in the expansion domain partitioned in time by <m:math overflow="scroll"><m:mi>k</m:mi></m:math> and in
+scale by <m:math overflow="scroll"><m:mi>j</m:mi></m:math>. Indeed, it is this partitioning of the time-scale parameter
+plane that describes the DWT. If the expansion system is a tight frame,
+there is a constant multiplier in <link target-id="uid59"/> caused by the redundancy.</para>
+      <para id="id318420">Daubechies <link target-id="bid6"/>, <link target-id="bid3"/> showed that it is possible for the scaling
+function and the wavelets to have compact support (i.e., be nonzero only
+over a finite region) and to be orthonormal. This makes possible the time
+localization that we desire. We now have a framework for describing
+signals that has features of short-time Fourier analysis and of
+Gabor-based analysis but using a new variable, scale. For the short-time
+Fourier transform, orthogonality and good time-frequency resolution are
+incompatible according to the Balian-Low-Coifman-Semmes theorem
+<link target-id="bid7"/>, <link target-id="bid8"/>. More precisely, if the short-time Fourier transform is
+orthogonal, either the time or the frequency resolution is poor and the
+trade-off is inflexible. This is
+not the case for the wavelet transform. Also, note that there is a
+variety of scaling functions and wavelets that can be obtained by choosing
+different coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> in <link target-id="uid22"/>.</para><para id="id318473">Donoho <link target-id="bid5"/> has noted that wavelets are an unconditional basis for
+a very wide class of signals. This means wavelet expansions of signals
+have coefficients that drop off rapidly and therefore the signal can be
+efficiently represented by a small number of them.</para><para id="id318484">We have first developed the basic ideas of the discrete wavelet system
+using a scaling multiplier of 2 in the defining <link target-id="uid22"/>.
+This is called a <emphasis effect="italics">two-band wavelet system</emphasis> because of the two channels
+or bands in the related filter banks discussed in <link document="m45094">Chapter: Filter Banks and the Discrete Wavelet Transform</link> and <link document="m45068">Chapter: Filter Banks and Transmultiplexers</link>. It is also possible to define a more general discrete waveletsystem using <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>n</m:mi></m:msub><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:msqrt><m:mi>M</m:mi></m:msqrt><m:mspace width="0.166667em"/><m:mi>φ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>M</m:mi><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> where <m:math overflow="scroll"><m:mi>M</m:mi></m:math> is an
+integer <link target-id="bid9"/>. This is discussed in <link target-id="cid2" document="m45095">Section: Multiplicity-M (M-Band) Scaling Functions and Wavelets</link>. The details of numerically calculating the DWT are discussed in <link document="m45093">Chapter: Calculation of the Discrete Wavelet Transform</link> where special forms for periodic signals are used.</para></section>
+    <section id="cid6">
+      <title>Display of the Discrete Wavelet Transform and the Wavelet Expansion</title>
+      <para id="id318600">It is important to have an informative way of displaying or visualizing
+the wavelet expansion and transform. This is complicated in that the DWT
+is a real-valued function of two integer indices and, therefore, needs a
+two-dimensional display or plot. This problem is somewhat analogous to
+plotting the Fourier transform, which is a complex-valued function.</para>
+      <para id="id318606">There seem to be five displays that show the various characteristics of
+the DWT well:</para>
+      <list id="id318610" display="block" list-type="enumerated"><item id="uid60">The most basic time-domain description of a signal is the signal itself
+(or, for most cases, samples of the signal) but it gives no frequency or
+scale information. A very interesting property of the DWT (and one
+different from the Fourier series) is for a high starting scale <m:math overflow="scroll"><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub></m:math> in
+<link target-id="uid54"/>, samples of the signal are the DWT at that scale.
+This is an extreme case, but it shows the flexibility of the DWT and will
+be explained later.
+</item>
+        <item id="uid61">The most basic wavelet-domain description is a three-dimensional plot of
+the expansion coefficients or DWT values <m:math overflow="scroll"><m:mrow><m:mi>c</m:mi><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:msub><m:mi>d</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> over the
+<m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:math> plane. This is difficult to do on a two-dimensional page or display
+screen, but we show a form of that in <link target-id="uid70"/> and <link target-id="uid73"/>.
+</item>
+        <item id="uid62">A very informative picture of the effects of scale can be shown by
+generating time functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> at each scale by summing <link target-id="uid48"/>
+over <m:math overflow="scroll"><m:mi>k</m:mi></m:math> so that
+<equation id="uid63"><m:math overflow="scroll" mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:msub><m:mi>f</m:mi><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub></m:msub><m:mo>+</m:mo><m:munder><m:mo>∑</m:mo><m:mi>j</m:mi></m:munder><m:msub><m:mi>f</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></equation>
+where
+<equation id="uid64"><m:math overflow="scroll" mode="display"><m:mrow><m:msub><m:mi>f</m:mi><m:msub><m:mi>j</m:mi><m:mn>0</m:mn></m:msub></m:msub><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:munder><m:mo>∑</m:mo><m:mi>k</m:mi></m:munder><m:mi>c</m:mi><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mi>φ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></equation><equation id="uid65"><m:math overflow="scroll" mode="display"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:munder><m:mo>∑</m:mo><m:mi>k</m:mi></m:munder><m:msub><m:mi>d</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:msup><m:mn>2</m:mn><m:mrow><m:mi>j</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:msup><m:mspace width="0.166667em"/><m:mi>ψ</m:mi><m:mrow><m:mo>(</m:mo><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+This illustrates the components of the signal at each scale and is shown
+in <link target-id="uid72"/> and <link target-id="uid78"/>.
+</item>
+        <item id="uid66">Another illustration that shows the time localization of the
+wavelet expansion is obtained by generating time functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> at
+each translation by summing <link target-id="uid48"/> over <m:math overflow="scroll"><m:mi>k</m:mi></m:math> so that
+<equation id="uid67"><m:math overflow="scroll" mode="display"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:munder><m:mo>∑</m:mo><m:mi>k</m:mi></m:munder><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math></equation>
+where
+<equation id="uid68"><m:math overflow="scroll" mode="display"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:mi>c</m:mi><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mi>ϕ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mo>+</m:mo><m:munder><m:mo>∑</m:mo><m:mi>j</m:mi></m:munder><m:msub><m:mi>d</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:msup><m:mn>2</m:mn><m:mrow><m:mi>j</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:msup><m:mspace width="0.166667em"/><m:mi>ψ</m:mi><m:mrow><m:mo>(</m:mo><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mo>.</m:mo></m:mrow></m:math></equation>
+This illustrates the components of the signal at each integer translation.
+</item>
+        <item id="uid69">There is another rather different display based on a partitioning of the
+time-scale plane as if the time translation index and scale index were
+continuous variables. This display is called “tiling the time-frequency
+plane." Because it is a different type of display and is developed and
+illustrated in <link document="m45093">Chapter: Calculation of the Discrete Wavelet Transform</link>, it will not be illustrated here.
+</item>
+      </list><para id="id319310">Experimentation with these displays can be very informative in terms of
+the properties and capabilities of the wavelet transform, the effects of
+particular wavelet systems, and the way a wavelet expansion displays the
+various attributes or characteristics of a signal.</para>
+    </section>
+    <section id="cid7">
+      <title>Examples of Wavelet Expansions</title>
+      <para id="id319326">In this section, we will try to show the way a wavelet expansion
+decomposes a signal and what the components look like at different scales.
+These expansions use what is called a length-8 Daubechies basic wavelet
+(developed in <link document="m45098">Chapter: Regularity, Moments, and Wavelet System Design</link>), but that is not the main point here. The local nature of the wavelet decomposition is the topic of this section.</para><para id="id319336">These examples are rather standard ones, some taken from David Donoho's
+papers and web page. The first is a decomposition of a piecewise linear
+function to show how edges and constants are handled. A characteristic of
+Daubechies systems is that low order polynomials are completely contained
+in the scaling function spaces <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math> and need no wavelets. This
+means that when a section of a signal is a section of a polynomial (such
+as a straight line), there are no wavelet expansion coefficients <m:math overflow="scroll"><m:mrow><m:msub><m:mi>d</m:mi><m:mi>j</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>,
+but when the calculation of the expansion coefficients overlaps an edge,
+there is a wavelet component. This is illustrated well in
+<link target-id="fs-id1166889910803"/> where the high resolution scales gives a very accurate
+location of the edges and this spreads out over <m:math overflow="scroll"><m:mi>k</m:mi></m:math> at the lower scales.
+This gives a hint of how the DWT could be used for edge detection and how
+the large number of small or zero expansion coefficients could be used for
+compression.</para><figure id="uid70"><media id="uid70_media" alt="Discrete Wavelet Transform of the Houston Skyline">
+          <image mime-type="image/png" src="../../media/skylinething1.png" id="uid70_onlineimage" width="627" print-width="4in"><!-- NOTE: attribute width changes image size online (pixels). original width is 627. --></image>
+       
+        </media>
+        
+      <caption>Discrete Wavelet Transform of the Houston Skyline, using <m:math overflow="scroll"><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>D</m:mi><m:msup><m:mn>8</m:mn><m:mo>'</m:mo></m:msup></m:mrow></m:msub></m:math> with a Gain of <m:math overflow="scroll"><m:msqrt><m:mn>2</m:mn></m:msqrt></m:math> for Each Higher Scale</caption></figure><para id="id319447"><link target-id="fs-id1166889910803"/> shows the approximations of the skyline signal in the
+various scaling function spaces <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math>. This illustrates just how
+the approximations progress, giving more and more resolution at higher
+scales. The fact that the higher scales give more detail is similar to
+Fourier methods, but the localization is new.
+<link target-id="fs-id1166892136570"/> illustrates the individual wavelet decomposition by
+showing the components of the signal that exist in the wavelet spaces
+<m:math overflow="scroll"><m:msub><m:mi>W</m:mi><m:mi>j</m:mi></m:msub></m:math> at different scales <m:math overflow="scroll"><m:mi>j</m:mi></m:math>. This shows the same expansion as
+<link target-id="fs-id1166889910803"/>, but with the wavelet components given separately
+rather than being cumulatively added to the scaling
+function.
+Notice how the large objects show up at the
+lower resolution. Groups of
+buildings and individual buildings are resolved according to their width.
+The edges, however, are located at the higher resolutions and are located
+very accurately.</para><figure id="fs-id1166889910803"><media id="fs-id1165097311682" alt="Projection of the Houston Skyline Signal onto V Spaces">
+        <image mime-type="png" src="../../media/2.2.6.png"/>
+       </media>
+      
+ <caption>Projection of the Houston Skyline Signal onto V Spaces using <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>Φ</m:mtext>
+    <m:msup>
+     <m:mtext>D8</m:mtext>
+     <m:mtext>′</m:mtext>
+    </m:msup>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math></caption></figure><figure id="fs-id1166892136570"><media id="fs-id1169959784467" alt="Projection of the Houston Skyline Signal onto W Spaces">
+        <image mime-type="png" src="../../media/2.2.7.png"/>
+       </media>
+       <caption>Projection of the Houston Skyline Signal onto W Spaces using <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>ψ</m:mtext>
+    <m:msup>
+     <m:mtext>D8</m:mtext>
+     <m:mtext>′</m:mtext>
+    </m:msup>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math></caption></figure><para id="id320582">The second example uses a chirp or doppler signal to illustrate how a time-varying
+frequency is described by the scale decomposition. <link target-id="uid73"/>
+gives the coefficients of the DWT directly as a function of <m:math overflow="scroll"><m:mi>j</m:mi></m:math> and <m:math overflow="scroll"><m:mi>k</m:mi></m:math>.
+Notice how the location in <m:math overflow="scroll"><m:mi>k</m:mi></m:math> tracks the frequencies in the signal in a
+way the Fourier transform cannot. <link target-id="fs-id1170748509679"/> and <link target-id="fs-id8125615"/> show the scaling function approximations
+and the wavelet decomposition of this chirp signal. Again, notice in
+this type of display how the “location" of the frequencies are shown.</para><figure id="uid73"><media id="uid73_media" alt="Discrete Wavelet Transform of a Doppler">
+          <image mime-type="image/png" src="../../media/dwtd.png" id="uid73_onlineimage" width="641"><!-- NOTE: attribute width changes image size online (pixels). original width is 641. --></image>
+       
+        </media>
+        
+      <caption>Discrete Wavelet Transform of a Doppler, using <m:math overflow="scroll"><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>D</m:mi><m:msup><m:mn>8</m:mn><m:mo>'</m:mo></m:msup></m:mrow></m:msub></m:math> with a gain of <m:math overflow="scroll"><m:msqrt><m:mn>2</m:mn></m:msqrt></m:math> for each higher scale.</caption></figure></section>
+    <section id="cid8">
+      <title>An Example of the Haar Wavelet System</title>
+      <para id="id320691">In this section, we can illustrate our mathematical discussion with a more
+complete example. In 1910, Haar <link target-id="bid10"/> showed that certain square
+wave functions could be translated and scaled to create a basis set that
+spans <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math>. This is illustrated in <link target-id="fs-id1164449128464"/>. Years later, it was seen that Haar's system is a particular wavelet system.</para><para id="id320721">If we choose our scaling function to have compact support over <m:math overflow="scroll"><m:mrow><m:mn>0</m:mn><m:mo>≤</m:mo><m:mi>t</m:mi><m:mo>≤</m:mo><m:mn>1</m:mn></m:mrow></m:math>, then a solution to <link target-id="uid22"/> is a scaling function that is a
+simple rectangle function Haar showed that as <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>→</m:mo><m:mi>∞</m:mi></m:mrow></m:math>, <m:math overflow="scroll"><m:mrow><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub><m:mo>→</m:mo><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math>. We have an approximation made up
+of step functions approaching any square integrable function.</para>
+      <equation id="uid75"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mfenced open="{" close="">
+              <m:mtable>
+                <m:mtr>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>1</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>if</m:mtext>
+                      <m:mspace width="4.pt"/>
+                      <m:mrow>
+                        <m:mn>0</m:mn>
+                        <m:mo>&lt;</m:mo>
+                        <m:mi>t</m:mi>
+                        <m:mo>&lt;</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mtd>
+                </m:mtr>
+                <m:mtr>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>0</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>otherwise</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                </m:mtr>
+              </m:mtable>
+            </m:mfenced>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id320860">with only two nonzero coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math>
+and <link target-id="uid43"/> and <link target-id="uid44"/> require the wavelet to be</para>
+      <equation id="uid76"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>ψ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:mfenced open="{" close="">
+              <m:mtable>
+                <m:mtr>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>1</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>for</m:mtext>
+                      <m:mspace width="4.pt"/>
+                      <m:mrow>
+                        <m:mn>0</m:mn>
+                        <m:mo>&lt;</m:mo>
+                        <m:mi>t</m:mi>
+                        <m:mo>&lt;</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>.</m:mo>
+                        <m:mn>5</m:mn>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mtd>
+                </m:mtr>
+                <m:mtr>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>-1</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>for</m:mtext>
+                      <m:mspace width="4.pt"/>
+                      <m:mrow>
+                        <m:mn>0</m:mn>
+                        <m:mo>.</m:mo>
+                        <m:mn>5</m:mn>
+                        <m:mo>&lt;</m:mo>
+                        <m:mi>t</m:mi>
+                        <m:mo>&lt;</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mrow>
+                  </m:mtd>
+                </m:mtr>
+                <m:mtr>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>0</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                  <m:mtd columnalign="left">
+                    <m:mrow>
+                      <m:mtext>otherwise</m:mtext>
+                    </m:mrow>
+                  </m:mtd>
+                </m:mtr>
+              </m:mtable>
+            </m:mfenced>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id321021">with only two nonzero coefficients <m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mn>0</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math> and
+<m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math>.</para>
+      <para id="id321092"><m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math> is the space spanned by <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> which is the space of
+piecewise constant functions over integers, a rather limited space, but
+nontrivial. The next higher resolution space <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:math> is spanned by
+<m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> which allows a somewhat more interesting class of signals
+which does include <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math>. As we consider higher values of scale
+<m:math overflow="scroll"><m:mi>j</m:mi></m:math>, the space <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math> spanned by <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> becomes better
+able to approximate arbitrary functions or signals by finer and finer
+piecewise constant functions.</para>
+
+
+ <figure id="fs-id1170748509679"><media id="fs-id1167784176533" alt="Projection of the Doppler Signal onto V Spaces">
+        <image mime-type="png" src="../../media/2.2.9.png"/>
+       </media>
+       <caption>Projection of the Doppler Signal onto V Spaces using <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>Φ</m:mtext>
+    <m:msup>
+     <m:mtext>D8</m:mtext>
+     <m:mtext>′</m:mtext>
+    </m:msup>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math></caption></figure><figure id="fs-id8125615"><media id="fs-id1166904230663" alt="Projection of the Doppler Signal onto W Spaces">
+        <image mime-type="png" src="../../media/2.2.10.png"/>
+       </media>
+       <caption>Projection of the Doppler Signal onto W Spaces using <m:math>
+ <m:semantics>
+  <m:mrow>
+   <m:msub>
+    <m:mtext>ψ</m:mtext>
+    <m:msup>
+     <m:mtext>D8</m:mtext>
+     <m:mtext>′</m:mtext>
+    </m:msup>
+   </m:msub>
+  </m:mrow>
+ </m:semantics>
+</m:math></caption></figure><para id="id322311">The Haar functions are illustrated in <link target-id="fs-id1164449128464"/> where the
+first column contains the
+simple constant basis function that spans <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub></m:math>, the second column
+contains the unit pulse of width one half and the one translate necessary
+to span <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:math>. The third column contains four translations of a
+pulse of width one fourth and the fourth contains eight translations of a
+pulse of width one eighth. This shows clearly how increasing the scale
+allows greater and greater detail to be realized.
+However, using only the scaling function does not allow the decomposition
+described in the introduction. For that we need the wavelet. Rather than
+use the scaling functions <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mn>8</m:mn><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math>, we will use the
+orthogonal decomposition</para><equation id="uid79">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>3</m:mn>
+            </m:msub>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id322454">which is the same as</para>
+      <equation id="uid80"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>φ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>8</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>φ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>4</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+            <m:mo>⊕</m:mo>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>ψ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>4</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id322597">which means there are two sets of orthogonal basis functions that span
+<m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math>, one in terms of <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math> scaling functions, and the other in
+terms of half as many coarser <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> scaling functions plus the details
+contained in the <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> wavelets. This is illustrated in <link target-id="uid82"/>.</para>
+
+<figure id="fs-id1164449128464"><media id="fs-id1164443412443" alt="Haar Scaling Functions and Wavelets Decomposition">
+          <image mime-type="image/png" src="../../media/hsfs.png" print-width="4in"/>
+        </media>
+      <caption>Haar Scaling Functions and Wavelets that Span <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math></caption></figure><para id="id322720">The <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>2</m:mn></m:msub></m:math> can be further decomposed into</para>
+      <equation id="uid83">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id322800">which is the same as</para>
+      <equation id="uid84"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>φ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>4</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>φ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+            <m:mo>⊕</m:mo>
+            <m:mover>
+              <m:mrow>
+                <m:munder>
+                  <m:mi> Span </m:mi>
+                  <m:mi>k</m:mi>
+                </m:munder>
+                <m:mrow>
+                  <m:mo>{</m:mo>
+                  <m:mi>ψ</m:mi>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>}</m:mo>
+                </m:mrow>
+              </m:mrow>
+              <m:mo>¯</m:mo>
+            </m:mover>
+          </m:mrow>
+        </m:math>
+      </equation>
+
+
+<figure id="uid82"><media id="uid82_media" alt="Haar Scaling Functions and Wavelets Decomposition">
+          <image mime-type="image/png" src="../../media/hsfwd.png" id="uid82_onlineimage" width="465" print-width="4in"/>
+        </media>
+      <caption>Haar Scaling Functions and Wavelets Decomposition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math></caption></figure><para id="id322943">and this is illustrated in <link target-id="uid87"/>.
+This gives <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:math> also to be decomposed as</para><equation id="uid85">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>1</m:mn>
+            </m:msub>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:msub>
+              <m:mi>V</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+            <m:mo>⊕</m:mo>
+            <m:msub>
+              <m:mi>W</m:mi>
+              <m:mn>0</m:mn>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id323028">which is shown in <link target-id="uid86"/>.
+By continuing to decompose the space spanned by the scaling function until
+the space is one constant, the complete decomposition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math> is
+obtained. This is symbolically shown in <link target-id="uid89"/>.</para><figure id="uid86"><media id="uid86_media" alt="Haar Scaling Functions and Wavelets Decomposition">
+          <image mime-type="image/png" src="../../media/hsfwd2.png" id="uid86_onlineimage" width="471" print-width="3in"/>
+      
+        </media>
+        
+      <caption>Haar Scaling Functions and Wavelets Decomposition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>1</m:mn></m:msub></m:math></caption></figure><para id="id323085">Finally we look at an approximation to a smooth function constructed from the basis elements in <m:math overflow="scroll"><m:mrow><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>V</m:mi><m:mn>0</m:mn></m:msub><m:mo>⊕</m:mo><m:msub><m:mi>W</m:mi><m:mn>0</m:mn></m:msub><m:mo>⊕</m:mo><m:msub><m:mi>W</m:mi><m:mn>1</m:mn></m:msub><m:mo>⊕</m:mo><m:msub><m:mi>W</m:mi><m:mn>2</m:mn></m:msub></m:mrow></m:math>. Because the Haar functions form an
+orthogonal basis in each subspace, they can produce an optimal least
+squared error approximation to the smooth function. One can easily
+imagine the effects of adding a higher resolution “layer" of functions
+to <m:math overflow="scroll"><m:msub><m:mi>W</m:mi><m:mn>3</m:mn></m:msub></m:math> giving an approximation residing in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>4</m:mn></m:msub></m:math>.
+Notice that these functions satisfy all of the conditions that we have
+considered for scaling functions and wavelets. The basic wavelet is
+indeed an oscillating function which, in fact, has an average of zero and
+which will produce finer and finer detail as it is scaled and translated.</para><para id="id323193">The multiresolution character of the scaling function and wavelet system
+is easily seen from <link target-id="uid82"/> where a signal residing in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math> can be expressed in terms of a sum of eight shifted scaling
+functions at scale <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math> or a sum of four shifted scaling functions and
+four shifted wavelets at a scale of <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math>. In the second case, the sum of
+four scaling functions gives a low resolution approximation to the signal
+with the four wavelets giving the higher resolution “detail". The four
+shifted scaling functions could be further decomposed into coarser scaling
+functions and wavelets as illustrated in <link target-id="uid87"/> and still
+further decomposed as shown in <link target-id="uid86"/>.</para><para id="id323256"><link target-id="uid88"/> shows the Haar approximations of a test function in
+various resolutions. The signal is an example of a mixture of a pure sine
+wave which would have a perfectly localized Fourier domain representation
+and a two discontinuities which are completely localized in time domain.
+The component at the coarsest scale is simply the average of the signal.
+As we include more and more wavelet scales, the approximation becomes
+close to the original signal.</para>
+      <para id="id323271">This chapter has skipped over some details in an attempt to communicate the
+general idea of the method. The conditions that can or must be satisfied
+and the resulting properties, together with examples, are discussed in the
+following chapters and/or in the references.</para>
+      <figure id="uid87"><media id="uid87_media" alt="Haar Scaling Functions and Wavelets Decomposition">
+          <image mime-type="image/png" src="../../media/hsfwd3.png" id="uid87_onlineimage" width="505" print-width="4in"/>
+      
+        </media>
+        
+      <caption>Haar Scaling Functions and Wavelets Decomposition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>2</m:mn></m:msub></m:math></caption></figure><figure id="uid88"><media id="uid88_media" alt="Haar Function Approximation V_j">
+          <image mime-type="image/png" src="../../media/ehaarap.png" id="uid88_onlineimage" width="628"><!-- NOTE: attribute width changes image size online (pixels). original width is 628. --></image>
+         
+        </media>
+        
+      <caption>Haar Function Approximation in <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mi>j</m:mi></m:msub></m:math></caption></figure><figure id="uid89"><media id="uid89_media" alt="Haar Scaling Functions and Wavelets Decomposition of V_3">
+          <image mime-type="image/png" src="../../media/hsfwd4.png" id="uid89_onlineimage" width="588" print-width="4in"/>
+       
+        </media>
+        
+      <caption>Haar Scaling Functions and Wavelets Decomposition of <m:math overflow="scroll"><m:msub><m:mi>V</m:mi><m:mn>3</m:mn></m:msub></m:math></caption></figure></section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid6">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Orthonormal Bases of Compactly Supported Wavelets</bib:title>
+        <bib:journal>Communications on Pure and Applied Mathematics</bib:journal>
+        <bib:year>1988</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number/>
+        <bib:pages>909–996</bib:pages>
+        <bib:month>November</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid7">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>The Wavelet Transform, Time-Frequency Localization and Signal Analysis</bib:title>
+        <bib:journal>IEEE Transaction on Information Theory</bib:journal>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume>36</bib:volume>
+        <bib:number>5</bib:number>
+        <bib:pages>961–1005</bib:pages>
+        <bib:month>September</bib:month>
+        <bib:note>Also a Bell Labs Technical Report</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Ten Lectures on Wavelets</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia, PA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Notes from the 1990 CBMS-NSF Conference on Wavelets and Applications at Lowell, MA</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid5">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Unconditional Bases are Optimal Bases for Data Compression and for Statistical Estimation</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>100–115</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Also Stanford Statistics Dept. Report TR-410, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid10">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Haar, Alfred</bib:author>
+        <bib:title>Zur Theorie der orthogonalen Funktionensysteme</bib:title>
+        <bib:journal>Mathematische Annalen</bib:journal>
+        <bib:year>1910</bib:year>
+        <!--optional fields-->
+        <bib:volume>69</bib:volume>
+        <bib:number/>
+        <bib:pages>331–371</bib:pages>
+        <bib:month/>
+        <bib:note>Also in PhD thesis</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid2">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>A Theory for Multiresolution Signal Decomposition: The Wavelet Representation</bib:title>
+        <bib:journal>IEEE Transactions on Pattern Recognition and Machine Intelligence</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>11</bib:volume>
+        <bib:number>7</bib:number>
+        <bib:pages>674–693</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid1">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>Multiresolution Approximation and Wavelet Orthonormal Bases of <!--no math allowed in bib entries--></bib:title>
+        <bib:journal>Transactions of the American Mathematical Society</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>315</bib:volume>
+        <bib:number/>
+        <bib:pages>69-87</bib:pages>
+        <bib:month/>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Yves</bib:author>
+        <bib:title>Wavelets, Algorithms and Applications</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Translated by R. D. Ryan based on lectures given for the Spanish Institute in Madrid in Feb. 1991</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid9">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Steffen, P. and Heller, P. N. and Gopinath, R. A. and Burrus, C. S.</bib:author>
+        <bib:title>Theory of Regular <!--no math allowed in bib entries-->-Band Wavelet Bases</bib:title>
+        <bib:journal>IEEE Transactions on Signal Processing</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>12</bib:number>
+        <bib:pages>3497–3511</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Special Transaction issue on wavelets; Rice contribution also in Tech. Report No. CML TR-91-22, Nov. 1991.</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid8">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Siebert, William M.</bib:author>
+        <bib:title>Circuits, Signals, and Systems</bib:title>
+        <bib:publisher>MIT Press and McGraw-Hill</bib:publisher>
+        <bib:year>1986</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Cambridge and New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P. and Djokovic, Igor</bib:author>
+        <bib:title>Wavelet Transforms</bib:title>
+        <bib:booktitle>The Circuits and Filters Handbook</bib:booktitle>
+        <bib:publisher>CRC Press and IEEE Press</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter>6</bib:chapter>
+        <bib:pages>134–219</bib:pages>
+        <bib:address>Roca Raton</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+  </bib:file>
+</document>

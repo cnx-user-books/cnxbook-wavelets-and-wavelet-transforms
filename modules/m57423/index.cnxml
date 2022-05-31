@@ -1,0 +1,1778 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Bibliography</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m57423</md:content-id>
+  <md:title>Bibliography</md:title>
+  <md:abstract>References for Wavelet book.</md:abstract>
+  <md:uuid>6673c9a5-9044-4ce9-b269-761a1f852926</md:uuid>
+</metadata>
+
+<content>
+    <section id="uid1">
+      <title>Bibliography</title>
+      <para id="id115656">In 1998 we especially recommended five books that complement this one.
+An excellent reference for the history, philosophy, and overview of
+wavelet analysis has been written by Barbara Burke Hubbard <link target-id="bid0"/>.
+The best source for the mathematical details of wavelet theory is by
+Ingrid Daubechies <link target-id="bid1"/>. Two good general books which
+starts with the discrete-time wavelet series and filter bank methods are
+by Martin Vetterli and Jelena Kovačević <link target-id="bid2"/> and by Gilbert Strang
+and Truong Nguyen <link target-id="bid3"/>. P. P.
+Vaiyanathan has written a good book on general multirate systems as
+well as filter banks <link target-id="bid4"/>.</para><para id="id116030">Much of the recent interest in compactly supported wavelets was stimulated
+by Daubechies <link target-id="bid5"/>, <link target-id="bid6"/>, <link target-id="bid1"/>, <link target-id="bid7"/> and S. Mallat
+<link target-id="bid8"/>, <link target-id="bid9"/>, <link target-id="bid10"/> and others <link target-id="bid11"/>, <link target-id="bid12"/>. A
+powerful point of view has been recently presented by D. L. Donoho, I. M.
+Johnstone, R. R. Coifman, and others
+<link target-id="bid13"/>, <link target-id="bid14"/>, <link target-id="bid15"/>, <link target-id="bid16"/>, <link target-id="bid17"/>, <link target-id="bid18"/>, <link target-id="bid19"/>, <link target-id="bid20"/>, <link target-id="bid21"/>, <link target-id="bid22"/>. The development
+in the DSP community using filters has come from Smith and Barnwell
+<link target-id="bid23"/>, <link target-id="bid24"/>, Vetterli <link target-id="bid25"/>, <link target-id="bid26"/>, <link target-id="bid27"/>, <link target-id="bid2"/>, and
+Vaidyanathan <link target-id="bid28"/>, <link target-id="bid29"/>, <link target-id="bid4"/>. Some of the work at Rice is reported in
+<link target-id="bid30"/>, <link target-id="bid31"/>, <link target-id="bid32"/>, <link target-id="bid33"/>, <link target-id="bid34"/>, <link target-id="bid35"/>, <link target-id="bid36"/>, <link target-id="bid37"/>, <link target-id="bid38"/>, <link target-id="bid39"/>, <link target-id="bid40"/><link target-id="bid41"/>, <link target-id="bid42"/>, <link target-id="bid43"/>, <link target-id="bid44"/>, <link target-id="bid45"/>
+Analysis and experimental work was done using the Matlab computer software
+system <link target-id="bid46"/>, <link target-id="bid47"/>. Overview and introductory articles can be found in
+<link target-id="bid48"/>, <link target-id="bid49"/>, <link target-id="bid50"/>, <link target-id="bid35"/>, <link target-id="bid51"/>, <link target-id="bid52"/>, <link target-id="bid53"/>, <link target-id="bid54"/>, <link target-id="bid55"/>, <link target-id="bid56"/>, <link target-id="bid57"/>.
+<link target-id="bid58"/>, <link target-id="bid59"/>, <link target-id="bid60"/>, <link target-id="bid61"/>, <link target-id="bid62"/>
+Two special issues of IEEE Transactions have focused on wavelet methods
+<link target-id="bid63"/>, <link target-id="bid64"/>. Books on wavelets, some of which are edited
+conference proceedings include
+<link target-id="bid65"/>, <link target-id="bid66"/>, <link target-id="bid67"/>, <link target-id="bid68"/>, <link target-id="bid69"/>, <link target-id="bid70"/>, <link target-id="bid71"/>, <link target-id="bid1"/>, <link target-id="bid4"/>, <link target-id="bid72"/>, <link target-id="bid73"/>, <link target-id="bid74"/>, <link target-id="bid75"/><link target-id="bid76"/>, <link target-id="bid77"/>, <link target-id="bid78"/>, <link target-id="bid79"/>, <link target-id="bid80"/>, <link target-id="bid81"/>, <link target-id="bid82"/>, <link target-id="bid83"/>, <link target-id="bid84"/>, <link target-id="bid85"/><link target-id="bid86"/>, <link target-id="bid87"/>, <link target-id="bid2"/>, <link target-id="bid88"/>, <link target-id="bid3"/>, <link target-id="bid89"/>, <link target-id="bid90"/>, <link target-id="bid91"/>, <link target-id="bid0"/>, <link target-id="bid92"/><link target-id="bid72"/>, <link target-id="bid93"/>, <link target-id="bid94"/>, <link target-id="bid95"/>, <link target-id="bid96"/>, <link target-id="bid97"/>.</para>
+      <para id="id116574">In this 2015 revision, we add several new references. An excellent collection of
+basic wavelet research papers has been published by Heil and Walnut <link target-id="bid98"/>,
+a very good modern signal procession book which is also available online is written
+by Kovačević, Goyal, and Vetterli <link target-id="bid99"/>. Stéphane Mallat has written a comprehensive
+third revised edition of his book on Wavelets <link target-id="bid100"/>. New work on lifting can be found
+in <link target-id="bid101"/>, <link target-id="bid102"/>, a general guide in <link target-id="bid103"/>, and book on Frames <link target-id="frames"/> and a new book on sampling <link target-id="bid104"/>.</para><para id="id116617">Another way to keep up with current research and results on wavelets is to
+read the <emphasis effect="italics">Wavelet Digest</emphasis> on the world-wide-web at:
+http://www.wavelet.org/ or the Rice DSP site at http://dsp.rice.edu/software</para></section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid72">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Akansu, A. N. and Haddad, R. A.</bib:author>
+        <bib:title>Multiresolution Signal Decomposition, Transforms, Subbands, and Wavelets</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid67">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Louis Auslander, Tom Kailath, and Sanjoy K. Mitter</bib:editor>
+        <bib:title>Signal Processing, Part I: Signal Processing Theory</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>IMA Volume 22, lectures from IMA program, July 1988.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid95">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Akansu, Ali N. and Smith, Mark J. T.</bib:author>
+        <bib:title>Subband and Wavelet Transforms, Design and Applications</bib:title>
+        <bib:publisher>Kluwer Academic Publishers</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid89">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Akram Aldroubi and Michael Unser</bib:editor>
+        <bib:title>Wavelets in Medicine and Biology</bib:title>
+        <bib:publisher>CRC Press</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boca Raton</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid62">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Brice, Andrew and Donoho, David and Gao, Hong-Ye</bib:author>
+        <bib:title>Wavelet Analysis</bib:title>
+        <bib:journal>IEEE Spectrum</bib:journal>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume>33</bib:volume>
+        <bib:number>10</bib:number>
+        <bib:pages>26–35</bib:pages>
+        <bib:month>October</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid20">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Bruce, A. G. and Donoho, D. L. and Gao, H.-Y. and Martin, R. D.</bib:author>
+        <bib:title>Denoising and Robust Nonlinear Wavelet Analysis</bib:title>
+        <bib:booktitle>Proceedings of Conference on Wavelet Applications</bib:booktitle>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2242</bib:volume>
+        <bib:series/>
+        <bib:pages>325–336</bib:pages>
+        <bib:address>Orlando, FL</bib:address>
+        <bib:month>April</bib:month>
+        <bib:organization>SPIE</bib:organization>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid78">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>John J. Benedetto and Michael W. Frazier</bib:editor>
+        <bib:title>Wavelets: Mathematics and Applications</bib:title>
+        <bib:publisher>CRC Press</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boca Raton, FL</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid55">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Benveniste, A. and Nikoukhah, R. and Willsky, A. S.</bib:author>
+        <bib:title>Multiscale System Theory</bib:title>
+        <bib:journal>IEEE Transactions on Circuits and Systems, I</bib:journal>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>2–15</bib:pages>
+        <bib:month>January</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid35">
+      <bib:techreport>
+        <!--required fields-->
+        <bib:author>Burrus, C. S.</bib:author>
+        <bib:title>Scaling Functions and Wavelets</bib:title>
+        <bib:institution>The Computational Mathematics Lab. and ECE Dept., Rice University</bib:institution>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:type>first version written in 1989</bib:type>
+        <bib:number/>
+        <bib:address>Houston, Tx</bib:address>
+        <bib:month/>
+        <bib:note/>
+      </bib:techreport>
+    </bib:entry>
+    <bib:entry id="bid56">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Burke, Barbara</bib:author>
+        <bib:title>The Mathematical Microscope: Waves, Wavelets, and Beyond</bib:title>
+        <bib:booktitle>A Positron Named Priscilla, Scientific Discovery at the Frontier</bib:booktitle>
+        <bib:publisher>National Academy Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter>7</bib:chapter>
+        <bib:pages>196–235</bib:pages>
+        <bib:address>Washington, DC</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="frames">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Christensen, Ole</bib:author>
+        <bib:title>An Introduction to Frames and Riesz Bases</bib:title>
+        <bib:publisher>Birkauser</bib:publisher>
+        <bib:year>2003</bib:year>
+      </bib:book>
+    </bib:entry> 
+    <bib:entry id="bid22">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Coifman, R. R. and Donoho, D. L.</bib:author>
+        <bib:title>Translation-Invariant De-Noising</bib:title>
+        <bib:booktitle>Wavelets and Statistics</bib:booktitle>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages>125–150</bib:pages>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Springer Lecture Notes in Statistics</bib:note>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid21">
+      <bib:techreport>
+        <!--required fields-->
+        <bib:author>Chen, Shaobing and Donoho, David L.</bib:author>
+        <bib:title>Atomic Decomposition by Basis Pursuit</bib:title>
+        <bib:institution>Statistics Department</bib:institution>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:type>Technical report</bib:type>
+        <bib:number>479</bib:number>
+        <bib:address>Stanford</bib:address>
+        <bib:month>May</bib:month>
+        <bib:note>preprint</bib:note>
+      </bib:techreport>
+    </bib:entry>
+    <bib:entry id="bid7">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Cohen, Albert and Daubechies, Ingrid and Vial, Pierre</bib:author>
+        <bib:title>Wavelets on the Interval and Fast Wavelet Transforms</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>54–81</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid65">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>J. M. Combes, A. Grossmann, and P. Tchamitchian</bib:editor>
+        <bib:title>Wavelets, Time-Frequency Methods and Phase Space</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Proceedings of the International Conference, Marseille, France, December 1987.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid70">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Chui, Charles K.</bib:author>
+        <bib:title>An Introduction to Wavelets</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 1 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid71">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Chui, Charles K.</bib:author>
+        <bib:title>Wavelets: A Tutorial in Theory and Applications</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 2 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid97">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Chui, Charles K.</bib:author>
+        <bib:title>Wavelets: A Mathematical Tool for Signal Analysis</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1997</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadilphia</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid83">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Charles K. Chui, Laura Montefusco, and Luigia Puccio</bib:editor>
+        <bib:title>Wavelets: Theory, Algorithms, and Applications</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 5 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid51">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Coifman, R. R.</bib:author>
+        <bib:title>Wavelet Analysis and Signal Processing</bib:title>
+        <bib:booktitle>Signal Processing, Part I: Signal Processing Theory</bib:booktitle>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages>59–68</bib:pages>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>IMA vol. 22, lectures from IMA Program, summer 1988.</bib:note>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid6">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Orthonormal Bases of Compactly Supported Wavelets</bib:title>
+        <bib:journal>Communications on Pure and Applied Mathematics</bib:journal>
+        <bib:year>1988</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number/>
+        <bib:pages>909–996</bib:pages>
+        <bib:month>November</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid50">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Orthonormal Bases of Wavelets with Finite Support – Connection with Discrete Filters</bib:title>
+        <bib:booktitle>Wavelets, Time-Frequency Methods and Phase Space</bib:booktitle>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>38–66</bib:pages>
+        <bib:address>Berlin</bib:address>
+        <bib:month/>
+        <bib:organization/>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:note>Proceedings of International Colloquium on Wavelets and Applications, Marseille, France, Dec. 1987</bib:note>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid5">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>The Wavelet Transform, Time-Frequency Localization and Signal Analysis</bib:title>
+        <bib:journal>IEEE Transaction on Information Theory</bib:journal>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume>36</bib:volume>
+        <bib:number>5</bib:number>
+        <bib:pages>961–1005</bib:pages>
+        <bib:month>September</bib:month>
+        <bib:note>Also a Bell Labs Technical Report</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid1">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Ten Lectures on Wavelets</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia, PA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Notes from the 1990 CBMS-NSF Conference on Wavelets and Applications at Lowell, MA</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid64">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Duhamel, P. and Flandrin, P. and Nishitani, T. and Tewfik, A. H. and Vetterli, M.</bib:author>
+        <bib:title>Special Issue on Wavelets and Signal Processing</bib:title>
+        <bib:journal>IEEE Transactions on Signal Processing</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>12</bib:number>
+        <bib:pages>3213–3600</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid19">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L. and Johnstone, Iain M.</bib:author>
+        <bib:title>Ideal Denoising in an Orthonormal Basis Chosen from a Library of Bases</bib:title>
+        <bib:journal>C. R. Acad. Sci. Paris, Ser. I</bib:journal>
+        <bib:year>to appear 1994</bib:year>
+        <!--optional fields-->
+        <bib:volume>319</bib:volume>
+        <bib:number/>
+        <bib:pages/>
+        <bib:month/>
+        <bib:note>Also Stanford Statistics Dept. Report 461, Sept. 1994</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid18">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L. and Johnstone, Iain M.</bib:author>
+        <bib:title>Adapting to Unknown Smoothness via Wavelet Shrinkage</bib:title>
+        <bib:journal>Journal of American Statist. Assn.</bib:journal>
+        <bib:year>to appear 1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:number/>
+        <bib:pages/>
+        <bib:month/>
+        <bib:note>Also Stanford Statistics Dept. Report TR-425, June 1993</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid17">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L. and Johnstone, Iain M. and Kerkyacharian, Gérard and Picard, Dominique</bib:author>
+        <bib:title>Wavelet Shrinkage: Asymptopia?</bib:title>
+        <bib:journal>Journal Royal Statistical Society B.</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>57</bib:volume>
+        <bib:number>2</bib:number>
+        <bib:pages>301–337</bib:pages>
+        <bib:month/>
+        <bib:note>Also Stanford Statistics Dept. Report TR-419, March 1993</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid63">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, I. and Mallat, S. and Willsky, A. S.</bib:author>
+        <bib:title>Special Issue on Wavelet Transforms and Multiresolution Signal Analysis</bib:title>
+        <bib:journal>IEEE Transactions on Information Theory</bib:journal>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume>38</bib:volume>
+        <bib:number>2, part II</bib:number>
+        <bib:pages>529–924</bib:pages>
+        <bib:month>March, part II</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid16">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Interpolating Wavelet Transforms</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>to appear</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:number/>
+        <bib:pages/>
+        <bib:month/>
+        <bib:note>Also Stanford Statistics Dept. report TR-408, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid15">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Nonlinear Wavelet Methods for Recovery of Signals, Densities, and Spectra from Indirect and Noisy Data</bib:title>
+        <bib:booktitle>Different Perspectives on Wavelets, I</bib:booktitle>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>173–205</bib:pages>
+        <bib:address>Providence</bib:address>
+        <bib:month/>
+        <bib:organization>American Mathematical Society</bib:organization>
+        <bib:publisher/>
+        <bib:note>Proceedings of Symposia in Applied Mathematics and Stanford Report 437, July 1993</bib:note>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid13">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Unconditional Bases are Optimal Bases for Data Compression and for Statistical Estimation</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>100–115</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Also Stanford Statistics Dept. Report TR-410, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid14">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>De-Noising by Soft-Thresholding</bib:title>
+        <bib:journal>IEEE Transactions on Information Theory</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>613–627</bib:pages>
+        <bib:month>May</bib:month>
+        <bib:note>also Stanford Statistics Dept. report TR-409, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid104">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Eldar, Yonina C.</bib:author>
+        <bib:title>Sampling Theory, Beyond Bandlimited Systems</bib:title>
+        <bib:publisher>Cambridge University Press</bib:publisher>
+        <bib:year>2015</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid81">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>M. Farge, J. C. R. Hunt, and J. C. Vassilicos</bib:editor>
+        <bib:title>Wavelets, Fractals, and Fourier Tranforms</bib:title>
+        <bib:publisher>Clarendon Press</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Oxford</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Proceedings of a conference on Wavelets at Newnham College, Cambridge, Dec. 1990.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid84">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Efi Foufoula-Georgiou and Praveen Kumar</bib:editor>
+        <bib:title>Wavelets in Geophyics</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 4 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid82">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Fliege, F. J.</bib:author>
+        <bib:title>Multirate Digital Signal Processing: Multrirate Systems, Filter Banks, and Wavelets</bib:title>
+        <bib:publisher>Wiley &amp; Sons</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid53">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Gopinath, R. A. and Burrus, C. S.</bib:author>
+        <bib:title>Wavelet Transforms and Filter Banks</bib:title>
+        <bib:booktitle>Wavelets: A Tutorial in Theory and Applications</bib:booktitle>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages>603–655</bib:pages>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 2 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid31">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Gopinath, Ramesh A. and Burrus, C. Sidney</bib:author>
+        <bib:title>On Cosine–Modulated Wavelet Orthonormal Bases</bib:title>
+        <bib:journal>IEEE Transactions on Image Processing</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>4</bib:volume>
+        <bib:number>2</bib:number>
+        <bib:pages>162–176</bib:pages>
+        <bib:month>February</bib:month>
+        <bib:note>Also a Tech. Report No. CML TR-91-27, March 1992.</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid33">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Gopinath, R. A. and Burrus, C. S.</bib:author>
+        <bib:title>Theory of Modulated Filter Banks and Modulated Wavelet Tight Frames</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis: Wavelets and Signal Processing</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>2</bib:volume>
+        <bib:number/>
+        <bib:pages>303–326</bib:pages>
+        <bib:month>October</bib:month>
+        <bib:note>Also a Tech. Report No. CML TR-92-10, 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid48">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Grossman, A. and Kronland–Martinet, R. and Morlet, J.</bib:author>
+        <bib:title>Reading and Understanding Continuous Wavelet Transforms</bib:title>
+        <bib:booktitle>Wavelets, Time-Frequency Methods and Phase Space</bib:booktitle>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>2–20</bib:pages>
+        <bib:address>Berlin</bib:address>
+        <bib:month/>
+        <bib:organization/>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:note>Proceedings of International Colloquium on Wavelets and Applications, Marseille, France, Dec. 1987</bib:note>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid42">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Guo, H. and Lang, M. and Odegard, J. E. and Burrus, C. S.</bib:author>
+        <bib:title>Nonlinear Processing of a Shift-Invariant DWT for Noise Reduction and Compression</bib:title>
+        <bib:booktitle>Proceedings of the International Conference on Digital Signal Processing</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>332–337</bib:pages>
+        <bib:address>Limassol, Cyprus</bib:address>
+        <bib:month>June 26–28</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid36">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Guo, H. and Odegard, J. E. and Lang, M. and Gopinath, R. A. and Selesnick, I. and Burrus, C. S.</bib:author>
+        <bib:title>Speckle Reduction via Wavelet Soft-Thresholding with Application to SAR based ATD/R</bib:title>
+        <bib:booktitle>Proceedings of SPIE Conference 2260</bib:booktitle>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2260</bib:volume>
+        <bib:series/>
+        <bib:pages/>
+        <bib:address>San Diego</bib:address>
+        <bib:month>July</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid37">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Guo, H. and Odegard, J. E. and Lang, M. and Gopinath, R. A. and Selesnick, I. W. and Burrus, C. S.</bib:author>
+        <bib:title>Wavelet Based Speckle Reduction with Application to SAR Based ATD/R</bib:title>
+        <bib:booktitle>Proceedings of the IEEE International Conference on Image Processing</bib:booktitle>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>I</bib:volume>
+        <bib:series/>
+        <bib:pages>I:75–79</bib:pages>
+        <bib:address>IEEE ICIP-94, Austin, Texas</bib:address>
+        <bib:month>November 13-16</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid30">
+      <bib:mastersthesis>
+        <!--required fields-->
+        <bib:author>Gopinath, Ramesh A.</bib:author>
+        <bib:title>The Wavelet Transforms and Time-Scale Analysis of Signals</bib:title>
+        <bib:school>Rice University</bib:school>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:type>Masters thesis</bib:type>
+        <bib:address>Houston, Tx 77251</bib:address>
+        <bib:month/>
+        <bib:note/>
+      </bib:mastersthesis>
+    </bib:entry>
+    <bib:entry id="bid34">
+      <bib:phdthesis>
+        <!--required fields-->
+        <bib:author>Gopinath, Ramesh A.</bib:author>
+        <bib:title>Wavelets and Filter Banks – New Results and Applications</bib:title>
+        <bib:school>Rice University</bib:school>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:type>Ph. D. Thesis</bib:type>
+        <bib:address>Houston, Tx</bib:address>
+        <bib:month>August</bib:month>
+        <bib:note/>
+      </bib:phdthesis>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Hubbard, Barbara Burke</bib:author>
+        <bib:title>The World According to Wavelets</bib:title>
+        <bib:publisher>A K Peters</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Wellesley, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Second Edition 1998</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid98">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Christopher Heil and David F. Walnut</bib:editor>
+        <bib:title>Fundamental Papers in Wavelet Theory</bib:title>
+        <bib:publisher>Princeton University Press</bib:publisher>
+        <bib:year>2006</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Excellent collection of basic papers</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid90">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Hernández, Eugenio and Weiss, Guido</bib:author>
+        <bib:title>A First Course on Wavelets</bib:title>
+        <bib:publisher>CRC Press</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boca Raton</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid101">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Jensen, Arne and la Cour-Harbo, Anders</bib:author>
+        <bib:title>Ripples in Mathematics: The Discrete Wavelet Transform</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>2001</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Heidleberg</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid102">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Jansen, Maarten H. and Oonincx, Patrick J.</bib:author>
+        <bib:title>Second Generation Wavelets and Applications</bib:title>
+        <bib:publisher>Springer</bib:publisher>
+        <bib:year>2005</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid59">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Jawerth, Björn and Sweldens, Wim</bib:author>
+        <bib:title>An Overview of Wavelet Based Multiresolution Analyses</bib:title>
+        <bib:journal>SIAM Review</bib:journal>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume>36</bib:volume>
+        <bib:number/>
+        <bib:pages>377–412</bib:pages>
+        <bib:month/>
+        <bib:note>Also a University of South Carolina Math Dept. Technical Report, Feb. 1993</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid85">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Kaiser, G.</bib:author>
+        <bib:title>A Friendly Guide to Wavelets</bib:title>
+        <bib:publisher>Birkhäuser</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid99">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Kovačević, Jelena and Goyal, Vivek K. and Vetterli, Martin</bib:author>
+        <bib:title>Fourier and Wavelet Signal Processing</bib:title>
+        <bib:publisher>On Line publication by fourierandwavelets.org</bib:publisher>
+        <bib:year>2013</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month>January</bib:month>
+        <bib:note>also available online: http://fourierandwavelets.org/</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid80">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Tom H. Koornwinder</bib:editor>
+        <bib:title>Wavelets: An Elementary Treatment of Theory and Applications</bib:title>
+        <bib:publisher>World Scientific</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Singapore</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid66">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>G. Kaiser and M. B. Ruskai</bib:editor>
+        <bib:title>NSF/CMBS Regional Conference on Wavelets</bib:title>
+        <bib:publisher/>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>University of Lowell, MA</bib:address>
+        <bib:edition/>
+        <bib:month>June 11 - 15,</bib:month>
+        <bib:note>Speakers: I.Daubechies, G.Beylkin, R.Coifman, S.Mallat, M.Vetterli, Aware, Inc.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid11">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Lawton, Wayne M.</bib:author>
+        <bib:title>Tight Frames of Compactly Supported Affine Wavelets</bib:title>
+        <bib:journal>Journal of Mathematical Physics</bib:journal>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume>31</bib:volume>
+        <bib:number>8</bib:number>
+        <bib:pages>1898-1901</bib:pages>
+        <bib:month>August</bib:month>
+        <bib:note>Also Aware, Inc. Tech Report AD891012</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid12">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Lawton, Wayne M.</bib:author>
+        <bib:title>Necessary and Sufficient Conditions for Constructing Orthonormal Wavelet Bases</bib:title>
+        <bib:journal>Journal of Mathematical Physics</bib:journal>
+        <bib:year>1991</bib:year>
+        <!--optional fields-->
+        <bib:volume>32</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>57–61</bib:pages>
+        <bib:month>January</bib:month>
+        <bib:note>Also Aware, Inc. Tech. Report AD900402, April 1990</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid39">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Lang, M. and Guo, H. and Odegard, J. E. and Burrus, C. S. and Wells, Jr., R. O.</bib:author>
+        <bib:title>Nonlinear Processing of a Shift-Invariant DWT for Noise Reduction</bib:title>
+        <bib:booktitle>Proceedings of SPIE Conference 2491, Wavelet Applications II</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2491–60</bib:volume>
+        <bib:series/>
+        <bib:pages>640–651</bib:pages>
+        <bib:address>Orlando</bib:address>
+        <bib:month>April 17–21</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid43">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Lang, M. and Guo, H. and Odegard, J. E. and Burrus, C. S. and Wells, Jr., R. O.</bib:author>
+        <bib:title>Noise Reduction Using an Undecimated Discrete Wavelet Transform</bib:title>
+        <bib:journal>IEEE Signal Processing Letters</bib:journal>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume>3</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>10–12</bib:pages>
+        <bib:month>January</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid41">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Lang, M. and Guo, H. and Odegard, J. E. and Burrus, C. S.</bib:author>
+        <bib:title>Nonlinear Redundant Wavelet Methods for Image Enhancement</bib:title>
+        <bib:booktitle>Proceedings of IEEE Workshop on Nonlinear Signal and Image Processing</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>754–757</bib:pages>
+        <bib:address>Halkidiki, Greece</bib:address>
+        <bib:month>June 20–22</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid100">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Mallat, Stéphane</bib:author>
+        <bib:title>A Wavelet Tour of Signal Processing, Third Revised Edition: The Sparse Way</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1998, 2009</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition>3</bib:edition>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid9">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>A Theory for Multiresolution Signal Decomposition: The Wavelet Representation</bib:title>
+        <bib:journal>IEEE Transactions on Pattern Recognition and Machine Intelligence</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>11</bib:volume>
+        <bib:number>7</bib:number>
+        <bib:pages>674–693</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid10">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>Multifrequency Channel Decomposition of Images and Wavelet Models</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech and Signal Processing</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>37</bib:volume>
+        <bib:number/>
+        <bib:pages>2091–2110</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid8">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>Multiresolution Approximation and Wavelet Orthonormal Bases of <!--no math allowed in bib entries--></bib:title>
+        <bib:journal>Transactions of the American Mathematical Society</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>315</bib:volume>
+        <bib:number/>
+        <bib:pages>69-87</bib:pages>
+        <bib:month/>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid74">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Malvar, Henrique S.</bib:author>
+        <bib:title>Signal Processing with Lapped Transforms</bib:title>
+        <bib:publisher>Artech House</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid93">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Mallat, Stéphane</bib:author>
+        <bib:title>A Wavelet Tour of Signal Processing</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1998</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid87">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Massopust, Peter R.</bib:author>
+        <bib:title>Fractal Functions, Fractal Surfaces, and Wavelets</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid49">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Meyer, Y.</bib:author>
+        <bib:title>Orthonormal Wavelets</bib:title>
+        <bib:booktitle>Wavelets, Time-Frequency Methods and Phase Space</bib:booktitle>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>21–37</bib:pages>
+        <bib:address>Berlin</bib:address>
+        <bib:month/>
+        <bib:organization/>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:note>Proceedings of International Colloquium on Wavelets and Applications, Marseille, France, Dec. 1987</bib:note>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid68">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Y.</bib:author>
+        <bib:title>Ondelettes et opérateurs</bib:title>
+        <bib:publisher>Hermann</bib:publisher>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Paris</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid69">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Meyer, Yves</bib:editor>
+        <bib:title>Wavelets and Applications</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Proceedings of the Marseille Workshop on Wavelets, France, May, 1989; Research Notes in Applied Mathematics, RMA-20.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid75">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Yves</bib:author>
+        <bib:title>Wavelets and Operators</bib:title>
+        <bib:publisher>Cambridge</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Cambridge</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Translated by D. H. Salinger from the 1990 French edition.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid77">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Yves</bib:author>
+        <bib:title>Wavelets, Algorithms and Applications</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Translated by R. D. Ryan based on lectures given for the Spanish Institute in Madrid in Feb. 1991</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid46">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Moler, Cleve and Little, John and Bangert, Steve</bib:author>
+        <bib:title>Matlab User's Guide</bib:title>
+        <bib:publisher>The MathWorks, Inc.</bib:publisher>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>South Natick, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid47">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Misiti, Michel and Misiti, Yves and Oppenheim, Georges and Poggi, Jean-Michel</bib:author>
+        <bib:title>Wavelet Toolbox User's Guide</bib:title>
+        <bib:publisher>The MathWorks, Inc.</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Natick, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid103">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Najmi, Amir-Homayoon</bib:author>
+        <bib:title>Wavelets, A Concise Guide</bib:title>
+        <bib:publisher>Johns Hopkins Press</bib:publisher>
+        <bib:year>2012</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid60">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Nguyen, Truong Q.</bib:author>
+        <bib:title>Aliasing-Free Reconstruction Filter Banks</bib:title>
+        <bib:booktitle>The Circuits and Filters Handbook</bib:booktitle>
+        <bib:publisher>CRC Press and IEEE Press</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter>85</bib:chapter>
+        <bib:pages>2682–2717</bib:pages>
+        <bib:address>Roca Raton</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid38">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Odegard, J. E. and Guo, H. and Lang, M. and Burrus, C. S. and Wells, Jr., R. O. and Novak, L. M. and Hiett, M.</bib:author>
+        <bib:title>Wavelet Based SAR Speckle Reduction and Image Compression</bib:title>
+        <bib:booktitle>Proceedings of SPIE Conference 2487, Algorithms for SAR Imagery II</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2487–24</bib:volume>
+        <bib:series/>
+        <bib:pages/>
+        <bib:address>Orlando</bib:address>
+        <bib:month>April 17–21</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid73">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor> Ruskai, Beylkin, Coifman, Daubechies, Mallat, Meyer and Raphael</bib:editor>
+        <bib:title>Wavelets and Their Applications</bib:title>
+        <bib:publisher>Jones and Bartlett</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Outgrowth of NSF/CBMS conference on Wavelets held at the University of Lowell, June 1990</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid54">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Ruskai, Mary Beth</bib:author>
+        <bib:title>Introduction</bib:title>
+        <bib:booktitle>Wavelets and their Applications</bib:booktitle>
+        <bib:publisher>Jones and Bartlett</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages/>
+        <bib:address>Boston, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid58">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Rioul, Olivier and Vetterli, Martin</bib:author>
+        <bib:title>Wavelet and Signal Processing</bib:title>
+        <bib:journal>IEEE Signal Processing Magazine</bib:journal>
+        <bib:year>1991</bib:year>
+        <!--optional fields-->
+        <bib:volume>8</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>14–38</bib:pages>
+        <bib:month>October</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid96">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Resnikoff, H. L. and Wells, Jr., R. O.</bib:author>
+        <bib:title>Wavelet Analysis: The Scalable Structure of Information</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1998</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid23">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Smith, M. J. and Barnwell, T. P.</bib:author>
+        <bib:title>Exact Reconstruction Techniques for Tree-Structured Subband Coders</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech, and Signal Processing</bib:journal>
+        <bib:year>1986</bib:year>
+        <!--optional fields-->
+        <bib:volume>34</bib:volume>
+        <bib:number/>
+        <bib:pages>434–441</bib:pages>
+        <bib:month>June</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid24">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Smith, M. J. and Barnwell, T. P.</bib:author>
+        <bib:title>A New Filter Bank Theory for Time-Frequency Representation</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech, and Signal Processing</bib:journal>
+        <bib:year>1987</bib:year>
+        <!--optional fields-->
+        <bib:volume>35</bib:volume>
+        <bib:number/>
+        <bib:pages>314–327</bib:pages>
+        <bib:month>March</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid32">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Steffen, P. and Heller, P. N. and Gopinath, R. A. and Burrus, C. S.</bib:author>
+        <bib:title>Theory of Regular <!--no math allowed in bib entries-->-Band Wavelet Bases</bib:title>
+        <bib:journal>IEEE Transactions on Signal Processing</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>12</bib:number>
+        <bib:pages>3497–3511</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Special Transaction issue on wavelets; Rice contribution also in Tech. Report No. CML TR-91-22, Nov. 1991.</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Strang, Gilbert and Nguyen, T.</bib:author>
+        <bib:title>Wavelets and Filter Banks</bib:title>
+        <bib:publisher>Wellesley–Cambridge Press</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Wellesley, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid52">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Strang, Gilbert</bib:author>
+        <bib:title>Wavelets and Dilation Equations: A Brief Introduction</bib:title>
+        <bib:journal>SIAM Review</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>31</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>614–627</bib:pages>
+        <bib:month/>
+        <bib:note>also, MIT Numerical Analysis Report 89-9, Aug. 1989</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid57">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Strang, Gilbert</bib:author>
+        <bib:title>Wavelets</bib:title>
+        <bib:journal>American Scientist</bib:journal>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume>82</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>250–255</bib:pages>
+        <bib:month>May</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid79">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Schumaker, Larry L. and Webb, Glenn</bib:editor>
+        <bib:title>Recent Advances in Wavelet Analysis</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Volume 3 in the series: Wavelet Analysis and its Applications</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid92">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Taswell, Carl</bib:author>
+        <bib:title>Handbook of Wavelet Transform Algorithms</bib:title>
+        <bib:publisher>Birkhäuser</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid94">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Tewfik, Ahmed H.</bib:author>
+        <bib:title>Wavelets and Multiscale Signal Processing Techniques: Theory and Applications</bib:title>
+        <bib:publisher>to appear</bib:publisher>
+        <bib:year>1998</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid28">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P.</bib:author>
+        <bib:title>Quadrature Mirror Filter Banks, M–Band Extensions and Perfect–Reconstruction Techniques</bib:title>
+        <bib:journal>IEEE Acoustics, Speech, and Signal Processing Magazine</bib:journal>
+        <bib:year>1987</bib:year>
+        <!--optional fields-->
+        <bib:volume>4</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>4–20</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P.</bib:author>
+        <bib:title>Multirate Systems and Filter Banks</bib:title>
+        <bib:publisher>Prentice-Hall</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Englewood Cliffs, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid61">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P. and Djokovic, Igor</bib:author>
+        <bib:title>Wavelet Transforms</bib:title>
+        <bib:booktitle>The Circuits and Filters Handbook</bib:booktitle>
+        <bib:publisher>CRC Press and IEEE Press</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter>6</bib:chapter>
+        <bib:pages>134–219</bib:pages>
+        <bib:address>Roca Raton</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid25">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Vetterli, Martin</bib:author>
+        <bib:title>Filter Banks Allowing Perfect Reconstruction</bib:title>
+        <bib:journal>Signal Processing</bib:journal>
+        <bib:year>1986</bib:year>
+        <!--optional fields-->
+        <bib:volume>10</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>219–244</bib:pages>
+        <bib:month>April</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid26">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Vetterli, Martin</bib:author>
+        <bib:title>A Theory of Multirate Filter Banks</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech, and Signal Processing</bib:journal>
+        <bib:year>1987</bib:year>
+        <!--optional fields-->
+        <bib:volume>35</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>356–372</bib:pages>
+        <bib:month>March</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid27">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Vetterli, Martin and Gall, Didier Le</bib:author>
+        <bib:title>Perfect Reconstruction FIR Filter Banks: Some Properties and Factorizations</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech, and Signal Processing</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>37</bib:volume>
+        <bib:number>7</bib:number>
+        <bib:pages>1057–1071</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid2">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Vetterli, Martin and Kovačević, Jelena</bib:author>
+        <bib:title>Wavelets and Subband Coding</bib:title>
+        <bib:publisher>Prentice–Hall</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Upper Saddle River, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid29">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P. and Mitra, S. K.</bib:author>
+        <bib:title>Polyphase Networks, Block Digital Filtering, LPTV Systems, and Alias-Free QMF Banks: A Unified Approach Based on Pseudocirculants</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech, and Signal Processing</bib:journal>
+        <bib:year>1988</bib:year>
+        <!--optional fields-->
+        <bib:volume>36</bib:volume>
+        <bib:number/>
+        <bib:pages>381–391</bib:pages>
+        <bib:month>March</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid86">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Walter, Gilbert G.</bib:author>
+        <bib:title>Wavelets and Other Orthogonal Systems with Applications</bib:title>
+        <bib:publisher>CRC Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boca Raton, FL</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid45">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Wei, D. and Burrus, C. S.</bib:author>
+        <bib:title>Optimal Soft-Thresholding for Wavelet Transform Coding</bib:title>
+        <bib:booktitle>Proceedings of IEEE International Conference on Image Processing</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>I:610–613</bib:pages>
+        <bib:address>Washington, DC</bib:address>
+        <bib:month>October</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid88">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Wickerhauser, Mladen Victor</bib:author>
+        <bib:title>Adapted Wavelet Analysis from Theory to Software</bib:title>
+        <bib:publisher>A K Peters</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Wellesley, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid40">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Wei, D. and Odegard, J. E. and Guo, H. and Lang, M. and Burrus, C. S.</bib:author>
+        <bib:title>SAR Data Compression Using Best-Adapted Wavelet Packet Basis and Hybrid Subband Coding</bib:title>
+        <bib:booktitle>Proceedings of SPIE Conference 2491, Wavelet Applications II</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2491–104</bib:volume>
+        <bib:series/>
+        <bib:pages>1131–1141</bib:pages>
+        <bib:address>Orlando</bib:address>
+        <bib:month>April 17–21</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid44">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Wei, D. and Odegard, J. E. and Guo, H. and Lang, M. and Burrus, C. S.</bib:author>
+        <bib:title>Simultaneous Noise Reduction and SAR Image Data Compression using Best Wavelet Packet Basis</bib:title>
+        <bib:booktitle>Proceedings of IEEE International Conference on Image Processing</bib:booktitle>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>III:200–203</bib:pages>
+        <bib:address>Washington, DC</bib:address>
+        <bib:month>October</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid91">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Wornell, Gregory W.</bib:author>
+        <bib:title>Signal Processing with Fractals, A Wavelet- Based Approach</bib:title>
+        <bib:publisher>Prentice Hall</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Upper Saddle River, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid76">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Young, R. K.</bib:author>
+        <bib:title>Wavelet Theory and Its Applications</bib:title>
+        <bib:publisher>Kluwer Academic Publishers</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  </bib:file>
+</document>

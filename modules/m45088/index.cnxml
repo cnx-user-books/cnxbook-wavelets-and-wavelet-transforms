@@ -1,0 +1,320 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <title>Appendix C</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45088</md:content-id>
+  <md:title>Appendix C</md:title>
+  <md:abstract/>
+  <md:uuid>9df3e289-97d9-43d1-8684-5600d7db9725</md:uuid>
+</metadata>
+
+<content>
+    <para id="id62183">You are free to use these programs or any derivative of them for any
+scientific purpose but please reference this book. Up-dated versions
+of these programs and others can be found on our web page at:
+http:<m:math overflow="scroll"><m:mrow><m:mo>/</m:mo><m:mspace width="-0.166667em"/><m:mo>/</m:mo></m:mrow></m:math>www-dsp.rice.edu/</para>
+    <code id="id62543" display="block">function p = psa(h,kk)
+% p = psa(h,kk)   calculates samples of the scaling function
+%  phi(t) = p  by  kk  successive approximations from the
+%  scaling coefficients  h.  Initial iteration is a constant.
+%  phi_k(t) is plotted at each iteration.     csb 5/19/93
+%
+if nargin==1, kk=11; end;        % Default number of iterations
+h2= h*2/sum(h);                  % normalize  h(n)
+K = length(h2)-1; S = 128;       % Sets sample density
+p = [ones(1,3*S*K),0]/(3*K);     % Sets initial iteration
+P = p(1:K*S);                    % Store for later plotting
+axis([0 K*S+2 -.5 1.4]);
+hu = upsam(h2,S);                % upsample h(n) by S
+for iter = 0:kk                  % Successive approx.
+   p = dnsample(conv(hu,p));     % convolve and down-sample
+   plot(p); pause;               % plot each iteration
+%   P = [P;p(1:K*S)];             % store each iter. for plotting
+end
+p = p(1:K*S);                    % only the supported part
+L = length(p);
+x = ([1:L])/(S);
+axis([0 3 -.5 1.4]);
+plot(x,p);                       % Final plot
+title('Scaling Function by Successive Approx.');
+ylabel('Scaling Function');
+xlabel('x');
+</code><code id="id62801" display="block">function p = pdyad(h,kk)
+% p = pdyad(h,kk)  calculates approx. (L-1)*2^(kk+2) samples of the
+%  scaling function  phi(t) = p  by  kk+3  dyadic expansions
+%  from the scaling coefficient vector h  where L=length(h).
+%  Also plots  phi_k(t)  at each iteration.    csb 5/19/93
+%
+if nargin==1, kk = 8; end               % Default iterations
+h2 = h*2/sum(h);                        % Normalize
+N = length(h2); hr = h2(N:-1:1); hh = h2;
+axis([0,N-1,-.5,1.4]);
+MR = [hr,zeros(1,2*N-2)];               % Generater row for M0
+MT = MR; M0 = [];
+for k = 1:N-1                           % Generate convolution and
+   MR = [0, 0, MR(1:3*N-4)];            %   downsample matrix from h(n)
+   MT = [MT; MR];
+end
+M0 = MT(:,N:2*N-1);                     % M0*p = p  if p samples of phi
+MI = M0 - eye(N);
+MJ = [MI(1:N-1,:);ones(1,N)];
+pp = MJ\[zeros(N-1,1);1];               % Samples of phi at integers
+p  = pp(2:length(pp)-1).';
+   x = [0:length(p)+1]*(N-1)/(length(p)+1); plot(x,[0,p,0]); pause
+p = conv(h2,p);                         % value on half integers
+   x = [0:length(p)+1]*(N-1)/(length(p)+1); plot(x,[0,p,0]); pause
+y = conv(h2,dnsample(p));               % convolve and downsample
+p = merge(y,p);                         % interleave values on Z and Z/2
+   x = [0:length(p)+1]*(N-1)/(length(p)+1); plot(x,[0,p,0]); pause
+for k = 1:kk
+   hh = upsample(hh);                   % upsample coefficients
+   y = conv(hh,y);                      % calculate intermediate terms
+   p = merge(y,p);                      % insert new terms between old
+   x = [0:length(p)+1]*(N-1)/(length(p)+1); plot(x,[0,p,0]); pause;
+end
+title('Scaling Function by Dyadic Expansion');
+ylabel('Scaling Function');
+xlabel('x');
+axis;
+</code>
+    <code id="id63188" display="block">function [hf,ht] = pf(h,kk)
+% [hf,ht] = pf(h,kk) computes and plots hf, the Fourier transform
+%  of the scaling function  phi(t)  using the freq domain
+%  infinite product formulation with kk iterations from the scaling
+%  function coefficients h.  Also calculates and plots ht = phi(t)
+%  using the inverse FFT               csb 5/19/93
+if nargin==1, kk=8; end          % Default iterations
+L = 2^12; P = L;                 % Sets number of sample points
+hp = fft(h,L); hf = hp;          % Initializes iteration
+plot(abs(hf));pause;             % Plots first iteration
+for k = 1:kk                     % Iterations
+  hp = [hp(1:2:L), hp(1:2:L)];   % Sample
+  hf = hf.*hp/sqrt(2);           % Product
+  plot(abs(hf(1:P/2)));pause;    % Plot Phi(omega) each iteration
+     P=P/2;                      % Scales axis for plot
+end;
+ht = real(ifft(hf));             % phi(t) from inverse FFT
+ht = ht(1:8*2^kk); plot(ht(1:6*2^kk));   % Plot phi(t)
+</code>
+    <code id="id63358" display="block">function hn = daub(N2)
+%  hn = daub(N2)
+%  Function to compute the Daubechies scaling coefficients from
+%  her development in the paper, "Orthonormal bases of compactly
+%  supported wavelets", CPAM, Nov. 1988 page 977, or in her book
+%  "Ten Lectures on Wavelets", SIAM, 1992 pages 168, 216.
+%  The polynomial R in the reference is set to zero and the
+%  minimum phase factorization is used.
+%  Not accruate for N &gt; 20.  Check results for long h(n).
+%    Input:   N2 = N/2, where N is the length of the filter.
+%    Output:  hn = h(n) length-N min phase scaling fn  coefficients
+%  by rag 10/10/88, csb 3/23/93
+a  = 1;   p = 1;   q = 1;      % Initialization of variables
+hn = [1 1];                    % Initialize factors of zeros at -1
+for j = 1:N2-1,
+   hn = conv(hn,[1,1]);        % Generate polynomial for zeros at -1
+   a  = -a*0.25*(j+N2-1)/j;    % Generate the binomial coeff. of L
+   p  = conv(p,[1,-2,1]);      % Generate variable values for L
+   q  = [0 q 0] + a*p;         % Combine terms for L
+end;
+q  = sort(roots(q));                    % Factor L
+hn = conv(hn,real(poly(q(1:N2-1))));    % Combine zeros at -1 and L
+hn = hn*sqrt(2)/(sum(hn));              % Normalize
+</code>
+    <code id="id63595" display="block">function h = h246(a,b)
+% h = h246(a,b) generates orthogonal scaling function
+%  coefficients  h(n)  for lengths 2, 4, and 6 using
+%  Resnikoff's parameterization with angles a and b.
+%  csb.  4/4/93
+if a==b,  h = [1,1]/sqrt(2);            % Length-2
+elseif b==0
+   h0 = (1 - cos(a) + sin(a))/2;        % Length-4
+   h1 = (1 + cos(a) + sin(a))/2;
+   h2 = (1 + cos(a) - sin(a))/2;
+   h3 = (1 - cos(a) - sin(a))/2;
+   h  = [h0 h1 h2 h3]/sqrt(2);
+else                                    % Length-6
+   h0 = ((1+cos(a)+sin(a))*(1-cos(b)-sin(b))+2*sin(b)*cos(a))/4;
+   h1 = ((1-cos(a)+sin(a))*(1+cos(b)-sin(b))-2*sin(b)*cos(a))/4;
+   h2 = (1+cos(a-b)+sin(a-b))/2;
+   h3 = (1+cos(a-b)-sin(a-b))/2;
+   h4 = (1-h0-h2);
+   h5 = (1-h1-h3);
+   h = [h0 h1 h2 h3 h4 h5]/sqrt(2);
+end
+</code>
+    <code id="id63825" display="block">function [a,b] = ab(h)
+% [a,b] = ab(h) calculates the parameters a and b from the
+%  scaling function coefficient vector h for orthogonal
+%  systems of length 2, 4, or 6 only.     csb. 5/19/93.
+%
+h = h*2/sum(h);  x=0;                           % normalization
+if length(h)==2, h = [0 0 h 0 0]; x=2; end;
+if length(h)==4, h = [0 h 0]; x=4; end;
+a = atan2((2*(h(1)^2+h(2)^2-1)+h(3)+h(4)),(2*h(2)*(h(3)-1)-2*h(1)*(h(4)-1)));
+b = a - atan2((h(3)-h(4)),(h(3)+h(4)-1));
+if x==2, a = 1; b = 1; end;
+if x==4, b = 0; end;
+</code>
+    <code id="id63950" display="block">function y = upsample(x)
+% y = upsample(x) inserts zeros between each term in the row vector x.
+%  for example:   [1 0 2 0 3 0] = upsample([1 2 3]).   csb 3/1/93.
+L = length(x);
+y(:) = [x;zeros(1,L)]; y = y.';
+y = y(1:2*L-1);
+</code>
+    <code id="id64009" display="block">function y = upsam(x,S)
+% y = upsam(x,S) inserts S-1 zeros between each term in the row vector x.
+%  for example:   [1 0 2 0 3 0] = upsample([1 2 3]).   csb 3/1/93.
+L = length(x);
+y(:) = [x;zeros(S-1,L)]; y = y.';
+y = y(1:S*L-1);
+</code>
+    <code id="id64073" display="block">function y = dnsample(x)
+% y = dnsample(x) samples x by removing the even terms in x.
+%  for example:   [1 3] = dnsample([1 2 3 4]).   csb 3/1/93.
+L = length(x);
+y = x(1:2:L);
+</code>
+    <code id="id64118" display="block">function z = merge(x,y)
+% z = merge(x,y) interleaves the two vectors x and y.
+% Example [1 2 3 4 5] = merge([1 3 5],[2 4]).
+%  csb 3/1/93.
+%
+z = [x;y,0];
+z = z(:);
+z = z(1:length(z)-1).';
+</code>
+    <code id="id64194" display="block">function w = wave(p,h)
+% w = wave(p,h)   calculates and plots the wavelet  psi(t)
+%  from the scaling function  p  and the scaling function
+%  coefficient vector h.
+%  It uses the definition of the wavelet.  csb. 5/19/93.
+%
+h2 = h*2/sum(h);
+NN = length(h2); LL = length(p); KK = round((LL)/(NN-1));
+h1u = upsam(h2(NN:-1:1).*cos(pi*[0:NN-1]),KK);
+w  = dnsample(conv(h1u,p)); w  = w(1:LL);
+xx = [0:LL-1]*(NN-1)/(LL-1);
+axis([1 2 3 4]); axis;
+plot(xx,w);
+</code>
+    <code id="id64330" display="block">function g = dwt(f,h,NJ)
+% function g = dwt(f,h,NJ); Calculates the DWT of periodic  g
+%  with scaling filter  h  and  NJ  scales.   rag &amp; csb 3/17/94.
+%
+N = length(h);  L = length(f);
+c = f;  t = [];
+if nargin==2, NJ = round(log10(L)/log10(2)); end; % Number of scales
+h0  = fliplr(h);                          % Scaling filter
+h1 = h;  h1(1:2:N) = -h1(1:2:N);          % Wavelet filter
+for j = 1:NJ                              % Mallat's algorithm
+   L = length(c);
+   c = [c(mod((-(N-1):-1),L)+1) c];       % Make periodic
+   d = conv(c,h1);   d = d(N:2:(N+L-2));  % Convolve &amp; d-sample
+   c = conv(c,h0);   c = c(N:2:(N+L-2));  % Convolve &amp; d-sample
+   t = [d,t];                             % Concatenate wlet coeffs.
+end;
+g = [c,t];                                % The DWT
+</code>
+    <code id="id64513" display="block">function f = idwt(g,h,NJ)
+% function f = idwt(g,h,NJ); Calculates the IDWT of periodic  g
+%  with scaling filter  h  and  NJ  scales.   rag &amp; csb 3/17/94.
+%
+L = length(g);   N = length(h);
+if nargin==2, NJ = round(log10(L)/log10(2)); end; % Number of scales
+h0 = h;                                    % Scaling filter
+h1 = fliplr(h);  h1(2:2:N) = -h1(2:2:N);   % Wavelet filter
+LJ = L/(2^NJ);                             % Number of SF coeffs.
+c  = g(1:LJ);                              % Scaling coeffs.
+for j = 1:NJ                               % Mallat's algorithm
+   w  = mod(0:N/2-1,LJ)+1;                 % Make periodic
+   d  = g(LJ+1:2*LJ);                      % Wavelet coeffs.
+   cu(1:2:2*LJ+N) = [c c(1,w)];            % Up-sample &amp; periodic
+   du(1:2:2*LJ+N) = [d d(1,w)];            % Up-sample &amp; periodic
+   c  = conv(cu,h0) + conv(du,h1);         % Convolve &amp; combine
+   c  = c(N:N+2*LJ-1);                     % Periodic part
+   LJ = 2*LJ;
+end;
+f = c;                                     % The inverse DWT
+</code>
+    <code id="id64721" display="block">function r = mod(m,n)
+% r = mod(m,n) calculates r = m modulo n
+%
+r = m - n*floor(m/n);                      % Matrix modulo n
+</code>
+    <code id="id64761" display="block">function g = dwt5(f,h,NJ)
+% function g = dwt5(f,h,NJ)
+% Program to calculate the DWT from the L samples of f(t) in
+% the vector  f  using  the scaling filter h(n).
+%  csb 3/20/94
+%
+N = length(h);
+c = f;  t = [];
+if nargin==2
+   NJ = round(log10(L)/log10(2));         % Number of scales
+end;
+h1 = h;  h1(1:2:N) = -h1(1:2:N);          % Wavelet filter
+h0  = fliplr(h);                          % Scaling filter
+for j = 1:NJ                              % Mallat's algorithm
+   L  = length(c);
+   d  = conv(c,h1);                       % Convolve
+   c  = conv(c,h0);                       % Convolve
+   Lc = length(c);
+   while Lc &gt; 2*L                         % Multi-wrap?
+     d  = [(d(1:L) + d(L+1:2*L)), d(2*L+1:Lc)]; % Wrap output
+     c  = [(c(1:L) + c(L+1:2*L)), c(2*L+1:Lc)]; % Wrap output
+     Lc = length(c);
+   end
+   d = [(d(1:N-1) + d(L+1:Lc)), d(N:L)];  % Wrap output
+   d = d(1:2:L);                          % Down-sample wlets coeffs.
+   c = [(c(1:N-1) + c(L+1:Lc)), c(N:L)];  % Wrap output
+   c = c(1:2:L);                          % Down-sample scaling fn c.
+   t = [d,t];                             % Concatenate wlet coeffs.
+end                                       % Finish wavelet part
+g = [c,t];                                % Add scaling fn coeff.
+</code>
+    <code id="id65058" display="block">function a = choose(n,k)
+% a = choose(n,k)
+% BINOMIAL COEFFICIENTS
+% allowable inputs:
+%	n : integer, k : integer
+%	n : integer vector, k : integer
+%	n : integer, k : integer vector
+%	n : integer vector, k : integer vector (of equal dimension)
+nv = n;
+kv = k;
+if (length(nv) == 1) &amp; (length(kv) &gt; 1)
+	nv = nv * ones(size(kv));
+elseif (length(nv) &gt; 1) &amp; (length(kv) == 1)
+	kv = kv * ones(size(nv));
+end
+a = nv;
+for i = 1:length(nv)
+   n = nv(i);
+   k = kv(i);
+   if n &gt;= 0
+      if k &gt;= 0
+         if n &gt;= k
+            c = prod(1:n)/(prod(1:k)*prod(1:n-k));
+         else
+            c = 0;
+         end
+     else
+        c = 0;
+     end
+   else
+      if k &gt;= 0
+         c = (-1)^k * prod(1:k-n-1)/(prod(1:k)*prod(1:-n-1));
+      else
+         if n &gt;= k
+            c = (-1)^(n-k)*prod(1:-k-1)/(prod(1:n-k)*prod(1:-n-1));
+         else
+            c = 0;
+         end
+      end
+   end
+   a(i) = c;
+end
+</code>
+  </content>
+
+</document>

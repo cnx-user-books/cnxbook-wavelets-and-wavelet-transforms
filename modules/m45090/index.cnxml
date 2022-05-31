@@ -1,0 +1,3605 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Bases, Orthogonal Bases, Biorthogonal Bases, Frames, Tight Frames, and unconditional Bases</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45090</md:content-id>
+  <md:title>Bases, Orthogonal Bases, Biorthogonal Bases, Frames, Tight Frames, and unconditional Bases</md:title>
+  <md:abstract>Development of ideas of vector expansion</md:abstract>
+  <md:uuid>12cd6b11-f4b9-4691-9c4a-3ab01ea49fd1</md:uuid>
+</metadata>
+
+<content>
+    <para id="id223706">Most people with technical backgrounds are familiar with the ideas of
+expansion vectors or basis vectors and of orthogonality; however, the
+related concepts of biorthogonality or of frames and tight frames are less
+familiar but also important. In the study of wavelet systems, we find that
+frames and tight frames are needed and should be understood, at least at a
+superficial level. One can find details in <link target-id="frames"/>, <link target-id="bid0"/>, <link target-id="bid1"/>, <link target-id="bid2"/>, <link target-id="bid3"/>.
+Another perhaps unfamiliar concept is that of an unconditional basis used
+by Donoho, Daubechies, and others <link target-id="bid4"/>, <link target-id="bid5"/>, <link target-id="bid1"/> to explain why
+wavelets are good for signal compression, detection, and denoising
+<link target-id="bid6"/>, <link target-id="bid7"/>. In this chapter, we will very briefly define and
+discuss these ideas. At this point, you may want to skip these
+sections and perhaps refer to them later when they are specifically
+needed.</para><section id="cid1">
+      <title>Bases, Orthogonal Bases, and Biorthogonal Bases</title>
+      <para id="id224110">A set of vectors or functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math><emphasis effect="italics">spans</emphasis> a vector space
+<m:math overflow="scroll"><m:mi>F</m:mi></m:math> (or <m:math overflow="scroll"><m:mi>F</m:mi></m:math> is the <emphasis effect="italics">Span</emphasis> of the set) if any element of
+that space can be expressed as a linear combination of members of that
+set, meaning: Given the finite or infinite set of functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>, we
+define <m:math overflow="scroll"><m:mrow><m:msub><m:mi> Span </m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>{</m:mo><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mo>}</m:mo></m:mrow><m:mo>=</m:mo><m:mi>F</m:mi></m:mrow></m:math> as the vector space with all elements of the
+space of the form</para>
+      <equation id="uid1">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>f</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id224283">with <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mi>t</m:mi><m:mo>,</m:mo><m:mi>a</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">R</m:mi></m:mrow></m:math>. An <emphasis effect="italics">inner product</emphasis>
+is usually defined for this space and is denoted <m:math overflow="scroll"><m:mrow><m:mo>〈</m:mo><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>,</m:mo><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>〉</m:mo></m:mrow></m:math>. A <emphasis effect="italics">norm</emphasis> is defined and is denoted by
+<m:math overflow="scroll"><m:mrow><m:mrow><m:mo>∥</m:mo><m:mi>f</m:mi><m:mo>∥</m:mo></m:mrow><m:mo>=</m:mo><m:msqrt><m:mrow><m:mo>〈</m:mo><m:mi>f</m:mi><m:mo>,</m:mo><m:mi>f</m:mi><m:mo>〉</m:mo></m:mrow></m:msqrt></m:mrow></m:math>.</para>
+      <para id="id223623">We say that the set <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is a <emphasis effect="italics">basis set</emphasis> or a <emphasis effect="italics">basis</emphasis>
+ for a
+given space <m:math overflow="scroll"><m:mi>F</m:mi></m:math> if the set of <m:math overflow="scroll"><m:mrow><m:mo>{</m:mo><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mo>}</m:mo></m:mrow></m:math> in <link target-id="uid1"/> are unique
+for any particular <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>∈</m:mo><m:mi>F</m:mi></m:mrow></m:math>. The set is called an <emphasis effect="italics">orthogonal basis</emphasis> 
+if <m:math overflow="scroll"><m:mrow><m:mo>〈</m:mo><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:msub><m:mi>f</m:mi><m:mi>ℓ</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>〉</m:mo><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> for all <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>≠</m:mo><m:mi>ℓ</m:mi></m:mrow></m:math>. If we are in three dimensional Euclidean space, orthogonal
+basis vectors are coordinate vectors that are at right (90<sup>o</sup>) angles to
+each other. We say the set is an <emphasis effect="italics">orthonormal basis</emphasis> if <m:math overflow="scroll"><m:mrow><m:mo>〈</m:mo><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>,</m:mo><m:msub><m:mi>f</m:mi><m:mi>ℓ</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>〉</m:mo><m:mo>=</m:mo><m:mi>δ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>-</m:mo><m:mi>ℓ</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> i.e. if, in addition to being
+orthogonal, the basis vectors are normalized to unity norm: <m:math overflow="scroll"><m:mrow><m:mrow><m:mo>∥</m:mo></m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>∥</m:mo><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:mrow></m:math> for all <m:math overflow="scroll"><m:mi>k</m:mi></m:math>.</para>
+      <para id="id224852">From these definitions it is clear that if we have an orthonormal basis,
+we can express any element in the vector space, <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo><m:mo>∈</m:mo><m:mi>F</m:mi></m:mrow></m:math>, written as
+<link target-id="uid1"/> by</para>
+      <equation id="uid4">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>f</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>f</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id224968">since by taking the inner product of <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> with both sides of <link target-id="uid1"/>,
+we get</para>
+      <equation id="uid5">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mo>=</m:mo>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>f</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id225056">where this inner product of the signal <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> with the basis vector <m:math overflow="scroll"><m:mrow><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+“picks out" the corresponding coefficient <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub></m:math>. This expansion
+formulation or representation is extremely valuable. It expresses
+<link target-id="uid4"/> as an identity operator in the sense that the inner product
+operates on <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> to produce a set of coefficients that, when used to
+linearly combine the basis vectors, gives back the original signal <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>.
+It is the foundation of Parseval's theorem which says the norm or energy
+can be partitioned in terms of the expansion coefficients <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub></m:math>. It is
+why the interpretation, storage, transmission, approximation, compression, and
+manipulation of the coefficients can be very useful. Indeed,
+<link target-id="uid4"/> is the form of all Fourier type methods.</para>
+      <para id="id225170">Although the advantages of an orthonormal basis are clear, there are cases
+where the basis system dictated by the problem is not and cannot (or
+should not) be made orthogonal. For these cases, one can still have the
+expression of <link target-id="uid1"/> and one similar to <link target-id="uid4"/> by using a <emphasis effect="italics">dual basis set</emphasis><m:math overflow="scroll"><m:mrow><m:msub><m:mover accent="true"><m:mi>f</m:mi><m:mo>˜</m:mo></m:mover><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> whose elements are not orthogonal to
+each other, but to the corresponding element of the expansion set</para>
+      <equation id="uid6">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mo>〈</m:mo>
+            <m:msub>
+              <m:mi>f</m:mi>
+              <m:mi>ℓ</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>,</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mover accent="true">
+                <m:mi>f</m:mi>
+                <m:mo>˜</m:mo>
+              </m:mover>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>〉</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mi>δ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>ℓ</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id225299">Because this type of “orthogonality" requires two sets of vectors, the
+expansion set and the dual set, the system is called <emphasis effect="italics">biorthogonal</emphasis>.
+
+Using <link target-id="uid6"/> with the expansion in <link target-id="uid1"/> gives</para>
+      <equation id="uid8">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mover accent="true">
+                  <m:mi>f</m:mi>
+                  <m:mo>˜</m:mo>
+                </m:mover>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>f</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id225417">Although a biorthogonal system is more complicated in that it requires,
+not only the original expansion set, but the finding, calculating, and
+storage of a dual set of vectors, it is very general and allows a larger
+class of expansions. There may, however, be greater numerical problems
+with a biorthogonal system if some of the basis vectors are strongly
+correlated.</para>
+      <para id="id225425">The calculation of the expansion coefficients using an inner product in
+<link target-id="uid5"/> is called the <emphasis effect="italics">analysis</emphasis> part of the complete process, and
+the calculation of the signal from the coefficients and expansion vectors
+in <link target-id="uid1"/> is called the <emphasis effect="italics">synthesis</emphasis> part.</para>
+      <para id="id225449">In finite dimensions, analysis and synthesis operations are simply
+matrix–vector multiplications. If the expansion vectors in <link target-id="uid1"/>
+are a basis, the synthesis matrix has these basis vectors as columns and
+the matrix is square and non singular. If the matrix is orthogonal, its
+rows and columns are orthogonal, its inverse is its transpose, and the
+identity operator is simply the matrix multiplied by its transpose. If it
+is not orthogonal, then the identity is the matrix multiplied by its
+inverse and the dual basis consists of the rows of the inverse. If the
+matrix is singular, then its columns are not independent and, therefore,
+do not form a basis.</para>
+      <section id="uid9">
+        <title>Matrix Examples</title>
+        <para id="id225472">Using a four dimensional space with matrices to illustrate the ideas of this
+chapter, the synthesis formula <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>k</m:mi></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> becomes</para>
+        <equation id="uid10">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>3</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>0</m:mn>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>2</m:mn>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>+</m:mo>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mn>3</m:mn>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id225971">which can be compactly written in matrix form as</para>
+        <equation id="uid11">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>3</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>0</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>3</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id226378">The synthesis or expansion <link target-id="uid1"/> or <link target-id="uid11"/> becomes</para><equation id="uid12">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">g</m:mi>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">a</m:mi>
+              </m:mrow>
+              <m:mo>,</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id226425">with the left-hand column vector <m:math overflow="scroll"><m:mi mathvariant="bold">g</m:mi></m:math> being the signal vector, the
+matrix <m:math overflow="scroll"><m:mi mathvariant="bold">F</m:mi></m:math> formed with the basis vectors <m:math overflow="scroll"><m:msub><m:mi mathvariant="bold">f</m:mi><m:mi mathvariant="bold">k</m:mi></m:msub></m:math> as columns, and
+the right-hand vector <m:math overflow="scroll"><m:mi mathvariant="bold">a</m:mi></m:math> containing the four expansion
+coefficients, <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub></m:math>.</para>
+        <para id="id226491">The equation for calculating the <m:math overflow="scroll"><m:msup><m:mi>k</m:mi><m:mrow><m:mi>t</m:mi><m:mi>h</m:mi></m:mrow></m:msup></m:math> expansion coefficient in
+<link target-id="uid10"/> is</para>
+        <equation id="uid13">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:mo>〈</m:mo>
+                <m:mi>g</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>,</m:mo>
+                <m:mspace width="0.277778em"/>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>f</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>〉</m:mo>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:msup>
+                <m:mrow>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi mathvariant="bold">f</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mi mathvariant="bold">k</m:mi>
+                  </m:msub>
+                </m:mrow>
+                <m:mi>T</m:mi>
+              </m:msup>
+              <m:mi mathvariant="bold">g</m:mi>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id226614">which can be written in vector form as</para>
+        <equation id="uid14">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>0</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>3</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>3</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>3</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227132">where each <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub></m:math> is an inner product of the <m:math overflow="scroll"><m:msup><m:mi>k</m:mi><m:mrow><m:mi>t</m:mi><m:mi>h</m:mi></m:mrow></m:msup></m:math> row of <m:math overflow="scroll"><m:msup><m:mover accent="true"><m:mi mathvariant="bold">F</m:mi><m:mo>˜</m:mo></m:mover><m:mi mathvariant="bold">T</m:mi></m:msup></m:math> with <m:math overflow="scroll"><m:mi mathvariant="bold">g</m:mi></m:math> and analysis or coefficient 
+<link target-id="uid5"/> or <link target-id="uid14"/> becomes</para><equation id="uid15">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">a</m:mi>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:msup>
+                  <m:mover accent="true">
+                    <m:mi mathvariant="bold">F</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">g</m:mi>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227263">which together are <link target-id="uid4"/> or</para>
+        <equation id="uid16">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">g</m:mi>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.277778em"/>
+                <m:msup>
+                  <m:mover accent="true">
+                    <m:mi mathvariant="bold">F</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">g</m:mi>
+              </m:mrow>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227332">Therefore,</para>
+        <equation id="uid17">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msup>
+                <m:mover accent="true">
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mo>˜</m:mo>
+                </m:mover>
+                <m:mi mathvariant="bold">T</m:mi>
+              </m:msup>
+              <m:mspace width="0.277778em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.277778em"/>
+              <m:msup>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mrow>
+                  <m:mo>-</m:mo>
+                  <m:mn mathvariant="bold">1</m:mn>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227394">is how the dual basis in <link target-id="uid6"/> is found.</para>
+        <para id="id227405">If the columns of <m:math overflow="scroll"><m:mi mathvariant="bold">F</m:mi></m:math> are orthogonal and normalized, then</para>
+        <equation id="uid18">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mrow>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.277778em"/>
+                <m:msup>
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mo>=</m:mo>
+                <m:mi mathvariant="bold">I</m:mi>
+              </m:mrow>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227463">This means the basis and dual basis are the same, and <link target-id="uid16"/> and
+<link target-id="uid17"/> become</para>
+        <equation id="uid19">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">g</m:mi>
+              <m:mo>=</m:mo>
+              <m:mi mathvariant="bold">F</m:mi>
+              <m:mspace width="0.277778em"/>
+              <m:msup>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mi mathvariant="bold">T</m:mi>
+              </m:msup>
+              <m:mspace width="0.277778em"/>
+              <m:mi mathvariant="bold">g</m:mi>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227527">and</para>
+        <equation id="uid20">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msup>
+                <m:mover accent="true">
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mo>˜</m:mo>
+                </m:mover>
+                <m:mi mathvariant="bold">T</m:mi>
+              </m:msup>
+              <m:mspace width="0.277778em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.277778em"/>
+              <m:msup>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mi mathvariant="bold">T</m:mi>
+              </m:msup>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227586">which are both simpler and more numerically stable than <link target-id="uid17"/>.</para>
+        <para id="id227596">The discrete Fourier transform (DFT) is an interesting example of a finite
+dimensional Fourier transform with orthogonal basis vectors where matrix
+and vector techniques can be informative as to the DFT's characteristics
+and properties. That can be found developed in several signal processing
+books.</para>
+      </section>
+      <section id="uid21">
+        <title>Fourier Series Example</title>
+        <para id="id227612">The Fourier Series is an excellent example of an infinite dimensional
+composition (synthesis) and decomposition (analysis). The expansion
+formula for an even function <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> over <m:math overflow="scroll"><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>x</m:mi><m:mo>&lt;</m:mo><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:math> is</para>
+        <equation id="uid22">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>k</m:mi>
+              </m:munder>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mspace width="0.277778em"/>
+              <m:mo form="prefix">cos</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227716">where the basis vectors (functions) are</para>
+        <equation id="uid23">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>f</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mo form="prefix">cos</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227768">and the expansion coefficients are obtained as</para>
+        <equation id="uid24">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mo>=</m:mo>
+              <m:mrow>
+                <m:mo>〈</m:mo>
+                <m:mi>g</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>,</m:mo>
+                <m:mspace width="0.166667em"/>
+                <m:msub>
+                  <m:mi>f</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>〉</m:mo>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+              </m:mfrac>
+              <m:msubsup>
+                <m:mo>∫</m:mo>
+                <m:mn>0</m:mn>
+                <m:mi>π</m:mi>
+              </m:msubsup>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo form="prefix">cos</m:mo>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mi>d</m:mi>
+              <m:mi>x</m:mi>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227889">The basis vector set is easily seen to be orthonormal by
+verifying</para>
+        <equation id="uid25">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:msub>
+                <m:mi>f</m:mi>
+                <m:mi>ℓ</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>f</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+              <m:mo>=</m:mo>
+              <m:mi>δ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>k</m:mi>
+                <m:mo>-</m:mo>
+                <m:mi>ℓ</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id227969">These basis functions span an infinite dimensional vector space and the
+convergence of <link target-id="uid22"/> must be examined. Indeed, it is the
+robustness of that convergence that is discussed in this section under the topic of
+unconditional bases.</para>
+      </section>
+      <section id="uid26">
+        <title>Sinc Expansion Example</title>
+        <para id="id227996">Another example of an infinite dimensional orthogonal basis is
+Shannon's sampling expansion <link target-id="bid8"/>. If <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> is band limited, then</para><equation id="uid28">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="4pt"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="4pt"/>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>k</m:mi>
+              </m:munder>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>T</m:mi>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mo form="prefix">sin</m:mo>
+                  <m:mo>(</m:mo>
+                  <m:mfrac>
+                    <m:mi>π</m:mi>
+                    <m:mi>T</m:mi>
+                  </m:mfrac>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>π</m:mi>
+                  <m:mi>k</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mfrac>
+                    <m:mi>π</m:mi>
+                    <m:mi>T</m:mi>
+                  </m:mfrac>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>π</m:mi>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:mfrac>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id228121">for a sampling interval <m:math overflow="scroll"><m:mrow><m:mi>T</m:mi><m:mo>&lt;</m:mo><m:mfrac><m:mi>π</m:mi><m:mi>W</m:mi></m:mfrac></m:mrow></m:math> if the spectrum of <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> is
+zero for <m:math overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>&gt;</m:mo><m:mi>W</m:mi></m:mrow></m:math>. In this case the basis functions are the sinc
+functions with coefficients which are simply samples of the original
+function. This means the inner product of a sinc basis function with a
+bandlimited function will give a sample of that function. It is easy to
+see that the sinc basis functions are orthogonal by taking the inner
+product of two sinc functions which will sample one of them at the points
+of value one or zero.</para>
+      </section>
+    </section>
+    <section id="cid2">
+      <title>Frames and Tight Frames</title>
+      <para id="id228194">While the conditions for a set of functions being an orthonormal basis are
+sufficient for the representation in <link target-id="uid4"/> and the requirement of
+the set being a basis is sufficient for <link target-id="uid8"/>, they are not
+necessary. To be a basis requires uniqueness of the coefficients. In
+other words it requires that the set be <emphasis effect="italics">independent</emphasis>, meaning no
+element can be written as a linear combination of the others.</para>
+      <para id="id228216">If the set of functions or vectors is dependent and yet does allow the
+expansion described in <link target-id="uid8"/>, then the set is called a <emphasis effect="italics">frame</emphasis> <link target-id="frames"/>.
+
+Thus, a frame is a <emphasis effect="italics">spanning set</emphasis>. The term frame comes from a
+definition that requires finite limits on an inequality bound <link target-id="bid1"/>, <link target-id="bid0"/>
+of inner products.</para><para id="id228255">If we want the coefficients in an expansion of a signal to represent the
+signal well, these coefficients should have certain properties. They are
+stated best in terms of energy and energy bounds. For an orthogonal
+basis, this takes the form of Parseval's theorem. To be a frame in a
+signal space, an expansion set <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ϕ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> must satisfy</para>
+      <equation id="uid31"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mrow>
+                <m:mi>A</m:mi>
+                <m:mo>∥</m:mo>
+                <m:mi>g</m:mi>
+                <m:mo>∥</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>≤</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:msub>
+                <m:mi>φ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mo>,</m:mo>
+              <m:mi>g</m:mi>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mo>≤</m:mo>
+            <m:mi>B</m:mi>
+            <m:msup>
+              <m:mrow>
+                <m:mo>∥</m:mo>
+                <m:mi>g</m:mi>
+                <m:mo>∥</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id228376">for some <m:math overflow="scroll"><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>A</m:mi></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mi>B</m:mi><m:mo>&lt;</m:mo><m:mi>∞</m:mi></m:mrow></m:math> and for all signals <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> in the space.
+Dividing <link target-id="uid31"/> by <m:math overflow="scroll"><m:msup><m:mrow><m:mo>∥</m:mo><m:mi>g</m:mi><m:mo>∥</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:math> shows that <m:math overflow="scroll"><m:mi>A</m:mi></m:math> and <m:math overflow="scroll"><m:mi>B</m:mi></m:math> are bounds
+on the normalized energy of the inner products. They “frame" the
+normalized coefficient energy. If</para>
+      <equation id="uid32">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>A</m:mi>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:mi>B</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id228499">then the expansion set is called a <emphasis effect="italics">tight frame</emphasis>. 
+This case gives</para>
+      <equation id="uid34"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:msup>
+              <m:mrow>
+                <m:mi>A</m:mi>
+                <m:mo>∥</m:mo>
+                <m:mi>g</m:mi>
+                <m:mo>∥</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+            <m:mspace width="4pt"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="4pt"/>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:mrow>
+                  <m:mo>〈</m:mo>
+                  <m:msub>
+                    <m:mi>φ</m:mi>
+                    <m:mi>k</m:mi>
+                  </m:msub>
+                  <m:mo>,</m:mo>
+                  <m:mi>g</m:mi>
+                  <m:mo>〉</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id228591">which is a generalized Parseval's theorem for tight frames. If <m:math overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mi>B</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math>,
+the tight frame becomes an orthogonal basis. From this, it can be shown that
+for a tight frame <link target-id="bid1"/></para><equation id="uid35"><m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:msup>
+              <m:mi>A</m:mi>
+              <m:mrow>
+                <m:mo>-</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:msub>
+                <m:mi>φ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="4pt"/>
+            <m:mspace width="4pt"/>
+            <m:msub>
+              <m:mi>φ</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation><para id="id228719">which is the same as the expansion using an orthonormal basis except for the
+<m:math overflow="scroll"><m:msup><m:mi>A</m:mi><m:mrow><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:math> term which is a measure of the redundancy in the expansion set.</para>
+      <para id="id228744">If an expansion set is a non tight frame, there is no strict Parseval's theorem
+and the energy in the transform domain cannot be exactly partitioned. However,
+the closer <m:math overflow="scroll"><m:mi>A</m:mi></m:math> and <m:math overflow="scroll"><m:mi>B</m:mi></m:math> are, the better an approximate partitioning can be done.
+If <m:math overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mi>B</m:mi></m:mrow></m:math>, we have a tight frame and the partitioning can be done exactly with
+<link target-id="uid34"/>. Daubechies <link target-id="bid1"/> shows that the tighter the frame bounds
+in <link target-id="uid31"/> are, the better the analysis and synthesis system is conditioned.
+In other words, if <m:math overflow="scroll"><m:mi>A</m:mi></m:math> is near or zero and/or <m:math overflow="scroll"><m:mi>B</m:mi></m:math> is very large compared to <m:math overflow="scroll"><m:mi>A</m:mi></m:math>,
+there will be numerical problems in the analysis–synthesis calculations.</para><para id="id228825">Frames are an over-complete version of a basis set, and tight frames are
+an over-complete version of an orthogonal basis set. If one is using a
+frame that is neither a basis nor a tight frame, a dual frame set can be
+specified so that analysis and synthesis can be done as for a
+non-orthogonal basis. If a tight frame is being used, the mathematics is
+very similar to using an orthogonal basis. The Fourier type system in
+<link target-id="uid35"/> is essentially the same as <link target-id="uid4"/>, and <link target-id="uid34"/> is
+essentially a Parseval's theorem.</para>
+      <para id="id228845">The use of frames and tight frames rather than bases and orthogonal bases
+means a certain amount of redundancy exists. In some cases,
+redundancy is desirable in giving a robustness to the representation so
+that errors or faults are less destructive. In other cases, redundancy is an
+inefficiency and, therefore, undesirable. The concept of a frame
+originates with Duffin and Schaeffer <link target-id="bid9"/> and is discussed in
+<link target-id="bid0"/>, <link target-id="bid2"/>, <link target-id="bid1"/>. In finite dimensions, vectors can always be
+removed from a frame to get a basis, but in infinite dimensions, that is
+not always possible.</para><para id="id228875">An example of a frame in finite dimensions is a matrix with more columns
+than rows but with independent rows. An example of a tight frame is a
+similar matrix with orthogonal rows. An example of a tight frame in
+infinite dimensions would be an over-sampled Shannon expansion. It is
+informative to examine this example.</para>
+      <section id="uid36">
+        <title>Matrix Examples</title>
+        <para id="id228890">An example of a frame of four expansion vectors <m:math overflow="scroll"><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub></m:math> in a
+three-dimensional space would be</para>
+        <equation id="uid37">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>f</m:mi>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>0</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>3</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id229230">which corresponds to the basis shown in the square matrix in <link target-id="uid11"/>.
+The corresponding analysis equation is</para>
+        <equation id="uid38">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>0</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>3</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>0</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>1</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>2</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>0</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>1</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mover accent="true">
+                            <m:mi>f</m:mi>
+                            <m:mo>˜</m:mo>
+                          </m:mover>
+                          <m:mn>3</m:mn>
+                        </m:msub>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id229648">which corresponds to <link target-id="uid14"/>. One can calculate a set of dual frame
+vectors by temporarily appending an arbitrary independent row to
+<link target-id="uid37"/>, making the matrix square, then using the first three columns of
+the inverse as the dual frame vectors. This clearly illustrates the dual
+frame is not unique. Daubechies <link target-id="bid1"/> shows how to calculate an
+“economical" unique dual frame.</para><para id="id229672">The tight frame system occurs in wavelet infinite expansions as well as
+other finite and infinite dimensional systems. A numerical example of a
+frame which is a normalized tight frame with four vectors in three
+dimensions is</para>
+        <equation id="uid39">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>0</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mi>g</m:mi>
+                        <m:mo>(</m:mo>
+                        <m:mn>2</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:mi>A</m:mi>
+              </m:mfrac>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msqrt>
+                  <m:mn>3</m:mn>
+                </m:msqrt>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>0</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>2</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        <m:mn>3</m:mn>
+                      </m:msub>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id229887">which includes the redundancy factor from <link target-id="uid35"/>. Note the rows
+are orthogonal and the columns are normalized, which gives</para>
+        <equation id="uid40">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mrow>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.277778em"/>
+                <m:msup>
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msqrt>
+                  <m:mn>3</m:mn>
+                </m:msqrt>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mspace width="0.277778em"/>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msqrt>
+                  <m:mn>3</m:mn>
+                </m:msqrt>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mspace width="0.277778em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.277778em"/>
+              <m:mfrac>
+                <m:mn>4</m:mn>
+                <m:mn>3</m:mn>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>0</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>4</m:mn>
+                <m:mn>3</m:mn>
+              </m:mfrac>
+              <m:mspace width="0.277778em"/>
+              <m:mi mathvariant="bold">I</m:mi>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id230205">or</para>
+        <equation id="uid41">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">g</m:mi>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:mi>A</m:mi>
+              </m:mfrac>
+              <m:mspace width="0.277778em"/>
+              <m:mspace width="0.277778em"/>
+              <m:mrow>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.166667em"/>
+                <m:msup>
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">g</m:mi>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id230273">which is the matrix form of <link target-id="uid35"/>. The factor of <m:math overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mo>=</m:mo><m:mn>4</m:mn><m:mo>/</m:mo><m:mn>3</m:mn></m:mrow></m:math> is the
+measure of redundancy in this tight frame using four expansion vectors in
+a three-dimensional space.</para>
+        <para id="id230304">The identity for the expansion coefficients is</para>
+        <equation id="uid42">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi mathvariant="bold">a</m:mi>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:mi>A</m:mi>
+              </m:mfrac>
+              <m:mrow>
+                <m:msup>
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mi mathvariant="bold">F</m:mi>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">a</m:mi>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id230359">which for the numerical example gives</para>
+        <equation id="uid43">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mrow>
+                <m:msup>
+                  <m:mi mathvariant="bold">F</m:mi>
+                  <m:mi mathvariant="bold">T</m:mi>
+                </m:msup>
+                <m:mspace width="0.277778em"/>
+                <m:mi mathvariant="bold">F</m:mi>
+              </m:mrow>
+              <m:mo>=</m:mo>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msqrt>
+                  <m:mn>3</m:mn>
+                </m:msqrt>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mspace width="0.277778em"/>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:msqrt>
+                  <m:mn>3</m:mn>
+                </m:msqrt>
+              </m:mfrac>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd columnalign="right">
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mspace width="0.277778em"/>
+              <m:mo>=</m:mo>
+              <m:mfenced separators="" open="[" close="]">
+                <m:mtable>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                  </m:mtr>
+                  <m:mtr>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mrow>
+                        <m:mn>1</m:mn>
+                        <m:mo>/</m:mo>
+                        <m:mn>3</m:mn>
+                      </m:mrow>
+                    </m:mtd>
+                    <m:mtd>
+                      <m:mn>1</m:mn>
+                    </m:mtd>
+                  </m:mtr>
+                </m:mtable>
+              </m:mfenced>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id230744">Although this is not a general identity operator, it is an identity
+operator over the three-dimensional subspace that <m:math overflow="scroll"><m:mi mathvariant="bold">a</m:mi></m:math> is in and it
+illustrates the unity norm of the rows of <m:math overflow="scroll"><m:msup><m:mi mathvariant="bold">F</m:mi><m:mi mathvariant="bold">T</m:mi></m:msup></m:math> and columns of <m:math overflow="scroll"><m:mi mathvariant="bold">F</m:mi></m:math>.</para>
+        <para id="id230792">If the redundancy measure <m:math overflow="scroll"><m:mi>A</m:mi></m:math> in <link target-id="uid35"/> and <link target-id="uid40"/> is one, the
+matrices must be square and the system has an orthonormal basis.</para>
+        <para id="id230814">Frames are over-complete versions of non-orthogonal bases and tight
+frames are over-complete versions of orthonormal bases. Tight frames are
+important in wavelet analysis because the restrictions on the scaling
+function coefficients discussed in <link target-id="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients </link> guarantee not that the
+wavelets will be a basis, but a tight frame. In practice, however, they
+are usually a basis.</para></section>
+      <section id="uid44">
+        <title>Sinc Expansion as a Tight Frame Example</title>
+        <para id="id230841">An example of an infinite-dimensional tight frame is the generalized
+Shannon's sampling expansion for the over-sampled case <link target-id="bid8"/>.
+If a function is over-sampled but the sinc functions remains consistent
+with the upper spectral limit <m:math overflow="scroll"><m:mi>W</m:mi></m:math>, the sampling theorem becomes</para><equation id="uid46">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="4pt"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mi>T</m:mi>
+                  <m:mi>W</m:mi>
+                </m:mrow>
+                <m:mi>π</m:mi>
+              </m:mfrac>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>n</m:mi>
+              </m:munder>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>T</m:mi>
+                <m:mi>n</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mo form="prefix">sin</m:mo>
+                  <m:mo>(</m:mo>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>T</m:mi>
+                  <m:mi>n</m:mi>
+                  <m:mo>)</m:mo>
+                  <m:mi>W</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>T</m:mi>
+                  <m:mi>n</m:mi>
+                  <m:mo>)</m:mo>
+                  <m:mi>W</m:mi>
+                </m:mrow>
+              </m:mfrac>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id230968">or using <m:math overflow="scroll"><m:mi>R</m:mi></m:math> as the amount of over-sampling</para>
+        <equation id="uid47">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>R</m:mi>
+              <m:mi>W</m:mi>
+              <m:mspace width="4pt"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mfrac>
+                <m:mi>π</m:mi>
+                <m:mi>T</m:mi>
+              </m:mfrac>
+              <m:mo>,</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mspace width="4pt"/>
+              <m:mtext>for</m:mtext>
+              <m:mspace width="4.pt"/>
+              <m:mrow>
+                <m:mi>R</m:mi>
+                <m:mo>≥</m:mo>
+                <m:mn>1</m:mn>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id231043">we have</para>
+        <equation id="uid48">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="4pt"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="4pt"/>
+              <m:mfrac>
+                <m:mn>1</m:mn>
+                <m:mi>R</m:mi>
+              </m:mfrac>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>n</m:mi>
+              </m:munder>
+              <m:mi>g</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>T</m:mi>
+                <m:mi>n</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mo form="prefix">sin</m:mo>
+                  <m:mo>(</m:mo>
+                  <m:mfrac>
+                    <m:mi>π</m:mi>
+                    <m:mrow>
+                      <m:mi>R</m:mi>
+                      <m:mi>T</m:mi>
+                    </m:mrow>
+                  </m:mfrac>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>T</m:mi>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mfrac>
+                    <m:mi>π</m:mi>
+                    <m:mrow>
+                      <m:mi>R</m:mi>
+                      <m:mi>T</m:mi>
+                    </m:mrow>
+                  </m:mfrac>
+                  <m:mrow>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>T</m:mi>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:mrow>
+              </m:mfrac>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id231170">where the sinc functions are no longer orthogonal now. In fact, they are
+no longer a basis as they are not independent. They are, however, a tight
+frame and, therefore, act as though they were an orthogonal basis but now
+there is a “redundancy" factor <m:math overflow="scroll"><m:mi>R</m:mi></m:math> as a multiplier in the formula.</para>
+        <para id="id231190">Notice that as <m:math overflow="scroll"><m:mi>R</m:mi></m:math> is increased from unity, <link target-id="uid48"/> starts as
+<link target-id="uid28"/> where each sample occurs where the sinc function is one or
+zero but becomes an expansion with the shifts still being <m:math overflow="scroll"><m:mrow><m:mi>t</m:mi><m:mo>=</m:mo><m:mi>T</m:mi><m:mi>n</m:mi></m:mrow></m:math>, however,
+the sinc functions become wider so that the samples are no longer at the
+zeros. If the signal is over-sampled, either the expression <link target-id="uid28"/>
+or <link target-id="uid48"/> could be used. They both are over-sampled but
+<link target-id="uid28"/> allows the spectrum of the signal to increase up to the
+limit without distortion while <link target-id="uid48"/> does not. The generalized
+sampling theorem <link target-id="uid48"/> has a built-in filtering action which may
+be an advantage or it may not.</para>
+        <para id="id231254">The application of frames and tight frames to what is called a redundant
+discrete wavelet transform (RDWT) is discussed later in
+<link target-id="cid6" document="m45095">Section: Overcomplete Representations, Frames, Redundant Transforms, and Adaptive Bases</link> and their use in 
+<link target-id="cid3" document="m45101">Section: Nonlinear Filtering or Denoising with the DWT</link>.
+They are also needed for certain adaptive descriptions
+discussed at the end of 
+<link target-id="cid6" document="m45095">Section: Overcomplete Representations, Frames, Redundant Transforms, and Adaptive Bases</link> where an independent subset of the
+expansion vectors in the frame are chosen according to some criterion to
+give an optimal basis.</para></section>
+    </section>
+    <section id="cid3">
+      <title>Conditional and Unconditional Bases</title>
+      <para id="id231280">A powerful point of view used by Donoho <link target-id="bid4"/> gives an explanation
+of which basis systems are best for a particular class of signals and why
+the wavelet system is good for a wide variety of signal classes.</para><para id="id231290">Donoho defines an unconditional basis as follows. 
+If we have a function
+class <m:math overflow="scroll"><m:mi>F</m:mi></m:math> with a norm defined and denoted <m:math overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mo>|</m:mo></m:mrow><m:mo>·</m:mo><m:msub><m:mrow><m:mo>|</m:mo><m:mo>|</m:mo></m:mrow><m:mi>F</m:mi></m:msub></m:mrow></m:math> and
+a basis set <m:math overflow="scroll"><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub></m:math> such that every function <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi>F</m:mi></m:mrow></m:math> has a unique
+representation <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>k</m:mi></m:msub><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>f</m:mi><m:mi>k</m:mi></m:msub></m:mrow></m:math> with equality defined as a limit
+using the norm, we consider the infinite expansion</para>
+      <equation id="uid50">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>g</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:msub>
+              <m:mi>m</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mspace width="0.277778em"/>
+            <m:msub>
+              <m:mi>f</m:mi>
+              <m:mi>k</m:mi>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id231483">If for all <m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>∈</m:mo><m:mi>F</m:mi></m:mrow></m:math>, the infinite sum converges for all <m:math overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo></m:mrow><m:msub><m:mi>m</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>|</m:mo><m:mo>≤</m:mo><m:mn>1</m:mn></m:mrow></m:mrow></m:math>, the basis is called an <emphasis effect="italics">unconditional basis</emphasis>. This is very
+similar to unconditional or absolute convergence of a numerical series
+<link target-id="bid4"/>, <link target-id="bid0"/>, <link target-id="bid5"/>. If the convergence depends on <m:math overflow="scroll"><m:mrow><m:msub><m:mi>m</m:mi><m:mi>k</m:mi></m:msub><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math> for some
+<m:math overflow="scroll"><m:mrow><m:mi>g</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>, the basis is called a <emphasis effect="italics">conditional basis</emphasis>.</para><para id="id231597">An unconditional basis means all subsequences converge and all sequences of
+subsequences converge. It means convergence does not depend on the order
+of the terms in the summation or on the sign of the coefficients. This
+implies a very robust basis where the coefficients drop off rapidly for
+all members of the function class. That is indeed the case for wavelets
+which are unconditional bases for a very wide set of function classes
+<link target-id="bid1"/>, <link target-id="bid10"/>, <link target-id="bid11"/>.</para><para id="id231619">Unconditional bases have a special property that makes them near-optimal
+for signal processing in several situations. This property has to do with
+the geometry of the space of expansion coefficients of a class of
+functions in an unconditional basis. This is described in <link target-id="bid4"/>.</para><para id="id231630">The fundamental idea of bases or frames is representing a continuous
+function by a sequence of expansion coefficients. We have seen that the
+Parseval's theorem relates the <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math> norm of the function to the
+<m:math overflow="scroll"><m:msup><m:mi>ℓ</m:mi><m:mn>2</m:mn></m:msup></m:math> norm of coefficients for orthogonal bases and tight frames
+<link target-id="uid34"/>. Different function spaces are characterized by different
+norms on the continuous function. If we have an unconditional basis for the
+function space, the norm of the function in the space not only can be
+related to some norm of the coefficients in the basis expansion, but the
+absolute values of the coefficients have the sufficient information to
+establish the relation. So there is no condition on the sign or phase
+information of the expansion coefficients if we only care about the norm of
+the function, thus <emphasis effect="italics">unconditional</emphasis>.</para>
+      <para id="id231679">For this tutorial discussion, it is sufficient to know that there are
+theoretical reasons why wavelets are an excellent expansion system for a
+wide set of signal processing problems. Being an unconditional basis also
+sets the stage for efficient and effective nonlinear processing of the
+wavelet transform of a signal for compression, denoising, and detection
+which are discussed in <link target-id="m45101">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients</link>.</para></section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid2">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>The Wavelet Transform, Time-Frequency Localization and Signal Analysis</bib:title>
+        <bib:journal>IEEE Transaction on Information Theory</bib:journal>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume>36</bib:volume>
+        <bib:number>5</bib:number>
+        <bib:pages>961–1005</bib:pages>
+        <bib:month>September</bib:month>
+        <bib:note>Also a Bell Labs Technical Report</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid1">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Ten Lectures on Wavelets</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia, PA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Notes from the 1990 CBMS-NSF Conference on Wavelets and Applications at Lowell, MA</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Unconditional Bases are Optimal Bases for Data Compression and for Statistical Estimation</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>100–115</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Also Stanford Statistics Dept. Report TR-410, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid9">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Duffin, R. J. and Schaeffer, R. C.</bib:author>
+        <bib:title>A Class of Nonharmonic Fourier Series</bib:title>
+        <bib:journal>Transactions of the American Mathematical Society</bib:journal>
+        <bib:year>1952</bib:year>
+        <!--optional fields-->
+        <bib:volume>72</bib:volume>
+        <bib:number/>
+        <bib:pages>341–366</bib:pages>
+        <bib:month/>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid7">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Guo, H. and Odegard, J. E. and Lang, M. and Gopinath, R. A. and Selesnick, I. and Burrus, C. S.</bib:author>
+        <bib:title>Speckle Reduction via Wavelet Soft-Thresholding with Application to SAR based ATD/R</bib:title>
+        <bib:booktitle>Proceedings of SPIE Conference 2260</bib:booktitle>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>2260</bib:volume>
+        <bib:series/>
+        <bib:pages/>
+        <bib:address>San Diego</bib:address>
+        <bib:month>July</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid6">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Guo, H. and Odegard, J. E. and Lang, M. and Gopinath, R. A. and Selesnick, I. W. and Burrus, C. S.</bib:author>
+        <bib:title>Wavelet Based Speckle Reduction with Application to SAR Based ATD/R</bib:title>
+        <bib:booktitle>Proceedings of the IEEE International Conference on Image Processing</bib:booktitle>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:volume>I</bib:volume>
+        <bib:series/>
+        <bib:pages>I:75–79</bib:pages>
+        <bib:address>IEEE ICIP-94, Austin, Texas</bib:address>
+        <bib:month>November 13-16</bib:month>
+        <bib:organization/>
+        <bib:publisher/>
+        <bib:note/>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid11">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Gripenberg, Gustaf</bib:author>
+        <bib:title>Unconditional Bases of Wavelets for Sobelov Spaces</bib:title>
+        <bib:journal>SIAM Journal of Mathematical Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>24</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>1030–1042</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Heil, C. E. and Walnut, D. F.</bib:author>
+        <bib:title>Continuous and Discrete Wavelet Transforms</bib:title>
+        <bib:journal>SIAM Review</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>31</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>628–666</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid8">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Marks II, R. J.</bib:author>
+        <bib:title>Introduction to Shannon Sampling and Interpolation Theory</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1991</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid5">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Y.</bib:author>
+        <bib:title>Ondelettes et opérateurs</bib:title>
+        <bib:publisher>Hermann</bib:publisher>
+        <bib:year>1990</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Paris</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid10">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Meyer, Yves</bib:author>
+        <bib:title>Wavelets, Algorithms and Applications</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Translated by R. D. Ryan based on lectures given for the Spanish Institute in Madrid in Feb. 1991</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Young, R. M.</bib:author>
+        <bib:title>An Introduction to Nonharmonic Fourier Series</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1980</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  <bib:entry id="frames">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Christensen, Ole</bib:author>
+        <bib:title>An Introduction to Frames and Riesz Bases</bib:title>
+        <bib:publisher>Birkhauser</bib:publisher>
+        <bib:year>2002</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+       </bib:book>
+    </bib:entry>
+  </bib:file>
+</document>

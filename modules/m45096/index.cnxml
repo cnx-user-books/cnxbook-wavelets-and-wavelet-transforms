@@ -1,0 +1,1184 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Introduction to Wavelets</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45096</md:content-id>
+  <md:title>Introduction to Wavelets</md:title>
+  <md:abstract/>
+  <md:uuid>f5083cb8-fe5e-4287-9717-293e1315d000</md:uuid>
+</metadata>
+
+<content>
+    <para id="id139154">This chapter will provide an overview of the topics to be developed in
+the book. Its purpose is to present the ideas, goals, and outline of
+properties for an understanding of and ability to use wavelets and wavelet
+transforms. The details and more careful definitions are given later in
+the book.</para>
+    <para id="id139160">A <emphasis effect="italics">wave</emphasis> is usually defined as an oscillating function of time or
+space, such as a sinusoid. Fourier analysis is wave analysis. It expands
+signals or functions in terms of sinusoids (or, equivalently, complex
+exponentials) which has proven to be extremely valuable in mathematics,
+science, and engineering, especially for periodic, time-invariant, or
+stationary phenomena. A <emphasis effect="italics">wavelet</emphasis> is a “small wave", which has its
+energy concentrated in time to give a tool for the analysis of transient,
+nonstationary, or time-varying phenomena. It still has the oscillating
+wave-like characteristic but also has the ability to allow simultaneous
+time and frequency analysis with a flexible mathematical foundation. This
+is illustrated in <link target-id="uid2"/> with the wave (sinusoid) oscillating
+with equal amplitude over <m:math overflow="scroll"><m:mrow><m:mo>-</m:mo><m:mi>∞</m:mi><m:mo>≤</m:mo><m:mi>t</m:mi><m:mo>≤</m:mo><m:mi>∞</m:mi></m:mrow></m:math> and, therefore,
+having infinite energy and with the wavelet in <link target-id="id139629"/> having its finite energy
+concentrated around a point in time.</para><figure id="uid2" orient="vertical"><media id="id139588_media" alt="A Wave and a Wavelet">
+          <image mime-type="image/png" src="../../media/esin.png" id="id139588_onlineimage" width="300" print-width="2in"/>
+        </media>
+
+      <caption>A Wave and a Wavelet: A Sine Wave</caption></figure><figure id="id139629"><media id="id139629_media" alt="A Wave and a Wavelet">
+          <image mime-type="image/png" src="../../media/ed20.png" id="id139629_onlineimage" width="300" print-width="2in"/>
+    
+        </media>
+
+      <caption>A Wave and a Wavelet: Daubechies' Wavelet <m:math>
+ <m:mrow>
+  <m:msub>
+   <m:mi>ψ</m:mi>
+   <m:mrow>
+    <m:mi>D</m:mi>
+    <m:mi>20</m:mi>
+   </m:mrow>
+  </m:msub>
+ </m:mrow>
+</m:math></caption></figure><!--    <caption>A Wave and a Wavelet</caption></figure>-->
+
+<para id="id139676">We will take wavelets and use them in a series expansion of signals
+or functions much the same way a Fourier series uses the wave or sinusoid
+to represent a
+signal or function. The signals are functions of a continuous variable,
+which often represents time or distance. From this series expansion, we
+will develop a discrete-time version similar to the discrete Fourier
+transform where the signal is represented by a string of numbers where the
+numbers may be samples of a signal, samples of another string of numbers,
+or inner products of a signal with some expansion set. Finally, we will
+briefly describe the continuous wavelet transform where both the signal
+and the transform are functions of continuous variables. This is
+analogous to the Fourier transform.</para>
+    <section id="cid1">
+      <title>Wavelets and Wavelet Expansion Systems</title>
+      <para id="id139694">Before delving into the details of wavelets and their properties, we
+need to get some idea of their general characteristics and what we are
+going to do with them <link target-id="bid0"/>.</para><section id="uid3">
+        <title>What is a Wavelet Expansion or a Wavelet Transform?</title>
+        <para id="id139717">A signal or function <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> can often be better analyzed, described, or
+processed if expressed as a linear decomposition by</para>
+        <equation id="uid5">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>ℓ</m:mi>
+              </m:munder>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>ℓ</m:mi>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mi>ℓ</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id139980">where <m:math overflow="scroll"><m:mi>ℓ</m:mi></m:math> is an integer index for the finite or infinite sum, <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>ℓ</m:mi></m:msub></m:math> are
+the real-valued expansion coefficients, and <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mi>ℓ</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> are a set of
+real-valued functions of <m:math overflow="scroll"><m:mi>t</m:mi></m:math> called the expansion set.
+If the expansion <link target-id="uid5"/> is unique, the set is called a <emphasis effect="italics">basis</emphasis>
+for the class of functions that can be so expressed. If the basis is
+orthonormal, meaning</para><equation id="uid6">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mrow>
+                <m:mo>〈</m:mo>
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>,</m:mo>
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>ℓ</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>〉</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mo>∫</m:mo>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mi>ℓ</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mi>d</m:mi>
+              <m:mi>t</m:mi>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mn>0</m:mn>
+              <m:mspace width="36.135pt"/>
+              <m:mi>k</m:mi>
+              <m:mo>≠</m:mo>
+              <m:mi>ℓ</m:mi>
+              <m:mo>,</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id140170">then the coefficients can be calculated by the <emphasis effect="italics">inner product</emphasis></para>
+        <equation id="uid7">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mrow>
+                <m:mo>〈</m:mo>
+                <m:mi>f</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>,</m:mo>
+                <m:msub>
+                  <m:mi>ψ</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>t</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>〉</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:mo>∫</m:mo>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mi>d</m:mi>
+              <m:mi>t</m:mi>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id140288">One can see that substituting <link target-id="uid5"/> into <link target-id="uid7"/> and using <link target-id="uid6"/>
+gives the single <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mi>k</m:mi></m:msub></m:math> coefficient. If the basis set is not orthogonal,
+then a dual basis set <m:math overflow="scroll"><m:mrow><m:msub><m:mover accent="true"><m:mi>ψ</m:mi><m:mo>˜</m:mo></m:mover><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> exists such that using <link target-id="uid7"/>
+with the dual basis gives the desired coefficients. This will be developed
+in <link document="m45081"> Chapter: A multiresolution formulation of Wavelet Systems</link>.</para><para id="id140356">For a Fourier series, the orthogonal basis functions <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> are
+<m:math overflow="scroll"><m:mrow><m:mo form="prefix">sin</m:mo><m:mo>(</m:mo><m:mi>k</m:mi><m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mo form="prefix">cos</m:mo><m:mo>(</m:mo><m:mi>k</m:mi><m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> with frequencies of <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub></m:mrow></m:math>.
+For a Taylor's
+series, the nonorthogonal basis functions are simple monomials <m:math overflow="scroll"><m:msup><m:mi>t</m:mi><m:mi>k</m:mi></m:msup></m:math>, and
+for many other expansions they are various polynomials. There are
+expansions that use splines and even fractals.</para>
+        <para id="id140467">For the <emphasis effect="italics">wavelet expansion</emphasis>, a two-parameter system is constructed
+such that <link target-id="uid5"/> becomes </para><equation id="uid9">
+          <m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>k</m:mi>
+              </m:munder>
+              <m:munder>
+                <m:mo>∑</m:mo>
+                <m:mi>j</m:mi>
+              </m:munder>
+              <m:msub>
+                <m:mi>a</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+            </m:mrow>
+          </m:math>
+        </equation>
+        <para id="id140566">where both <m:math overflow="scroll"><m:mi>j</m:mi></m:math> and <m:math overflow="scroll"><m:mi>k</m:mi></m:math> are integer indices and the <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> are
+the wavelet expansion functions that usually form an orthogonal basis.</para>
+        <para id="id140615">The set of expansion coefficients <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math> are called the <emphasis effect="italics">discrete
+wavelet transform</emphasis> (DWT) of <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> and <link target-id="uid9"/> is the inverse transform.</para>
+      </section>
+      <section id="uid10">
+        <title>What is a Wavelet System?</title>
+        <para id="id140676">The wavelet expansion set is not unique. There are many different wavelets
+systems that can be used effectively, but all seem to have the following three
+general characteristics <link target-id="bid0"/>.</para><list id="id140686" display="block" list-type="enumerated"><item id="uid12">A wavelet system is a set of <emphasis effect="italics">building blocks</emphasis> to construct or
+represent a signal or function. It is a two-dimensional expansion set
+(usually a basis) for some class of one- (or higher) dimensional
+signals. In other words, if the wavelet set is given by <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+for indices of <m:math overflow="scroll"><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mo>⋯</m:mo></m:mrow></m:math>, a linear expansion would be
+<m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:msub><m:mo>∑</m:mo><m:mi>k</m:mi></m:msub><m:msub><m:mo>∑</m:mo><m:mi>j</m:mi></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mspace width="0.166667em"/><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> for some set of coefficients
+<m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math>.
+</item>
+          <item id="uid13">The wavelet expansion gives a time-frequency <emphasis effect="italics">localization</emphasis> of the
+signal. This means most of the energy of the signal is well represented
+by a few expansion coefficients, <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math>.
+</item>
+          <item id="uid15">The calculation of the coefficients from the signal can be done <emphasis effect="italics">efficiently</emphasis>. It turns out that many wavelet transforms (the set of
+expansion coefficients) can be calculated with <m:math overflow="scroll"><m:mrow><m:mi>O</m:mi><m:mo>(</m:mo><m:mi>N</m:mi><m:mo>)</m:mo></m:mrow></m:math> operations. This means
+the number of floating-point multiplications and additions increase
+linearly with the length of the signal. More general wavelet transforms
+require <m:math overflow="scroll"><m:mrow><m:mi>O</m:mi><m:mo>(</m:mo><m:mi>N</m:mi><m:mo form="prefix">log</m:mo><m:mo>(</m:mo><m:mi>N</m:mi><m:mo>)</m:mo><m:mo>)</m:mo></m:mrow></m:math> operations, the same as for the fast Fourier
+transform (FFT) <link target-id="bid1"/>.
+</item>
+        </list><para id="id140961">Virtually all wavelet systems have these very general characteristics.
+Where the Fourier series maps a one-dimensional function of a continuous
+variable into a one-dimensional sequence of coefficients, the wavelet
+expansion maps it into a two-dimensional array of coefficients. We will
+see that it is this two-dimensional representation that allows localizing
+the signal in both time and frequency. A Fourier series expansion
+localizes in frequency in that if a Fourier series expansion of a signal
+has only one large coefficient, then the signal is essentially a single
+sinusoid at the frequency determined by the index of the coefficient. The
+simple time-domain representation of the signal itself gives the
+localization in time. If the signal is a simple pulse, the location of
+that pulse is the localization in time. A wavelet representation will
+give the location in both time and frequency simultaneously. Indeed, a
+wavelet representation is much like a musical score where the location of
+the notes tells when the tones occur and what their frequencies are.</para>
+      </section>
+      <section id="uid16">
+        <title>More Specific Characteristics of Wavelet Systems</title>
+        <para id="id140984">There are three additional characteristics <link target-id="bid0"/>, <link target-id="bid2"/> that are more
+specific to wavelet expansions.</para><list id="id140998" display="block" list-type="enumerated">
+          <item id="uid17">All so-called first-generation wavelet systems are generated from a single
+scaling function or wavelet by simple <emphasis effect="italics">scaling</emphasis> and
+<emphasis effect="italics">translation</emphasis>.
+The two-dimensional parameterization is achieved from the function
+(sometimes called the generating wavelet or mother wavelet) <m:math overflow="scroll"><m:mrow><m:mi>ψ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> by
+<equation id="uid19"><m:math overflow="scroll" mode="display"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="0.166667em"/><m:mo>=</m:mo><m:mspace width="0.166667em"/><m:msup><m:mn>2</m:mn><m:mrow><m:mi>j</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:msup><m:mspace width="0.166667em"/><m:mi>ψ</m:mi><m:mrow><m:mo>(</m:mo><m:msup><m:mn>2</m:mn><m:mi>j</m:mi></m:msup><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow><m:mspace width="36.135pt"/><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math></equation>
+where <m:math overflow="scroll"><m:mi mathvariant="bold">Z</m:mi></m:math> is the set of all integers and the factor <m:math overflow="scroll"><m:msup><m:mn>2</m:mn><m:mrow><m:mi>j</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:msup></m:math>
+maintains a constant norm independent of scale <m:math overflow="scroll"><m:mi>j</m:mi></m:math>. This parameterization
+of the time or space location by <m:math overflow="scroll"><m:mi>k</m:mi></m:math> and the frequency or scale (actually
+the logarithm of scale) by <m:math overflow="scroll"><m:mi>j</m:mi></m:math> turns out to be extraordinarily effective.
+
+</item>
+          <item id="uid21">Almost all useful wavelet systems also satisfy the <emphasis effect="italics">multiresolution</emphasis>
+conditions. This means that if a set of signals can be represented by a
+weighted sum of <m:math overflow="scroll"><m:mrow><m:mi>ϕ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math>, then a larger set (including the original)
+can be represented by a weighted sum of <m:math overflow="scroll"><m:mrow><m:mi>ϕ</m:mi><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>t</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math>. In other words, if
+the basic expansion signals are made half as wide and translated in steps half
+as wide, they will represent a larger class of signals exactly or
+give a better approximation of any signal.
+</item>
+          <item id="uid23">The lower resolution coefficients can be calculated from the higher
+resolution coefficients by a tree-structured algorithm called a <emphasis effect="italics">filter bank</emphasis>. This allows a very efficient calculation of the expansion
+coefficients (also known as the discrete wavelet transform) and relates
+wavelet transforms to an older area in digital signal processing.
+</item>
+        </list>
+        <para id="id141306">The operations of translation and scaling seem to be basic to many
+practical signals and signal-generating processes, and their use is one of the
+reasons that wavelets are efficient expansion functions. <link target-id="uid25"/>
+is a pictorial representation of the translation and scaling of a single
+mother wavelet described in <link target-id="uid19"/>. As the index <m:math overflow="scroll"><m:mi>k</m:mi></m:math> changes, the location of the wavelet
+moves along the horizontal axis. This allows the expansion to explicitly
+represent the location of events in time or space. As the index <m:math overflow="scroll"><m:mi>j</m:mi></m:math>
+changes, the shape of the wavelet changes in scale. This allows a
+representation of detail or resolution. Note that as the scale becomes
+finer (<m:math overflow="scroll"><m:mi>j</m:mi></m:math> larger), the steps in time become smaller. It is both the
+narrower wavelet and the smaller steps that allow representation of
+greater detail or higher resolution. For clarity, only every fourth
+term in the translation (<m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>5</m:mn><m:mo>,</m:mo><m:mn>9</m:mn><m:mo>,</m:mo><m:mn>13</m:mn><m:mo>,</m:mo><m:mo>⋯</m:mo></m:mrow></m:math>) is shown, otherwise,
+the figure is a clutter.
+What is not illustrated here but is important is that the shape of the
+basic mother wavelet can also be changed. That is done during the design
+of the wavelet system and allows one set to well-represent a particular class of
+signals.</para><para id="id141387">For the Fourier series and transform and for most signal expansion
+systems, the expansion functions (bases) are chosen, then the properties
+of the resulting transform are derived and</para>
+        <figure id="uid25">
+          <media id="uid25_media" alt="Translation and Scaling of a Wavelet">
+            <image mime-type="image/png" src="../../media/figure2-7a11.png" id="uid25_onlineimage" width="600" print-width="4in"><!-- NOTE: attribute width changes image size online (pixels). original width is 715. --></image>
+          </media>
+          
+        <caption>Translation (every fourth <m:math overflow="scroll"><m:mi>k</m:mi></m:math>) and Scaling of a Wavelet <m:math overflow="scroll"><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>D</m:mi><m:mn>4</m:mn></m:mrow></m:msub></m:math></caption></figure>
+
+<para id="id141526">analyzed. For the wavelet
+system, the desired properties or characteristics are mathematically
+required, then the resulting basis functions are derived. Because these
+constraints do not use all the degrees of freedom, other properties can be
+required to customize the wavelet system for a particular application.
+Once you decide on a Fourier series, the sinusoidal basis functions are
+completely set. That is not true for the wavelet. There are an infinity
+of very different wavelets that all satisfy the above properties. Indeed,
+the understanding and design of the wavelets is an important topic of this
+book.</para><para id="id141536">Wavelet analysis is well-suited to transient signals. Fourier analysis is
+appropriate for periodic signals or for signals whose statistical
+characteristics do not change with time. It is the localizing property of
+wavelets that allow a wavelet expansion of a transient event to be modeled
+with a small number of coefficients. This turns out to be very useful in
+applications.</para>
+      </section>
+      <section id="uid26">
+        <title>Haar Scaling Functions and Wavelets</title>
+        <para id="id141558">The multiresolution formulation needs two closely related basic functions.
+In addition to the wavelet <m:math overflow="scroll"><m:mrow><m:mi>ψ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> that has been discussed (but not actually
+defined yet), we will need another basic function called the <emphasis effect="italics">scaling
+function </emphasis><m:math overflow="scroll"><m:mrow><m:mi>ϕ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>. The reasons for needing this function and the
+details of the relations will be developed in the next chapter, but here we
+will simply use it in the wavelet expansion.</para><para id="id141603">The simplest possible orthogonal wavelet system is generated from the Haar
+scaling function and wavelet. These are shown in <link target-id="eip-id1273245"/>.
+Using a combination of these scaling functions and wavelets allows a large
+class of signals to be represented by</para><equation id="uid28"><m:math overflow="scroll" mode="display">
+            <m:mrow>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>=</m:mo>
+              <m:mspace width="0.166667em"/>
+              <m:munderover>
+                <m:mo>∑</m:mo>
+                <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mo>=</m:mo>
+                  <m:mo>-</m:mo>
+                  <m:mi>∞</m:mi>
+                </m:mrow>
+                <m:mi>∞</m:mi>
+              </m:munderover>
+              <m:msub>
+                <m:mi>c</m:mi>
+                <m:mi>k</m:mi>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>-</m:mo>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>+</m:mo>
+              <m:munderover>
+                <m:mo>∑</m:mo>
+                <m:mrow>
+                  <m:mi>k</m:mi>
+                  <m:mo>=</m:mo>
+                  <m:mo>-</m:mo>
+                  <m:mi>∞</m:mi>
+                </m:mrow>
+                <m:mi>∞</m:mi>
+              </m:munderover>
+              <m:munderover>
+                <m:mo>∑</m:mo>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>=</m:mo>
+                  <m:mn>0</m:mn>
+                </m:mrow>
+                <m:mi>∞</m:mi>
+              </m:munderover>
+              <m:msub>
+                <m:mi>d</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mspace width="0.166667em"/>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:msup>
+                  <m:mn>2</m:mn>
+                  <m:mi>j</m:mi>
+                </m:msup>
+                <m:mi>t</m:mi>
+                <m:mo>-</m:mo>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>.</m:mo>
+            </m:mrow>
+          </m:math>
+        </equation><para id="id141767">Haar <link target-id="bid3"/> showed this result in 1910, and we now know that wavelets are
+a generalization of his work. An example of a Haar system and expansion is
+given at the end of <link document="m45081">Chapter: A multiresolution formulation of Wavelet Systems</link>.</para></section>
+      <section id="uid29">
+        <title>What do Wavelets Look Like?</title>
+        <para id="id141794">All Fourier basis functions look alike. A high-frequency sine wave looks
+like a compressed low-frequency sine wave. A cosine wave is a sine wave
+translated by 90<sup>o</sup> or <m:math overflow="scroll"><m:mrow><m:mi>π</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:math> radians. It takes a</para>
+        <para id="eip-298"><figure id="eip-id1273245"><media id="eip-id1166582584124" alt="Haar Scaling Function and Wavelet">
+            <image mime-type="image/png" src="../../media/figure3-d6f0.png" width="600" print-width="4in"/>
+          </media><caption>Haar Scaling Function and Wavelet</caption></figure></para><para id="id142221">large number of Fourier
+components to represent a discontinuity or a sharp corner. In contrast,
+there are many different wavelets and some have sharp corners themselves.</para>
+        <para id="id142228">To appreciate the special character of wavelets you should recognize that
+it was not until the late 1980's that some of the most useful basic
+wavelets were ever seen.
+<link target-id="fs-id1166187194372"/> illustrates four different scaling functions, each
+being zero outside of <m:math overflow="scroll"><m:mrow><m:mn>0</m:mn><m:mo>&lt;</m:mo><m:mi>t</m:mi><m:mo>&lt;</m:mo><m:mn>6</m:mn></m:mrow></m:math> and each generating an orthogonal
+wavelet basis
+for all square integrable functions. This figure is also shown on the
+cover to this book.</para><para id="id142264">Several more scaling functions and their associated wavelets are illustrated
+in later chapters, and the Haar wavelet is shown in <link target-id="eip-id1273245"/> and in
+detail at the end of <link document="m45081">Chapter: A multiresolution formulation of Wavelet Systems</link>.</para>
+
+<figure id="fs-id1166187194372"><media id="fs-id1166188384597" alt="Example Scaling Functions">
+   <image mime-type="image/png" src="../../media/1.1.4.PNG" print-width="4in"/>
+  </media>
+
+ <caption>Example Scaling Functions (See <link target-id="cid8" document="m45100">Section: Further Properties of the Scaling Function and Wavelet
+</link> for the meaning of α and β)</caption></figure></section>
+      <section id="uid33">
+        <title>Why is Wavelet Analysis Effective?</title>
+        <para id="id142669">Wavelet expansions and wavelet transforms have proven to be very efficient
+and effective in analyzing a very wide class of signals and phenomena.
+Why is this true? What are the properties that give this effectiveness?</para>
+        <list id="id142675" display="block" list-type="enumerated"><item id="uid34">The size of the wavelet expansion coefficients <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math> in <link target-id="uid9"/> or
+<m:math overflow="scroll"><m:msub><m:mi>d</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math> in <link target-id="uid28"/>
+drop off rapidly with <m:math overflow="scroll"><m:mi>j</m:mi></m:math> and <m:math overflow="scroll"><m:mi>k</m:mi></m:math> for a large class of signals. This
+property is called being an <emphasis effect="italics">unconditional basis</emphasis> and it is why
+wavelets are so effective in
+signal and image compression, denoising, and detection. Donoho
+<link target-id="bid4"/>, <link target-id="bid5"/> showed that wavelets are near optimal for a wide class of
+signals for compression, denoising, and detection.
+</item>
+          <item id="uid35">The wavelet expansion allows a more accurate local description and
+separation of signal characteristics. A Fourier coefficient represents a
+component that lasts for all time and, therefore, temporary events must be
+described by a phase characteristic that allows cancellation or
+reinforcement over large time periods. A wavelet expansion coefficient
+represents a component that is itself local and is easier to interpret.
+The wavelet expansion may allow a separation of components of a signal whose Fourier description 
+overlap in both time and frequency.
+</item>
+          <item id="uid36">Wavelets are adjustable and adaptable. Because there is not just one
+wavelet, they can be designed to fit individual applications. They are
+ideal for adaptive systems that adjust themselves to suit the signal.
+</item>
+          <item id="uid37">The generation of wavelets and the calculation of the discrete wavelet
+transform is well matched to the digital computer. We will later see that
+the defining equation for a wavelet uses no calculus. There are no
+derivatives or integrals, just multiplications and additions—operations
+that are basic to a digital computer.
+</item>
+        </list><para id="id142824">While some of these details may not be clear at this point, they should point to
+the issues that are important to both theory and application and give
+reasons for the detailed development that follows in this and other books.</para>
+      </section>
+    </section>
+    <section id="cid2">
+      <title>The Discrete Wavelet Transform</title>
+      <para id="id142845">This two-variable set of basis functions is used in a way similar to the
+short-time Fourier transform, the Gabor transform, or the Wigner
+distribution for time-frequency analysis <link target-id="bid6"/>, <link target-id="bid7"/>, <link target-id="bid8"/>. Our
+goal is to generate a set of expansion functions such that any signal in
+<m:math overflow="scroll"><m:mrow><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup><m:mrow><m:mo>(</m:mo><m:mi mathvariant="bold">R</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> (the space of square integrable functions) can be
+represented by the series</para><equation id="uid39">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:munder>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mspace width="0.277778em"/>
+            <m:msup>
+              <m:mn>2</m:mn>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>/</m:mo>
+                <m:mn>2</m:mn>
+              </m:mrow>
+            </m:msup>
+            <m:mspace width="0.166667em"/>
+            <m:mi>ψ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:msup>
+                <m:mn>2</m:mn>
+                <m:mi>j</m:mi>
+              </m:msup>
+              <m:mi>t</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id142985">or, using <link target-id="uid19"/>, as</para>
+      <equation id="uid40">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:munder>
+            <m:msub>
+              <m:mi>a</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id143071">where the two-dimensional set of coefficients <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math> is called the <emphasis effect="italics">discrete wavelet transform</emphasis> (DWT)  of <m:math overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>.
+ A more specific
+form indicating how the <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math>'s are calculated can be written using
+inner products as</para>
+      <equation id="uid43">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>=</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:munder>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:msub>
+                <m:mi>ψ</m:mi>
+                <m:mrow>
+                  <m:mi>j</m:mi>
+                  <m:mo>,</m:mo>
+                  <m:mi>k</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mi>f</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mspace width="0.166667em"/>
+            <m:msub>
+              <m:mi>ψ</m:mi>
+              <m:mrow>
+                <m:mi>j</m:mi>
+                <m:mo>,</m:mo>
+                <m:mi>k</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id143263">if the <m:math overflow="scroll"><m:mrow><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub><m:mrow><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> form an orthonormal basis<footnote id="uid44">Bases and tight
+frames are defined in <link document="m45090">Chapter: Bases, Orthogonal Bases, Biorthogonal Bases, Frames, Right Frames, and unconditional Bases.</link></footnote> for the space of signals of interest
+<link target-id="bid2"/>. The inner product is usually defined as</para><equation id="uid45">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mrow>
+              <m:mo>〈</m:mo>
+              <m:mi>x</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>,</m:mo>
+              <m:mi>y</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>〉</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:msup>
+              <m:mi>x</m:mi>
+              <m:mo>*</m:mo>
+            </m:msup>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>y</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+            <m:mo>.</m:mo>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id143407">The goal of most expansions of a function or signal is to have the
+coefficients of the expansion <m:math overflow="scroll"><m:msub><m:mi>a</m:mi><m:mrow><m:mi>j</m:mi><m:mo>,</m:mo><m:mi>k</m:mi></m:mrow></m:msub></m:math> give more useful information about
+the signal than is directly obvious from the signal itself. A second goal
+is to have most of the coefficients be zero or very small. This is what
+is called a <emphasis effect="italics">sparse</emphasis> representation and is extremely important in
+applications for statistical estimation and detection, data compression,
+nonlinear noise reduction, and fast algorithms.</para>
+      <para id="id143440">Although this expansion is called the discrete wavelet transform (DWT),
+it probably should be called a
+wavelet series since it is a series expansion which maps a function of a
+continuous variable into a sequence of coefficients much the same way the
+Fourier series does. However, that is not the convention.</para>
+      <para id="id143446">This wavelet series expansion is in terms of two indices, the time
+translation <m:math overflow="scroll"><m:mi>k</m:mi></m:math> and the scaling index <m:math overflow="scroll"><m:mi>j</m:mi></m:math>. For the Fourier series, there
+are only two possible values of <m:math overflow="scroll"><m:mi>k</m:mi></m:math>, zero and <m:math overflow="scroll"><m:mrow><m:mi>π</m:mi><m:mo>/</m:mo><m:mn>2</m:mn></m:mrow></m:math>, which give the sine
+terms and the cosine terms. The values <m:math overflow="scroll"><m:mi>j</m:mi></m:math> give the frequency harmonics.
+In other words, the Fourier series is also a two-dimensional expansion, but
+that is not seen in the exponential form and generally not noticed in the
+trigonometric form.</para>
+      <para id="id143502">The DWT of a signal is somewhat difficult to
+illustrate because it is a function of two variables or indices, but we
+will show the DWT of a simple pulse in <link target-id="uid46"/> to illustrate the
+localization of the transform. Other displays will be developed in the
+next chapter.</para>
+      <figure id="uid46"><media id="uid46_media" alt="Discrete Wavelet Transform of a Pulse">
+          <image mime-type="image/png" src="../../media/figure5-3aae.png" id="uid46_onlineimage" width="620" print-width="4in"><!-- NOTE: attribute width changes image size online (pixels). original width is 620. --></image>
+        
+        </media>
+        
+      <caption>Discrete Wavelet Transform of a Pulse, using <m:math overflow="scroll"><m:msub><m:mi>ψ</m:mi><m:mrow><m:mi>D</m:mi><m:mn>6</m:mn></m:mrow></m:msub></m:math>
+with a Gain of <m:math overflow="scroll"><m:msqrt><m:mn>2</m:mn></m:msqrt></m:math> for Each Higher Scale.</caption></figure></section>
+    <section id="cid3">
+      <title>The Discrete-Time and Continuous Wavelet Transforms</title>
+      <para id="id143612">If the signal is itself a sequence of numbers, perhaps samples of some
+function of a continuous variable or perhaps a set of inner products, the
+expansion of that signal is called a discrete-time wavelet transform
+(DTWT). It maps a sequence of numbers into a sequence of numbers much the
+same way the discrete Fourier transform (DFT) does. It does not, however,
+require the signal to be finite in duration or periodic as the DFT does.
+To be consistent with Fourier terminology, it probably should be called
+the discrete-time wavelet series, but this is not the convention. If the
+discrete-time signal is finite in length, the transform can be represented
+by a finite matrix. This formulation of a series expansion of a
+discrete-time signal is what filter bank methods accomplish <link target-id="bid9"/>, <link target-id="bid10"/>
+and is developed in <link document="m45068">Chapter: Filter Banks and Transmultiplexers </link> of this book.</para><para id="id143642">If the signal is a function of a continuous variable and a transform that
+is a function of two continuous variables is desired, the continuous
+wavelet transform (CWT) can be defined by</para>
+      <equation id="uid48">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>F</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>a</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>b</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>w</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>a</m:mi>
+                </m:mrow>
+                <m:mi>b</m:mi>
+              </m:mfrac>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>t</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id143727">with an inverse transform of</para>
+      <equation id="uid49">
+        <m:math overflow="scroll" mode="display">
+          <m:mrow>
+            <m:mi>f</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>t</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mo>=</m:mo>
+            <m:mspace width="0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:mspace width="-0.166667em"/>
+            <m:mspace width="-0.166667em"/>
+            <m:mspace width="-0.166667em"/>
+            <m:mo>∫</m:mo>
+            <m:mi>F</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>a</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>b</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>w</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mfrac>
+                <m:mrow>
+                  <m:mi>t</m:mi>
+                  <m:mo>-</m:mo>
+                  <m:mi>a</m:mi>
+                </m:mrow>
+                <m:mi>b</m:mi>
+              </m:mfrac>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>a</m:mi>
+            <m:mspace width="0.166667em"/>
+            <m:mi>d</m:mi>
+            <m:mi>b</m:mi>
+          </m:mrow>
+        </m:math>
+      </equation>
+      <para id="id143831">where <m:math overflow="scroll"><m:mrow><m:mi>w</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> is the basic wavelet and <m:math overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">R</m:mi></m:mrow></m:math> are real
+continuous variables. Admissibility conditions for the wavelet
+<m:math overflow="scroll"><m:mrow><m:mi>w</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> to support this invertible transform is discussed by
+Daubechies <link target-id="bid2"/>, Heil and
+Walnut <link target-id="bid11"/>, and others and is briefly developed in
+<link target-id="cid8" document="m45095">Section: Discrete Multiresolution Analysis, the Discrete-Time Wavelet</link> of this book. It is analogous to the Fourier transform
+or Fourier integral.</para></section>
+    <section id="cid4">
+      <title>Exercises and Experiments</title>
+      <para id="id143917">As the ideas about wavelets and wavelet transforms are developed in this
+book, it will be very helpful to experiment using the Matlab programs in
+the appendix of this book or in the <emphasis effect="smallcaps">Matlab</emphasis> Toolbox <link target-id="bid12"/>.
+An effort has been
+made to use the same notation in the programs in Appendix C as is used in
+the formulas in the book so that going over the programs can help in
+understanding the theory and vice versa.</para></section>
+    <section id="cid5">
+      <title>This Chapter</title>
+      <para id="id143946">This chapter has tried to set the stage for a careful introduction to
+both the theory and use of wavelets and wavelet transforms. We have
+presented the most basic characteristics of wavelets and tried to give
+a feeling of how and why they work in order to motivate and give
+direction and structure to the following material.</para>
+      <para id="id143952">The next
+chapter will present the idea of multiresolution, out of which will
+develop the scaling function as well as the wavelet. This is followed
+by a discussion of how to calculate the wavelet expansion coefficients
+using filter banks from digital signal processing. Next, a more detailed
+development of the theory and properties of scaling functions, wavelets,
+and wavelet transforms is given followed by a chapter on the design
+of wavelet systems. <link document="m45068">Chapter: Filter Banks and Transmultiplexers </link> gives a detailed development of
+wavelet theory in terms of filter banks.</para><para id="id143966">The earlier part of the book carefully develops the
+basic wavelet system and the later part develops several important
+generalizations, but in a less detailed form.</para>
+    </section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid1">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Burrus, C. S. and Parks, T. W.</bib:author>
+        <bib:title>DFT/FFT and Convolution Algorithms</bib:title>
+        <bib:publisher>John Wiley &amp; Sons</bib:publisher>
+        <bib:year>1985</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid6">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Cohen, L.</bib:author>
+        <bib:title>Time-frequency Distributions - A Review</bib:title>
+        <bib:journal>Proceedings of the IEEE</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>77</bib:volume>
+        <bib:number>7</bib:number>
+        <bib:pages>941–981</bib:pages>
+        <bib:month/>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid7">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Cohen, Leon</bib:author>
+        <bib:title>Time-Frequency Analysis</bib:title>
+        <bib:publisher>Prentice Hall</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Upper Saddle River, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid2">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Ten Lectures on Wavelets</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia, PA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Notes from the 1990 CBMS-NSF Conference on Wavelets and Applications at Lowell, MA</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid5">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L. and Johnstone, Iain M. and Kerkyacharian, Gerard and Picard, Dominique</bib:author>
+        <bib:title>Wavelet Shrinkage: Asymptopia?</bib:title>
+        <bib:journal>Journal Royal Statistical Society B.</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>57</bib:volume>
+        <bib:number>2</bib:number>
+        <bib:pages>301–337</bib:pages>
+        <bib:month/>
+        <bib:note>Also Stanford Statistics Dept. Report TR-419, March 1993</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Unconditional Bases are Optimal Bases for Data Compression and for Statistical Estimation</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>100–115</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Also Stanford Statistics Dept. Report TR-410, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Haar, Alfred</bib:author>
+        <bib:title>Zur Theorie der orthogonalen Funktionensysteme</bib:title>
+        <bib:journal>Mathematische Annalen</bib:journal>
+        <bib:year>1910</bib:year>
+        <!--optional fields-->
+        <bib:volume>69</bib:volume>
+        <bib:number/>
+        <bib:pages>331–371</bib:pages>
+        <bib:month/>
+        <bib:note>Also in PhD thesis</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid8">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Hlawatsch, F. and Boudreaux-Bartels, G. F.</bib:author>
+        <bib:title>Linear and Quadratic Time-Frequency Signal Representations</bib:title>
+        <bib:journal>IEEE Signal Processing Magazine</bib:journal>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume>9</bib:volume>
+        <bib:number>2</bib:number>
+        <bib:pages>21–67</bib:pages>
+        <bib:month>April</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid11">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Heil, C. E. and Walnut, D. F.</bib:author>
+        <bib:title>Continuous and Discrete Wavelet Transforms</bib:title>
+        <bib:journal>SIAM Review</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>31</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>628–666</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid12">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Misiti, Michel and Misiti, Yves and Oppenheim, Georges and Poggi, Jean-Michel</bib:author>
+        <bib:title>Wavelet Toolbox User's Guide</bib:title>
+        <bib:publisher>The MathWorks, Inc.</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Natick, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Sweldens, Wim</bib:author>
+        <bib:title>Wavelets: What Next?</bib:title>
+        <bib:journal>Proceedings of the IEEE</bib:journal>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume>84</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>680–685</bib:pages>
+        <bib:month>April</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid9">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P.</bib:author>
+        <bib:title>Multirate Systems and Filter Banks</bib:title>
+        <bib:publisher>Prentice-Hall</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Englewood Cliffs, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid10">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Vetterli, Martin and Kovačević, Jelena</bib:author>
+        <bib:title>Wavelets and Subband Coding</bib:title>
+        <bib:publisher>Prentice–Hall</bib:publisher>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Upper Saddle River, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  <bib:entry id="jensen">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Jensen, A. and la Cour-Harbo, A.</bib:author>
+        <bib:title>Ripples in Mathematics: The Discrete Wavelet Transform</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>2001</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>New York, NY</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  <bib:entry id="jansen">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Jansen, Maarten and Oonincx, Patrick</bib:author>
+        <bib:title>Second Generation Wavelets and Applications</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>2010</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>London</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+  </bib:file>
+</document>

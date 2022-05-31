@@ -1,0 +1,565 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Preface</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45097</md:content-id>
+  <md:title>Preface</md:title>
+  <md:abstract/>
+  <md:uuid>65c3633e-10e8-4db0-9f37-edcf643bc94d</md:uuid>
+</metadata>
+
+<content>
+    <para id="id330198">This book develops the ideas behind and properties of <emphasis effect="italics">wavelets</emphasis> and
+shows how they can be used as analytical tools for signal processing,
+numerical analysis, and mathematical modeling. We try to present this in
+a way that is accessible to the engineer, scientist, and applied
+mathematician both as a theoretical approach and as a potentially
+practical method to solve problems. Although the roots of this subject go
+back some time, the modern interest and development have a history of only
+a few decades.
+</para><para id="id330210">The early work was in the 1980's by Morlet, Grossmann, Meyer, Mallat, and
+others, but it was the paper by Ingrid Daubechies <link target-id="bid0"/> in 1988
+that caught the attention of the larger applied mathematics communities in
+signal processing, statistics, and numerical analysis. Much of the early
+work took place in France <link target-id="bid1"/>, <link target-id="bid2"/> and the USA
+<link target-id="bid0"/>, <link target-id="bid3"/>, <link target-id="bid4"/>, <link target-id="bid5"/>. As in many new disciplines, the first work
+was closely tied to a particular application or traditional theoretical
+framework. Now we are seeing the theory abstracted from application and
+developed on its own and seeing it related to other parallel ideas. Our
+own background and interests in signal processing certainly influence the
+presentation of this book.</para><para id="id330594">The goal of most modern wavelet research is to create a set of basis
+functions (or general expansion functions) and transforms that will give
+an informative, efficient, and useful description of a function or signal and allow more effective and efficient processing.
+If the signal is represented as a function of time, wavelets provide
+efficient localization in both time and frequency or scale. Another
+central idea is that of <emphasis effect="italics">multiresolution</emphasis> where the decomposition of a
+signal is in terms of the resolution of detail.</para><para id="id330607">For the Fourier series, sinusoids are chosen as basis functions, then the
+properties of the resulting expansion are examined. For wavelet analysis,
+one poses the desired properties and then derives the resulting basis
+functions. An important property of the wavelet basis is providing a
+multiresolution analysis. For several reasons, it is often desired to
+have the basis functions orthonormal. Given these goals, you will see
+aspects of correlation techniques, Fourier transforms, short-time Fourier
+transforms, discrete Fourier transforms, Wigner distributions, filter
+banks, subband coding, and other signal expansion and processing methods
+in the results.</para>
+    <para id="id330615">Wavelet-based analysis is an exciting new problem-solving tool for the
+mathematician, scientist, and engineer. It fits naturally with
+the digital computer with its basis functions defined by summations not
+integrals or derivatives. Unlike most traditional expansion systems, the
+basis functions of the wavelet analysis are not solutions of differential
+equations. In some areas, it is the first truly new tool we have had in
+many years. Indeed, use of wavelets and wavelet transforms requires a new
+point of view and a new method of interpreting representations that we
+are still learning how to exploit.</para>
+    <para id="id330624">Work by Donoho, Johnstone, Coifman, and others have added
+theoretical reasons for why wavelet analysis is so versatile and powerful,
+and have given generalizations that are still being worked on. They have
+shown that wavelet systems have some inherent generic advantages and are
+near optimal for a wide class of problems <link target-id="bid6"/>. They also show
+that adaptive means can create special wavelet systems for
+particular signals and classes of signals.</para><para id="id330636">The multiresolution decomposition seems to separate components of a signal
+in a way that is superior to most other methods for analysis, processing,
+or compression. Because of the ability of the discrete wavelet transform
+to decompose a signal at different independent scales and to do it in a
+very flexible way, Burke calls wavelets “The Mathematical Microscope"
+<link target-id="bid7"/>, <link target-id="bid8"/>. Because of this powerful and flexible
+decomposition, linear and nonlinear processing of signals in the wavelet
+transform domain offers new methods for signal detection, filtering, and
+compression <link target-id="bid6"/>, <link target-id="bid9"/>, <link target-id="bid10"/>, <link target-id="bid11"/>, <link target-id="bid12"/>, <link target-id="bid13"/>. It also can be used as
+the basis for robust numerical algorithms.</para><para id="id330689">You will also see an interesting connection and equivalence to filter bank
+theory from digital signal processing <link target-id="bid14"/>, <link target-id="bid15"/>. Indeed, some of the
+results obtained with filter banks are the same as with discrete-time
+wavelets, and this has been developed in the signal processing community by
+Vetterli, Vaidyanathan, Smith and Barnwell, and others. Filter banks,
+as well as most algorithms for calculating wavelet transforms, are
+part of a still more general area of multirate and time-varying systems.</para><para id="id330707">The presentation here will be as a tutorial or primer for people who know
+little or nothing about wavelets but do have a technical background. It
+assumes a knowledge of Fourier series and transforms and of linear algebra
+and matrix theory. It also assumes a background equivalent to a B.S.
+degree in engineering, science, or applied mathematics. Some knowledge of
+signal processing is helpful but not essential. We develop the ideas in
+terms of one-dimensional signals <link target-id="bid5"/> modeled as real or perhaps
+complex functions of time, but the ideas and methods have also proven
+effective in image representation and processing <link target-id="bid16"/>, <link target-id="bid17"/>
+dealing with two, three, or even four or more dimensions. Vector spaces have
+proved to be a natural setting for developing both the theory and
+applications of wavelets. Some background in that area is helpful but can
+be picked up as needed <link target-id="csbvs"/>. The study and understanding of wavelets is
+greatly assisted by using some sort of wavelet software system to work out
+examples and run experiments. <emphasis effect="smallcaps">Matlab</emphasis><m:math overflow="scroll"><m:msup><m:mrow/><m:mrow><m:mi>T</m:mi><m:mi>M</m:mi></m:mrow></m:msup></m:math> programs are included
+at the end of this book and on our web site (noted at the end of the
+preface). Several other systems are mentioned in <link document="m45101">Chapter: Wavelet-Based Signal Processing and Applications </link>.</para><para id="id330760">There are several different approaches that one could take in presenting
+wavelet theory. We have chosen to start with the representation of a
+signal or function of continuous time in a series expansion, much as a
+Fourier series is used in a Fourier analysis. From this series
+representation, we can move to the expansion of a function of a discrete
+variable (e.g., samples of a signal) and the theory of filter banks to
+efficiently calculate and interpret the expansion coefficients. This
+would be analogous to the discrete Fourier transform (DFT) and its
+efficient implementation, the fast Fourier transform (FFT). We can also
+go from the series expansion to an integral transform called the
+continuous wavelet transform, which is analogous to the Fourier transform
+or Fourier integral. We feel starting with the series expansion gives the
+greatest insight and provides ease in seeing both the similarities and
+differences with Fourier analysis.</para>
+    <para id="id330489">This book is organized into sections and chapters, each somewhat
+self-contained. The earlier chapters give a fairly complete development
+of the discrete wavelet transform (DWT) as a series expansion of signals
+in terms of wavelets and scaling functions. The later chapters are short
+descriptions of generalizations of the DWT and of applications. They give
+references to other works, and serve as a sort of annotated bibliography.
+Because we intend this book as an introduction to wavelets which already
+have an extensive literature, we have included a rather long bibliography.
+However, it will soon be incomplete because of the large number of papers
+that are currently being published. Nevertheless, a guide to the other
+literature is essential to our goal of an introduction.</para>
+    <para id="id330498">A good sketch of the philosophy of wavelet analysis and the history of its
+development can be found in a book published by the National
+Academy of Science in the chapter by Barbara Burke <link target-id="bid7"/>. She has
+written an excellent expanded version in <link target-id="bid8"/>, which should be
+read by anyone interested in wavelets. Daubechies gives a brief history of
+the early research in <link target-id="bid18"/>.</para><para id="id330521">Many of the results and relationships presented in this book are in the
+form of theorems and proofs or derivations. A real effort has been made
+to ensure the correctness of the statements of theorems but the proofs are
+often only outlines of derivations intended to give insight into the
+result rather than to be a formal proof. Indeed, many of the derivations
+are put in the Appendix in order not to clutter the presentation. We hope
+this style will help the reader gain insight into this very interesting
+but sometimes obscure new mathematical signal processing tool.</para>
+    <para id="id330529">We use a notation that is a mixture of that used in the signal processing
+literature and that in the mathematical literature. We hope this will
+make the ideas and results more accessible, but some uniformity and
+cleanness is lost.</para>
+    <para id="id330534">The authors acknowledge AFOSR, ARPA, NSF, Nortel, Inc., Texas Instruments,
+Inc. and Aware, Inc. for their support of this work. We specifically
+thank H. L. Resnikoff, who first introduced us to wavelets and who proved
+remarkably accurate in predicting their power and success. We also thank
+W. M. Lawton, R. O. Wells, Jr., R. G. Baraniuk, J. E. Odegard, I. W.
+Selesnick, M. Lang, J. Tian, and members of the Rice Computational
+Mathematics Laboratory for many of the ideas and results presented in this
+book. The first named author would like to thank the Maxfield and Oshman
+families for their generous support. The students in EE-531 and EE-696
+at Rice University provided valuable feedback as did Bruce Francis, Strela
+Vasily, Hans Schüssler, Peter Steffen, Gary Sitton, Jim Lewis, Yves
+Angel, Curt Michel, J. H. Husoy, Kjersti Engan, Ken Castleman, Jeff Trinkle,
+Katherine Jones, and other colleagues at Rice and elsewhere.</para>
+    <para id="id330553">We also particularly want to thank Tom Robbins and his colleagues at
+Prentice Hall for their support and help. Their reviewers added
+significantly to the book.</para>
+    <para id="id330908">We would appreciate learning of any errors or misleading statements that
+any readers discover. Indeed, any suggestions for improvement of the book
+would be most welcome. Send suggestions or comments via email to
+csb@rice.edu. Software, articles, errata for this book, and other
+information on the wavelet research at Rice can be found on the
+world-wide-web URL: http:<m:math overflow="scroll"><m:mrow><m:mo>/</m:mo><m:mspace width="-0.166667em"/><m:mo>/</m:mo></m:mrow></m:math>dsp.rice.edu/ with links to other sites
+where wavelet research is being done.</para><!--empty paragraphs get left behind.-->
+    <para id="id330933">C. Sidney Burrus, Ramesh A. Gopinath, and Haitao Guo</para>
+    <para id="id330939">Houston, Texas; Yorktown Heights, New York; and Cuppertino, California</para><!--empty paragraphs get left behind.-->
+    <section id="id330951">
+      <title>Instructions to the Reader</title>
+      <para id="id330957">Although this book in arranged in a somewhat progressive order, starting
+with basic ideas and definitions, moving to a rather complete discussion
+of the basic wavelet system, and then on to generalizations, one should
+skip around when reading or studying from it. Depending on the background
+of the reader, he or she should skim over most of the book first, then go
+back and study parts in detail. The Introduction at the beginning and the
+Summary at the end should be continually consulted to gain or keep a
+perspective; similarly for the Table of Contents and Index. The <emphasis effect="smallcaps">Matlab</emphasis> programs in the Appendix or the Wavelet Toolbox from Mathworks or
+other wavelet software should be used for continual experimentation. The
+list of references should be used to find proofs or detail not included
+here or to pursue research topics or applications. The theory and
+application of wavelets are still developing and in a state of rapid
+growth. We hope this book will help open the door to this fascinating new
+subject.</para>
+    </section>
+    <section id="idnewedition">
+      <title>OpenStax-Connexions Edition</title><para id="id330957a">We thank Pearson, Inc. for permission (given in 2012) to put this content (originally published in 1998 with Prentice Hall) into the OpenStax Cnx system online under the Creative Commons attribution only (cc-by) copyright license. We also thank Daniel Williamson at OpenStax for his contributions. This edition has some minor errors corrected and some more recent references added.  In particular, Stéphane Mallat latest book, <emphasis effect="italics">a Wavelet Tour of Signal Processing </emphasis> <link target-id="mallat9"/>  also available in OpenStax at https://legacy.cnx.org/content/col10711/latest/  and Kovačević, Goyal, and Vetterli's new book, <emphasis effect="italics"> Fourier and Wavelet Signal Processing </emphasis> <link target-id="jelena5"/> online at http://www.fourierandwavelets.org/  A valuable collection of basic papers has been published <link target-id="heilwalnut"/> and a book on Frames  <link target-id="frames"/>. 
+</para><para id="eip-111">If one starts with Louis Scharf's book, <emphasis effect="italics">A First Course in Electrical and Computer Engineering </emphasis>, which is in OpenStax at  https://legacy.cnx.org/content/col10685/latest/   followed by Richard Baraniuk's book, <emphasis effect="italics">Signals and Systems</emphasis>, at https://legacy.cnx.org/content/col10064/latest/  and Martin Vetterli et al book,<emphasis effect="italics"> Foundations of Signal Processing </emphasis> at http://www.fourierandwavelets.org/ one has an excellent set of signal processing resources, all online.</para></section>
+  </content>
+  <bib:file>
+    <bib:entry id="bid15">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Akansu, A. N. and Haddad, R. A.</bib:author>
+        <bib:title>Multiresolution Signal Decomposition, Transforms, Subbands, and Wavelets</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid7">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Burke, Barbara</bib:author>
+        <bib:title>The Mathematical Microscope: Waves, Wavelets, and Beyond</bib:title>
+        <bib:booktitle>A Positron Named Priscilla, Scientific Discovery at the Frontier</bib:booktitle>
+        <bib:publisher>National Academy Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter>7</bib:chapter>
+        <bib:pages>196–235</bib:pages>
+        <bib:address>Washington, DC</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="csbvs">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Burrus, C. Sidney</bib:author>
+        <bib:title> Basic Vector Space Methods in Signal and Systems Theory </bib:title>
+        <bib:journal>OpenStax Cnx</bib:journal>
+        <bib:year>2012</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:number/>
+        <bib:pages/>
+        <bib:month/>
+        <bib:note>https://legacy.cnx.org/content/col10636/latest/</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid1">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor> Combes, Jean-Michel; Grossmann, Alexander; and Tchamitchian, Philippe</bib:editor> 
+        <bib:title>Wavelets, Time-Frequency Methods and Phase Space</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Proceedings of the International Conference, Marseille, France, December 1987.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid0">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Orthonormal Bases of Compactly Supported Wavelets</bib:title>
+        <bib:journal>Communications on Pure and Applied Mathematics</bib:journal>
+        <bib:year>1988</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number/>
+        <bib:pages>909–996</bib:pages>
+        <bib:month>November</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid4">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Ten Lectures on Wavelets</bib:title>
+        <bib:publisher>SIAM</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Philadelphia, PA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Notes from the 1990 CBMS-NSF Conference on Wavelets and Applications at Lowell, MA</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid18">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Daubechies, Ingrid</bib:author>
+        <bib:title>Where Do Wavelets Comre From? – A Personal Point of View</bib:title>
+        <bib:journal>Proceedings of the IEEE</bib:journal>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume>84</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>510–513</bib:pages>
+        <bib:month>April</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid10">
+      <bib:inproceedings>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Nonlinear Wavelet Methods for Recovery of Signals, Densities, and Spectra from Indirect and Noisy Data</bib:title>
+        <bib:booktitle>Different Perspectives on Wavelets, I</bib:booktitle>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:pages>173–205</bib:pages>
+        <bib:address>Providence</bib:address>
+        <bib:month/>
+        <bib:organization>American Mathematical Society</bib:organization>
+        <bib:publisher/>
+        <bib:note>Proceedings of Symposia in Applied Mathematics and Stanford Report 437, July 1993</bib:note>
+      </bib:inproceedings>
+    </bib:entry>
+    <bib:entry id="bid6">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>Unconditional Bases are Optimal Bases for Data Compression and for Statistical Estimation</bib:title>
+        <bib:journal>Applied and Computational Harmonic Analysis</bib:journal>
+        <bib:year>1993</bib:year>
+        <!--optional fields-->
+        <bib:volume>1</bib:volume>
+        <bib:number>1</bib:number>
+        <bib:pages>100–115</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note>Also Stanford Statistics Dept. Report TR-410, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid9">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Donoho, David L.</bib:author>
+        <bib:title>De-Noising by Soft-Thresholding</bib:title>
+        <bib:journal>IEEE Transactions on Information Theory</bib:journal>
+        <bib:year>1995</bib:year>
+        <!--optional fields-->
+        <bib:volume>41</bib:volume>
+        <bib:number>3</bib:number>
+        <bib:pages>613–627</bib:pages>
+        <bib:month>May</bib:month>
+        <bib:note>also Stanford Statistics Dept. report TR-409, Nov. 1992</bib:note>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid13">
+      <bib:phdthesis>
+        <!--required fields-->
+        <bib:author>Guo, Haitao</bib:author>
+        <bib:title>Wavelets for Approximate Fourier Transform and Data Compression</bib:title>
+        <bib:school>ECE Department, Rice University</bib:school>
+        <bib:year>1997</bib:year>
+        <!--optional fields-->
+        <bib:type>Ph. D. Thesis</bib:type>
+        <bib:address>Houston, Tx</bib:address>
+        <bib:month>May</bib:month>
+        <bib:note/>
+      </bib:phdthesis>
+    </bib:entry>
+    <bib:entry id="bid8">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Hubbard, Barbara Burke</bib:author>
+        <bib:title>The World According to Wavelets</bib:title>
+        <bib:publisher>A K Peters</bib:publisher>
+        <bib:year>1996</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Wellesley, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Second Edition 1998</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid17">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Mallat, S. G.</bib:author>
+        <bib:title>Multifrequency Channel Decomposition of Images and Wavelet Models</bib:title>
+        <bib:journal>IEEE Transactions on Acoustics, Speech and Signal Processing</bib:journal>
+        <bib:year>1989</bib:year>
+        <!--optional fields-->
+        <bib:volume>37</bib:volume>
+        <bib:number/>
+        <bib:pages>2091–2110</bib:pages>
+        <bib:month>December</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid2">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor> Meyer, Yves</bib:editor>
+        <bib:title>Wavelets and Applications</bib:title>
+        <bib:publisher>Springer-Verlag</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Proceedings of the Marseille Workshop on Wavelets, France, May, 1989; Research Notes in Applied Mathematics, RMA-20.</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid3">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Ruskai, Mary Beth; Beylkin, G.; Coifman, R.;Daubechies, I.; Mallat, S.; Meyer, Y; and Raphael, L. </bib:editor>
+        <bib:title>Wavelets and their Applications</bib:title>
+        <bib:publisher>Jones and Bartlett</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Boston, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Outgrowth of NSF/CBMS conference on Wavelets held at the University of Lowell, June 1990</bib:note>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid5">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Rioul, Olivier and Vetterli, Martin</bib:author>
+        <bib:title>Wavelet and Signal Processing</bib:title>
+        <bib:journal>IEEE Signal Processing Magazine</bib:journal>
+        <bib:year>1991</bib:year>
+        <!--optional fields-->
+        <bib:volume>8</bib:volume>
+        <bib:number>4</bib:number>
+        <bib:pages>14–38</bib:pages>
+        <bib:month>October</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="bid16">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Simoncelli, E. P. and Adelson, E. H.</bib:author>
+        <bib:title>Subband Transforms</bib:title>
+        <bib:booktitle>Subband Image Coding</bib:booktitle>
+        <bib:publisher>Kluwer</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages/>
+        <bib:address>Norwell, MA</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Also, MIT Vision and Modeling Tech. Report No. 137, Sept. 1989</bib:note>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid11">
+      <bib:incollection>
+        <!--required fields-->
+        <bib:author>Saito, Naoki</bib:author>
+        <bib:title>Simultaneous Noise Suppression and Signal Compression using a Library of Orthonormal Bases and the Minimum Description Length Criterion</bib:title>
+        <bib:booktitle>Wavelets in Geophysics</bib:booktitle>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>1994</bib:year>
+        <!--optional fields-->
+        <bib:editor/>
+        <bib:number/>
+        <bib:series/>
+        <bib:type/>
+        <bib:chapter/>
+        <bib:pages/>
+        <bib:address>San Diego</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:incollection>
+    </bib:entry>
+    <bib:entry id="bid14">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Vaidyanathan, P. P.</bib:author>
+        <bib:title>Multirate Systems and Filter Banks</bib:title>
+        <bib:publisher>Prentice-Hall</bib:publisher>
+        <bib:year>1992</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Englewood Cliffs, NJ</bib:address>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note/>
+      </bib:book>
+    </bib:entry>
+    <bib:entry id="bid12">
+      <bib:article>
+        <!--required fields-->
+        <bib:author>Wei, Dong and Tian, Jun and Wells, Jr., Raymond O. and Burrus, C. Sidney</bib:author>
+        <bib:title>A New Class of Biorthogonal Wavelet Systems for Image Transform Coding</bib:title>
+        <bib:journal>IEEE Transactions on Image Processing</bib:journal>
+        <bib:year>1998</bib:year>
+        <!--optional fields-->
+        <bib:volume>7</bib:volume>
+        <bib:number>7</bib:number>
+        <bib:pages>1000–1013</bib:pages>
+        <bib:month>July</bib:month>
+        <bib:note/>
+      </bib:article>
+    </bib:entry>
+    <bib:entry id="jelena5">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Kovačević, Jelena and Goyal, Vivek K. and Vetterli, Martin</bib:author>
+        <bib:title>Fourier and Wavelet Signal Processing</bib:title>
+        <bib:publisher>Cambridge University Press</bib:publisher>
+        <bib:year>2014</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address/>
+        <bib:edition/>
+        <bib:month/>
+        <bib:note>Online at www.fourierandwavelets.org</bib:note>
+      </bib:book>
+    </bib:entry>
+  <bib:entry id="mallat9">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Mallat, Stéphane</bib:author>
+        <bib:title>A Wavelet Tour of Signal Processing: The Sparse Way</bib:title>
+        <bib:publisher>Academic Press</bib:publisher>
+        <bib:year>2009</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>San Diego, CA</bib:address>
+        <bib:edition>Third Revised Edition</bib:edition>
+        <bib:month/>
+        <bib:note>Online at https://www.ceremade.dauphine.fr/~peyre/wavelet-tour/; also in OpenStax: https://legacy.cnx.org/content/col10711/latest/</bib:note>
+      </bib:book>
+    </bib:entry>
+  <bib:entry id="frames">
+      <bib:book>
+        <!--required fields-->
+        <bib:author>Christensen, Ole</bib:author>
+        <bib:title>An Introduction to Frames and Riesz Bases</bib:title>
+        <bib:publisher>Birkhauser</bib:publisher>
+        <bib:year>2002</bib:year>
+        <!--optional fields-->
+        <bib:volume/>
+        <bib:series/>
+        <bib:address>Berlin</bib:address>
+        <bib:edition/>
+        <bib:month/>
+       </bib:book>
+    </bib:entry>
+  <bib:entry id="heilwalnut">
+      <bib:book>
+        <!--required fields-->
+        <bib:editor>Heil, Christopher and Walnut, David F.</bib:editor>
+        <bib:title>Fundamental Papers in Wavelet Theory</bib:title>
+        <bib:publisher>Princeton University Press</bib:publisher>
+        <bib:year>2006</bib:year>
+       </bib:book>
+    </bib:entry>
+  </bib:file>
+</document>

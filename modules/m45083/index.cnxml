@@ -1,0 +1,2849 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <title>Appendix A</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45083</md:content-id>
+  <md:title>Appendix A</md:title>
+  <md:abstract/>
+  <md:uuid>9e55c6f0-88a3-4356-af0b-c2ce444adba7</md:uuid>
+</metadata>
+
+<content>
+    <para id="id318968">This appendix contains outline proofs and derivations for the theorems and
+formulas given in early part of <link target-id="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients </link>.
+They are not intended to be complete
+or formal, but they should be sufficient to understand the ideas behind
+why a result is true and to give some insight into its interpretation as
+well as to indicate assumptions and restrictions.</para><para id="id318978"><emphasis effect="bold">Proof 1</emphasis><emphasis effect="italics"> The conditions given by <link target-id="uid20" document="m45100"/> and <link target-id="uid22" document="m45095"/> can be derived by
+integrating both sides of</emphasis></para><equation id="uid2"><m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.277778em"/>
+          <m:msqrt>
+            <m:mi>M</m:mi>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>M</m:mi>
+            <m:mspace width="0.166667em"/>
+            <m:mi>x</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation><para id="id319402"><emphasis effect="italics">and making the change of variables <m:math overflow="scroll"><m:mrow><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>M</m:mi><m:mi>x</m:mi></m:mrow></m:math></emphasis></para><equation id="uid3">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>∫</m:mo>
+          <m:msqrt>
+            <m:mi>M</m:mi>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>M</m:mi>
+            <m:mi>x</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id319684"><emphasis effect="italics">and noting the integral is independent of translation which gives</emphasis></para><equation id="uid4">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msqrt>
+            <m:mi>M</m:mi>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mi>M</m:mi>
+          </m:mfrac>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>y</m:mi>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id319758"><emphasis effect="italics">With no further requirements other than <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>∈</m:mo><m:msup><m:mi>L</m:mi><m:mn>1</m:mn></m:msup></m:mrow></m:math>
+to allow the sum and integral interchange and <m:math overflow="scroll"><m:mrow><m:mo>∫</m:mo><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo><m:mspace width="0.166667em"/><m:mi>d</m:mi><m:mi>x</m:mi><m:mo>≠</m:mo><m:mn>0</m:mn></m:mrow></m:math>, this gives <link target-id="uid22" document="m45095"/> as</emphasis></para><equation id="uid5">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msqrt>
+            <m:mi>M</m:mi>
+          </m:msqrt>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id319849"><emphasis effect="italics">and for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> gives <link target-id="uid20" document="m45100"/>. Note this does not assume
+orthogonality nor any specific normalization of <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> and does not
+even assume <m:math overflow="scroll"><m:mi>M</m:mi></m:math> is an integer.</emphasis></para><para id="id319894">This is the most basic necessary condition for the existence of
+<m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> and it has the fewest assumptions or restrictions.</para>
+    <para id="id319913"><emphasis effect="bold">Proof 2</emphasis><emphasis effect="italics"> The conditions in <link target-id="uid26" document="m45100"/> and <link target-id="uid24" document="m45095"/> are a down-sampled
+orthogonality of translates by <m:math overflow="scroll"><m:mi>M</m:mi></m:math> of the coefficients which results from
+the orthogonality of translates of the scaling function given by</emphasis></para><equation id="uid7">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>x</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>x</m:mi>
+          <m:mo>-</m:mo>
+          <m:mi>m</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+          <m:mo>=</m:mo>
+          <m:mi>E</m:mi>
+          <m:mspace width="0.166667em"/>
+          <m:mi>δ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>m</m:mi>
+          <m:mo>)</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320001"><emphasis effect="italics">in <link target-id=""/>. The basic scaling equation <link target-id="uid2"/> is substituted for
+both functions in <link target-id="uid7"/> giving</emphasis></para><equation id="uid8">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>n</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msqrt>
+              <m:mi>M</m:mi>
+            </m:msqrt>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>M</m:mi>
+              <m:mi>x</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mfenced>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mspace width="0.166667em"/>
+            <m:msqrt>
+              <m:mi>M</m:mi>
+            </m:msqrt>
+            <m:mspace width="0.166667em"/>
+            <m:mi>φ</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mi>M</m:mi>
+              <m:mi>x</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>M</m:mi>
+              <m:mi>m</m:mi>
+              <m:mo>-</m:mo>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mfenced>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+          <m:mo>=</m:mo>
+          <m:mi>E</m:mi>
+          <m:mspace width="0.166667em"/>
+          <m:mi>δ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>m</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320162"><emphasis effect="italics">which, after reordering and a change of variable <m:math overflow="scroll"><m:mrow><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>M</m:mi><m:mspace width="0.166667em"/><m:mi>x</m:mi></m:mrow></m:math>, gives</emphasis></para><equation id="uid9">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>M</m:mi>
+            <m:mi>m</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>y</m:mi>
+          <m:mo>=</m:mo>
+          <m:mi>E</m:mi>
+          <m:mspace width="0.166667em"/>
+          <m:mi>δ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>m</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320302"><emphasis effect="italics">Using the orthogonality in <link target-id="uid7"/> gives our result</emphasis></para><equation id="uid10">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>M</m:mi>
+            <m:mi>m</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.277778em"/>
+          <m:mo>=</m:mo>
+          <m:mspace width="0.277778em"/>
+          <m:mi>δ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>m</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320378"><emphasis effect="italics">in <link target-id="uid25" document="m45100"/> and <link target-id="uid24" document="m45095"/>. This result requires the orthogonality
+condition <link target-id="uid7"/>, <m:math overflow="scroll"><m:mi>M</m:mi></m:math> must be an integer, and any non-zero
+normalization <m:math overflow="scroll"><m:mi>E</m:mi></m:math> may be used.</emphasis></para><!--empty paragraphs get left behind.-->
+    <para id="id320414"><emphasis effect="bold">Proof 3 (Corollary 2)</emphasis> <emphasis effect="italics">
+The result that</emphasis></para><equation id="uid12">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>/</m:mo>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320493"><emphasis effect="italics">in <link target-id="uid31" document="m45100"/> or, more generally</emphasis></para><equation id="uid13">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>M</m:mi>
+            <m:mspace width="0.166667em"/>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>M</m:mi>
+            <m:mspace width="0.166667em"/>
+            <m:mi>n</m:mi>
+            <m:mo>+</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>/</m:mo>
+          <m:msqrt>
+            <m:mi>M</m:mi>
+          </m:msqrt>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320573"><emphasis effect="italics">is obtained by breaking <link target-id="uid5"/> for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> into the sum of the even and
+odd coefficients.</emphasis></para><equation id="uid14">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320700"><emphasis effect="italics">Next we use <link target-id="uid10"/> and sum over <m:math overflow="scroll"><m:mi>n</m:mi></m:math> to give</emphasis></para><equation id="uid15">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id320775"><emphasis effect="italics">which we then split into even and odd sums and reorder to give:</emphasis></para><equation id="id320781"><m:math overflow="scroll" mode="display">
+   <m:mtable>
+    <m:mtd>
+     <m:mtr>   
+
+     <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mo>+</m:mo>
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>k</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mfenced>
+        </m:mrow>
+     </m:mtr>
+    </m:mtd>
+    <m:mtd>
+     <m:mtr>
+<m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>n</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mfenced>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>n</m:mi>
+            </m:munder>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>k</m:mi>
+              <m:mo>+</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>+</m:mo>
+              <m:mn>2</m:mn>
+              <m:mi>n</m:mi>
+              <m:mo>)</m:mo>
+            </m:mrow>
+          </m:mfenced>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+     </m:mtr>
+    </m:mtd>
+    <m:mtd>
+     <m:mtr>
+
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msubsup>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+            <m:mn>2</m:mn>
+          </m:msubsup>
+          <m:mo>+</m:mo>
+          <m:msubsup>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:msubsup>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>.</m:mo>
+        </m:mrow>
+     </m:mtr>
+    </m:mtd>
+   </m:mtable>
+</m:math>
+    </equation><para id="id321121"><emphasis effect="italics">Solving <link target-id="uid14"/> and <link target-id="id320781"/> simultaneously gives <m:math overflow="scroll"><m:mrow><m:msub><m:mi>K</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>K</m:mi><m:mn>1</m:mn></m:msub><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math> and our result <link target-id="uid31" document="m45100"/> or <link target-id="uid12"/> for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math>.</emphasis></para><para id="id321188"><emphasis effect="italics">If the same approach is taken with <link target-id="uid22" document="m45095"/> and <link target-id="uid24" document="m45095"/> for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math>,
+we have</emphasis></para><equation id="uid17">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>x</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>x</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>3</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>x</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>3</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>x</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>3</m:mn>
+            <m:mi>n</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>2</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msqrt>
+            <m:mn>3</m:mn>
+          </m:msqrt>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id321316"><emphasis effect="italics">which, in terms of the partial sums <m:math overflow="scroll"><m:msub><m:mi>K</m:mi><m:mi>i</m:mi></m:msub></m:math>, is</emphasis></para><equation id="uid18">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>x</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>K</m:mi>
+            <m:mn>2</m:mn>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msqrt>
+            <m:mn>3</m:mn>
+          </m:msqrt>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id321401"><emphasis effect="italics">Using the orthogonality condition <link target-id="id320781"/> as was done in <link target-id="uid15"/> and
+<link target-id="uid16"/> gives</emphasis></para><equation id="uid19">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msubsup>
+            <m:mi>K</m:mi>
+            <m:mn>0</m:mn>
+            <m:mn>2</m:mn>
+          </m:msubsup>
+          <m:mo>+</m:mo>
+          <m:msubsup>
+            <m:mi>K</m:mi>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:msubsup>
+          <m:mo>+</m:mo>
+          <m:msubsup>
+            <m:mi>K</m:mi>
+            <m:mn>2</m:mn>
+            <m:mn>2</m:mn>
+          </m:msubsup>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id321475"><emphasis effect="italics">Equation <link target-id="uid18"/> and <link target-id="uid19"/> are simultaneously true if and only if
+<m:math overflow="scroll"><m:mrow><m:msub><m:mi>K</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>K</m:mi><m:mn>1</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>K</m:mi><m:mn>2</m:mn></m:msub><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>3</m:mn></m:msqrt></m:mrow></m:math>. This process is valid for any integer <m:math overflow="scroll"><m:mi>M</m:mi></m:math>
+and any non-zero normalization.</emphasis></para><para id="id321544"><emphasis effect="bold">Proof 3</emphasis><emphasis effect="italics"> If the support of <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>x</m:mi><m:mo>)</m:mo></m:mrow></m:math> is <m:math overflow="scroll"><m:mrow><m:mo>[</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>]</m:mo></m:mrow></m:math>, from the basic recursion
+equation with support of <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> assumed as <m:math overflow="scroll"><m:mrow><m:mo>[</m:mo><m:msub><m:mi>N</m:mi><m:mn>1</m:mn></m:msub><m:mo>,</m:mo><m:msub><m:mi>N</m:mi><m:mn>2</m:mn></m:msub><m:mo>]</m:mo></m:mrow></m:math> we have</emphasis></para><equation id="uid21">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munderover>
+            <m:mo>∑</m:mo>
+            <m:mrow>
+              <m:mi>n</m:mi>
+              <m:mo>=</m:mo>
+              <m:msub>
+                <m:mi>N</m:mi>
+                <m:mn>1</m:mn>
+              </m:msub>
+            </m:mrow>
+            <m:msub>
+              <m:mi>N</m:mi>
+              <m:mn>2</m:mn>
+            </m:msub>
+          </m:munderover>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.277778em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>x</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id321729"><emphasis effect="italics">where the support of the right hand side of <link target-id="uid21"/> is
+<m:math overflow="scroll"><m:mrow><m:mo>[</m:mo><m:msub><m:mi>N</m:mi><m:mn>1</m:mn></m:msub><m:mo>/</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mrow><m:mo>(</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>+</m:mo><m:msub><m:mi>N</m:mi><m:mn>2</m:mn></m:msub><m:mo>)</m:mo></m:mrow><m:mo>/</m:mo><m:mn>2</m:mn><m:mo>)</m:mo></m:mrow></m:math>. Since the support of both sides of <link target-id="uid21"/>
+must be the same, the limits on the sum, or, the limits on the indices of
+the non zero <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> are such that <m:math overflow="scroll"><m:mrow><m:msub><m:mi>N</m:mi><m:mn>1</m:mn></m:msub><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:msub><m:mi>N</m:mi><m:mn>2</m:mn></m:msub><m:mo>=</m:mo><m:mi>N</m:mi></m:mrow></m:math>, therefore, the
+support of <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> is <m:math overflow="scroll"><m:mrow><m:mo>[</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mi>N</m:mi><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>]</m:mo></m:mrow></m:math>.</emphasis></para><para id="id321892"><emphasis effect="bold">Proof 4</emphasis> <emphasis effect="italics">First define the autocorrelation function</emphasis></para><equation id="uid23">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>a</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>)</m:mo>
+          <m:mo>=</m:mo>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>x</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>x</m:mi>
+          <m:mo>-</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id321964"><emphasis effect="italics">and the power spectrum</emphasis></para><equation id="uid24">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>A</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mo>∫</m:mo>
+          <m:mi>a</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mo>-</m:mo>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>t</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+          <m:mo>=</m:mo>
+          <m:mo>∫</m:mo>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mo>-</m:mo>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>t</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322106"><emphasis effect="italics">which after changing variables, <m:math overflow="scroll"><m:mrow><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>x</m:mi><m:mo>-</m:mo><m:mi>t</m:mi></m:mrow></m:math>, and reordering operations gives</emphasis></para><equation id="uid25">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>A</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mo>-</m:mo>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>x</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>x</m:mi>
+          <m:mspace width="0.277778em"/>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>y</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>y</m:mi>
+          <m:mspace width="0.277778em"/>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid26">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:mi>Φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>Φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mo>-</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322302"><emphasis effect="italics">If we look at <link target-id="uid23"/> as being the inverse Fourier transform of
+<link target-id="uid26"/> and sample <m:math overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> at <m:math overflow="scroll"><m:mrow><m:mi>t</m:mi><m:mo>=</m:mo><m:mi>k</m:mi></m:mrow></m:math>, we have</emphasis></para><equation id="uid27">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>a</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>π</m:mi>
+            </m:mrow>
+          </m:mfrac>
+          <m:msubsup>
+            <m:mo>∫</m:mo>
+            <m:mrow>
+              <m:mo>-</m:mo>
+              <m:mi>∞</m:mi>
+            </m:mrow>
+            <m:mi>∞</m:mi>
+          </m:msubsup>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>ω</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid28">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>π</m:mi>
+            </m:mrow>
+          </m:mfrac>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:msubsup>
+            <m:mo>∫</m:mo>
+            <m:mn>0</m:mn>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>π</m:mi>
+            </m:mrow>
+          </m:msubsup>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>ℓ</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>ω</m:mi>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>π</m:mi>
+            </m:mrow>
+          </m:mfrac>
+          <m:msubsup>
+            <m:mo>∫</m:mo>
+            <m:mn>0</m:mn>
+            <m:mrow>
+              <m:mn>2</m:mn>
+              <m:mi>π</m:mi>
+            </m:mrow>
+          </m:msubsup>
+          <m:mfenced separators="" open="[" close="]">
+            <m:munder>
+              <m:mo>∑</m:mo>
+              <m:mi>ℓ</m:mi>
+            </m:munder>
+            <m:msup>
+              <m:mrow>
+                <m:mo>|</m:mo>
+                <m:mi>Φ</m:mi>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mi>ω</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>2</m:mn>
+                  <m:mi>π</m:mi>
+                  <m:mi>ℓ</m:mi>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mo>|</m:mo>
+              </m:mrow>
+              <m:mn>2</m:mn>
+            </m:msup>
+          </m:mfenced>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>ω</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322641"><emphasis effect="italics">but this integral is the form of an inverse discrete-time Fourier
+transform (DTFT) which means</emphasis></para><equation id="uid29">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mo>,</m:mo>
+          </m:munder>
+          <m:mi>a</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mi>e</m:mi>
+            <m:mrow>
+              <m:mi>j</m:mi>
+              <m:mi>ω</m:mi>
+              <m:mi>k</m:mi>
+            </m:mrow>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>ℓ</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322738"><emphasis effect="italics">If the integer translates of <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math> are orthogonal,
+<m:math overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo><m:mo>=</m:mo><m:mi>δ</m:mi><m:mo>(</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:math> and we have our result</emphasis></para><equation id="uid30">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>ℓ</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322845"><emphasis effect="italics">If the scaling function is not normalized</emphasis></para><equation id="uid31">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>ℓ</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:mo>∫</m:mo>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>t</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id322936"><emphasis effect="italics">which is similar to Parseval's theorem relating the energy in the
+frequency domain to the energy in the time domain.</emphasis></para><para id="id322942"><emphasis effect="bold">Proof 6</emphasis><emphasis effect="italics"> Equation <link target-id="uid38" document="m45100"/> states a very interesting property of the frequency
+response of an FIR filter with the scaling coefficients as filter
+coefficients. This result can be derived in the frequency or time domain.
+We will show the frequency domain argument. The scaling equation
+<link target-id="uid2"/> becomes <link target-id="uid104" document="m45100"/> in the frequency domain. Taking the squared
+magnitude of both sides of a scaled version of</emphasis></para><equation id="uid33">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>Φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:msqrt>
+              <m:mn>2</m:mn>
+            </m:msqrt>
+          </m:mfrac>
+          <m:mi>H</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>Φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ω</m:mi>
+            <m:mo>/</m:mo>
+            <m:mn>2</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323033"><emphasis effect="italics">gives</emphasis></para><equation id="uid34">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323129"><emphasis effect="italics">Add <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mi>π</m:mi></m:mrow></m:math> to <m:math overflow="scroll"><m:mi>ω</m:mi></m:math> and sum over <m:math overflow="scroll"><m:mi>k</m:mi></m:math> to give for the left side of <link target-id="uid34"/></emphasis></para><equation id="uid35">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:mi>K</m:mi>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323231"><emphasis effect="italics">which is unity from <link target-id="uid118" document="m45100"/>. Summing the right side of <link target-id="uid34"/> gives</emphasis></para><equation id="uid36">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mi>k</m:mi>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323330"><emphasis effect="italics">Break this sum into a sum of the even and odd indexed terms.</emphasis></para><equation id="uid37">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:msup>
+            <m:mrow>
+              <m:mspace width="0.166667em"/>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mn>2</m:mn>
+                  <m:mi>k</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mspace width="0.166667em"/>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mn>2</m:mn>
+                  <m:mi>k</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="id323524">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mn>2</m:mn>
+                <m:mi>π</m:mi>
+                <m:mi>k</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>k</m:mi>
+          </m:munder>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>Φ</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mrow>
+                  <m:mo>(</m:mo>
+                  <m:mn>2</m:mn>
+                  <m:mi>k</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo>)</m:mo>
+                </m:mrow>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323681"><emphasis effect="italics">which after using <link target-id="uid35"/> gives</emphasis></para><equation id="uid38">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>=</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>+</m:mo>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:msup>
+            <m:mrow>
+              <m:mo>|</m:mo>
+              <m:mi>H</m:mi>
+              <m:mrow>
+                <m:mo>(</m:mo>
+                <m:mi>ω</m:mi>
+                <m:mo>+</m:mo>
+                <m:mi>π</m:mi>
+                <m:mo>)</m:mo>
+              </m:mrow>
+              <m:mo>|</m:mo>
+            </m:mrow>
+            <m:mn>2</m:mn>
+          </m:msup>
+          <m:mo>=</m:mo>
+          <m:mn>1</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323772"><emphasis effect="italics">which gives <link target-id="uid38" document="m45100"/>. This requires both the scaling and orthogonal
+relations but no specific normalization of <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>.
+If viewed as an FIR filter, <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> is called a
+quadrature mirror filter (QMF) because of the symmetry of its frequency
+response about <m:math overflow="scroll"><m:mi>π</m:mi></m:math>.</emphasis></para><para id="id323824"><emphasis effect="bold">Proof 10</emphasis><emphasis effect="italics"> The multiresolution assumptions in <link target-id=""/> require the scaling
+function and wavelet satisfy <link target-id="uid1" document="m45100"/> and <link target-id="uid43" document="m45081"/></emphasis></para><equation id="uid40">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>t</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>,</m:mo>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.277778em"/>
+          <m:mspace width="0.277778em"/>
+          <m:mi>ψ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>t</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id323996"><emphasis effect="italics">and orthonormality requires</emphasis></para><equation id="uid41">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>-</m:mo>
+          <m:mi>k</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+          <m:mo>=</m:mo>
+          <m:mi>δ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>k</m:mi>
+          <m:mo>)</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324062"><emphasis effect="italics">and</emphasis></para><equation id="uid42">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>ψ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mo>(</m:mo>
+          <m:mi>t</m:mi>
+          <m:mo>-</m:mo>
+          <m:mi>k</m:mi>
+          <m:mo>)</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324121"><emphasis effect="italics">for all <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math>. Substituting <link target-id="uid40"/> into <link target-id="uid42"/> gives</emphasis></para><equation id="uid43">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.277778em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>t</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.277778em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>t</m:mi>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324284"><emphasis effect="italics">Rearranging and making a change of variables gives</emphasis></para><equation id="uid44">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mrow>
+              <m:mi>n</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>ℓ</m:mi>
+            </m:mrow>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mfrac>
+            <m:mn>1</m:mn>
+            <m:mn>2</m:mn>
+          </m:mfrac>
+          <m:mo>∫</m:mo>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>y</m:mi>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>y</m:mi>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324407"><emphasis effect="italics">Using <link target-id="uid41"/> gives</emphasis></para><equation id="uid45">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mrow>
+              <m:mi>n</m:mi>
+              <m:mo>,</m:mo>
+              <m:mi>ℓ</m:mi>
+            </m:mrow>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>δ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>ℓ</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324502"><emphasis effect="italics">for all <m:math overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>∈</m:mo><m:mi mathvariant="bold">Z</m:mi></m:mrow></m:math>. Summing over <m:math overflow="scroll"><m:mi>ℓ</m:mi></m:math> gives</emphasis></para><equation id="uid46">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324594"><emphasis effect="italics">Separating <link target-id="uid46"/> into even and odd indices gives</emphasis></para><equation id="uid47">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>m</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>m</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>m</m:mi>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>+</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>ℓ</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>ℓ</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>ℓ</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324726"><emphasis effect="italics">which must be true for all integer <m:math overflow="scroll"><m:mi>k</m:mi></m:math>.
+Defining <m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mi>e</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>, <m:math overflow="scroll"><m:mrow><m:msub><m:mi>h</m:mi><m:mi>o</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>h</m:mi><m:mrow><m:mo>(</m:mo><m:mn>2</m:mn><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>g</m:mi><m:mo>˜</m:mo></m:mover><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>g</m:mi><m:mrow><m:mo>(</m:mo><m:mo>-</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+for any sequence <m:math overflow="scroll"><m:mi>g</m:mi></m:math>, this becomes</emphasis></para><equation id="uid48">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>e</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>o</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>o</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mn>0</m:mn>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id324943"><emphasis effect="italics">From the orthonormality of the translates of <m:math overflow="scroll"><m:mi>φ</m:mi></m:math> and <m:math overflow="scroll"><m:mi>ψ</m:mi></m:math>
+one can similarly obtain the following:</emphasis></para><equation id="uid49">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>e</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mi>e</m:mi>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>o</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mi>o</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mi>δ</m:mi>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <equation id="uid50">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>+</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>o</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>o</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mi>δ</m:mi>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id325122"><emphasis effect="italics">This can be compactly represented as</emphasis></para><equation id="uid51">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mfenced separators="" open="[" close="]">
+            <m:mtable>
+              <m:mtr>
+                <m:mtd>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>e</m:mi>
+                  </m:msub>
+                </m:mtd>
+                <m:mtd>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>o</m:mi>
+                  </m:msub>
+                </m:mtd>
+              </m:mtr>
+              <m:mtr>
+                <m:mtd>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>e</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:mtd>
+                <m:mtd>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>o</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:mtd>
+              </m:mtr>
+            </m:mtable>
+          </m:mfenced>
+          <m:mo>☆</m:mo>
+          <m:mfenced separators="" open="[" close="]">
+            <m:mtable>
+              <m:mtr>
+                <m:mtd>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mi>e</m:mi>
+                  </m:msub>
+                </m:mtd>
+                <m:mtd>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>e</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:mtd>
+              </m:mtr>
+              <m:mtr>
+                <m:mtd>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mi>o</m:mi>
+                  </m:msub>
+                </m:mtd>
+                <m:mtd>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>o</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:mtd>
+              </m:mtr>
+            </m:mtable>
+          </m:mfenced>
+          <m:mo>=</m:mo>
+          <m:mfenced separators="" open="[" close="]">
+            <m:mtable>
+              <m:mtr>
+                <m:mtd>
+                  <m:mi>δ</m:mi>
+                </m:mtd>
+                <m:mtd>
+                  <m:mn>0</m:mn>
+                </m:mtd>
+              </m:mtr>
+              <m:mtr>
+                <m:mtd>
+                  <m:mn>0</m:mn>
+                </m:mtd>
+                <m:mtd>
+                  <m:mi>δ</m:mi>
+                </m:mtd>
+              </m:mtr>
+            </m:mtable>
+          </m:mfenced>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id325303"><emphasis effect="italics">Assuming the sequences are finite length <link target-id="uid51"/> can
+be used to show that</emphasis></para><equation id="uid52">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>e</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>o</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>-</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mi>o</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:mo>±</m:mo>
+          <m:msub>
+            <m:mi>δ</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>,</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id325386"><emphasis effect="italics">where <m:math overflow="scroll"><m:mrow><m:msub><m:mi>δ</m:mi><m:mi>k</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>δ</m:mi><m:mrow><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>-</m:mo><m:mi>k</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>.
+Indeed, taking the Z-transform of <link target-id="uid51"/> we get
+using the notation of <link target-id="m45068">Chapter: Filter Banks and Transmultiplexers </link> <m:math overflow="scroll"><m:mrow><m:msub><m:mi>H</m:mi><m:mi>p</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>z</m:mi><m:mo>)</m:mo></m:mrow><m:msubsup><m:mi>H</m:mi><m:mi>p</m:mi><m:mi>T</m:mi></m:msubsup><m:mrow><m:mo>(</m:mo><m:msup><m:mi>z</m:mi><m:mrow><m:mo>-</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>I</m:mi></m:mrow></m:math>.
+Because, the filters are FIR <m:math overflow="scroll"><m:mrow><m:msub><m:mi>H</m:mi><m:mi>p</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>z</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math> is a (Laurent) polynomial matrix
+with a polynomial matrix inverse. Therefore the determinant of <m:math overflow="scroll"><m:mrow><m:msub><m:mi>H</m:mi><m:mi>p</m:mi></m:msub><m:mrow><m:mo>(</m:mo><m:mi>z</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>
+is of the form <m:math overflow="scroll"><m:mrow><m:mo>±</m:mo><m:msup><m:mi>z</m:mi><m:mi>k</m:mi></m:msup></m:mrow></m:math> for some integer <m:math overflow="scroll"><m:mi>k</m:mi></m:math>. This is equivalent to
+<link target-id="uid52"/>.
+Now, convolving both sides of <link target-id="uid52"/> by <m:math overflow="scroll"><m:msub><m:mover accent="true"><m:mi>h</m:mi><m:mo>˜</m:mo></m:mover><m:mi>e</m:mi></m:msub></m:math>
+we get</emphasis></para><equation id="uid53">
+      <m:math overflow="scroll" mode="display">
+        <m:mtable displaystyle="true">
+          <m:mtr>
+            <m:mtd columnalign="right">
+              <m:mrow>
+                <m:mo>±</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>δ</m:mi>
+                  <m:mi>k</m:mi>
+                </m:msub>
+              </m:mrow>
+            </m:mtd>
+            <m:mtd>
+              <m:mo>=</m:mo>
+            </m:mtd>
+            <m:mtd columnalign="left">
+              <m:mrow>
+                <m:mfenced separators="" open="[" close="]">
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>e</m:mi>
+                  </m:msub>
+                  <m:mo>☆</m:mo>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>o</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                  <m:mo>-</m:mo>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>o</m:mi>
+                  </m:msub>
+                  <m:mo>☆</m:mo>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mn>1</m:mn>
+                      <m:mi>e</m:mi>
+                    </m:mrow>
+                  </m:msub>
+                </m:mfenced>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>e</m:mi>
+                </m:msub>
+              </m:mrow>
+            </m:mtd>
+          </m:mtr>
+          <m:mtr>
+            <m:mtd columnalign="right">
+              <m:mrow/>
+            </m:mtd>
+            <m:mtd>
+              <m:mo>=</m:mo>
+            </m:mtd>
+            <m:mtd columnalign="left">
+              <m:mfenced separators="" open="[" close="]">
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>o</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mo>-</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>e</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mi>o</m:mi>
+                </m:msub>
+              </m:mfenced>
+            </m:mtd>
+          </m:mtr>
+          <m:mtr>
+            <m:mtd columnalign="right">
+              <m:mrow/>
+            </m:mtd>
+            <m:mtd>
+              <m:mo>=</m:mo>
+            </m:mtd>
+            <m:mtd columnalign="left">
+              <m:mfenced separators="" open="[" close="]">
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>e</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>o</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mo>+</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>o</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mover accent="true">
+                    <m:mi>h</m:mi>
+                    <m:mo>˜</m:mo>
+                  </m:mover>
+                  <m:mi>o</m:mi>
+                </m:msub>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mi>o</m:mi>
+                </m:msub>
+              </m:mfenced>
+            </m:mtd>
+          </m:mtr>
+          <m:mtr>
+            <m:mtd columnalign="right">
+              <m:mrow/>
+            </m:mtd>
+            <m:mtd>
+              <m:mo>=</m:mo>
+            </m:mtd>
+            <m:mtd columnalign="left">
+              <m:mrow>
+                <m:mfenced separators="" open="[" close="]">
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>e</m:mi>
+                  </m:msub>
+                  <m:mo>☆</m:mo>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mi>e</m:mi>
+                  </m:msub>
+                  <m:mo>+</m:mo>
+                  <m:msub>
+                    <m:mi>h</m:mi>
+                    <m:mi>o</m:mi>
+                  </m:msub>
+                  <m:mo>☆</m:mo>
+                  <m:msub>
+                    <m:mover accent="true">
+                      <m:mi>h</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mi>o</m:mi>
+                  </m:msub>
+                </m:mfenced>
+                <m:mo>☆</m:mo>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>o</m:mi>
+                  </m:mrow>
+                </m:msub>
+              </m:mrow>
+            </m:mtd>
+          </m:mtr>
+          <m:mtr>
+            <m:mtd columnalign="right">
+              <m:mrow/>
+            </m:mtd>
+            <m:mtd>
+              <m:mo>=</m:mo>
+            </m:mtd>
+            <m:mtd columnalign="left">
+              <m:mrow>
+                <m:msub>
+                  <m:mi>h</m:mi>
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mi>o</m:mi>
+                  </m:mrow>
+                </m:msub>
+                <m:mo>.</m:mo>
+              </m:mrow>
+            </m:mtd>
+          </m:mtr>
+        </m:mtable>
+      </m:math>
+    </equation>
+    <para id="id326019"><emphasis effect="italics">Similarly by convolving both sides of <link target-id="uid52"/> by
+<m:math overflow="scroll"><m:msub><m:mover accent="true"><m:mi>h</m:mi><m:mo>˜</m:mo></m:mover><m:mi>o</m:mi></m:msub></m:math> we get</emphasis></para><equation id="uid54">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∓</m:mo>
+          <m:msub>
+            <m:mover accent="true">
+              <m:mi>h</m:mi>
+              <m:mo>˜</m:mo>
+            </m:mover>
+            <m:mi>o</m:mi>
+          </m:msub>
+          <m:mo>☆</m:mo>
+          <m:msub>
+            <m:mi>δ</m:mi>
+            <m:mi>k</m:mi>
+          </m:msub>
+          <m:mo>=</m:mo>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mrow>
+              <m:mn>1</m:mn>
+              <m:mi>e</m:mi>
+            </m:mrow>
+          </m:msub>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id326106"><emphasis effect="italics">Combining <link target-id="uid53"/> and <link target-id="uid54"/> gives the result</emphasis></para><equation id="uid55">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>=</m:mo>
+          <m:mo>±</m:mo>
+          <m:msup>
+            <m:mrow>
+              <m:mo>(</m:mo>
+              <m:mo>-</m:mo>
+              <m:mn>1</m:mn>
+              <m:mo>)</m:mo>
+            </m:mrow>
+            <m:mi>n</m:mi>
+          </m:msup>
+          <m:mi>h</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>+</m:mo>
+            <m:mn>1</m:mn>
+            <m:mo>-</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>k</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mo>.</m:mo>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id326195"><emphasis effect="bold">Proof 11</emphasis><emphasis effect="italics"> We show the integral of the wavelet is zero by integrating both sides of
+(<link target-id="uid40"/>b) gives</emphasis></para><equation id="uid57">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:mo>∫</m:mo>
+          <m:mi>ψ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>t</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+          <m:mo>=</m:mo>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mo>∫</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:msqrt>
+            <m:mn>2</m:mn>
+          </m:msqrt>
+          <m:mspace width="0.166667em"/>
+          <m:mi>φ</m:mi>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mn>2</m:mn>
+            <m:mi>t</m:mi>
+            <m:mo>-</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mi>d</m:mi>
+          <m:mi>t</m:mi>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id326310"><emphasis effect="italics">But the integral on the right hand side is <m:math overflow="scroll"><m:msub><m:mi>A</m:mi><m:mn>0</m:mn></m:msub></m:math>, usually normalized to
+one and from <link target-id="uid31" document="m45100"/> or <link target-id="uid12"/> and <link target-id="uid55"/> we know that</emphasis></para><equation id="uid58">
+      <m:math overflow="scroll" mode="display">
+        <m:mrow>
+          <m:munder>
+            <m:mo>∑</m:mo>
+            <m:mi>n</m:mi>
+          </m:munder>
+          <m:msub>
+            <m:mi>h</m:mi>
+            <m:mn>1</m:mn>
+          </m:msub>
+          <m:mrow>
+            <m:mo>(</m:mo>
+            <m:mi>n</m:mi>
+            <m:mo>)</m:mo>
+          </m:mrow>
+          <m:mspace width="0.166667em"/>
+          <m:mo>=</m:mo>
+          <m:mspace width="0.166667em"/>
+          <m:mn>0</m:mn>
+        </m:mrow>
+      </m:math>
+    </equation>
+    <para id="id326390"><emphasis effect="italics">and, therefore, from <link target-id="uid57"/>, the integral of the wavelet is zero.</emphasis></para><para id="id326400"><emphasis effect="italics">The fact that multiplying in the time domain by <m:math overflow="scroll"><m:msup><m:mrow><m:mo>(</m:mo><m:mo>-</m:mo><m:mn>1</m:mn><m:mo>)</m:mo></m:mrow><m:mi>n</m:mi></m:msup></m:math> is equivalent to
+shifting in the frequency domain by <m:math overflow="scroll"><m:mi>π</m:mi></m:math> gives
+<m:math overflow="scroll"><m:mrow><m:msub><m:mi>H</m:mi><m:mn>1</m:mn></m:msub><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow><m:mo>=</m:mo><m:mi>H</m:mi><m:mrow><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>+</m:mo><m:mi>π</m:mi><m:mo>)</m:mo></m:mrow></m:mrow></m:math>.</emphasis></para></content>
+
+</document>

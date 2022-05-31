@@ -1,0 +1,1210 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:bib="http://bibtexml.sf.net/">
+  <title>Summary Overview</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45099</md:content-id>
+  <md:title>Summary Overview</md:title>
+  <md:abstract/>
+  <md:uuid>72e4b137-4f4f-4311-bb15-dc459733f4a4</md:uuid>
+</metadata>
+
+<content>
+    <section id="cid1">
+      <title>Properties of the Basic Multiresolution Scaling Function</title>
+      <para id="id177742">The first summary is given in four tables of the basic
+relationships and equations, primarily developed in <link target-id="m45100">Chapter: The Scaling Function and Scaling Coefficients, Wavelet and Wavelet Coefficients </link>, for
+the scaling function <m:math overflow="scroll"><m:mrow><m:mi>φ</m:mi><m:mo>(</m:mo><m:mi>t</m:mi><m:mo>)</m:mo></m:mrow></m:math>, scaling coefficients <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math>, and their
+Fourier transforms <m:math overflow="scroll"><m:mrow><m:mtext>Φ</m:mtext><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> and <m:math overflow="scroll"><m:mrow><m:mi>H</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math>
+for the multiplier <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> or two-band multiresolution system. The various
+assumptions and conditions are omitted in order to see the “big picture"
+and to see the effects of increasing constraints.</para><table id="uid2" summary="Properties of M=2 Scaling Functions (SF) and their Fourier Transforms">
+<tgroup cols="5"><tbody>
+            <row>
+              <entry>Case</entry>
+              <entry>Condition</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>φ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>Φ</m:mtext>
+                    <m:mo>(</m:mo>
+                    <m:mi>ω</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>Signal Space</entry>
+            </row>
+            <row>
+              <entry>
+1</entry>
+              <entry>Multiresolution</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>φ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:msqrt>
+                      <m:mn>2</m:mn>
+                    </m:msqrt>
+                    <m:mi>φ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>2</m:mn>
+                      <m:mi>t</m:mi>
+                      <m:mo>-</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>Φ</m:mtext>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>ω</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mo>∏</m:mo>
+                    <m:mfrac>
+                      <m:mn>1</m:mn>
+                      <m:msqrt>
+                        <m:mn>2</m:mn>
+                      </m:msqrt>
+                    </m:mfrac>
+                    <m:mi>H</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mfrac>
+                        <m:mi>ω</m:mi>
+                        <m:msup>
+                          <m:mn>2</m:mn>
+                          <m:mi>k</m:mi>
+                        </m:msup>
+                      </m:mfrac>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>distribution</entry>
+            </row>
+            <row>
+              <entry>
+2</entry>
+              <entry>Partition of 1</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:mi>φ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>Φ</m:mtext>
+                    <m:mo>(</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>π</m:mi>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>distribution</entry>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∫</m:mo>
+                    <m:mi>φ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>φ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>d</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>∑</m:mo>
+                        <m:mo>|</m:mo>
+                        <m:mtext>Φ</m:mtext>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>+</m:mo>
+                          <m:mn>2</m:mn>
+                          <m:mi>π</m:mi>
+                          <m:mi>k</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>=</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:msup>
+                    <m:mi>L</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:math>
+              </entry>
+            </row>
+            <row>
+              <entry>
+5</entry>
+              <entry>SF Smoothness</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mfrac>
+                      <m:mrow>
+                        <m:msup>
+                          <m:mi>d</m:mi>
+                          <m:mrow>
+                            <m:mo>(</m:mo>
+                            <m:mi>ℓ</m:mi>
+                            <m:mo>)</m:mo>
+                          </m:mrow>
+                        </m:msup>
+                        <m:mi>φ</m:mi>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:mi>d</m:mi>
+                        <m:mi>t</m:mi>
+                      </m:mrow>
+                    </m:mfrac>
+                    <m:mo>&lt;</m:mo>
+                    <m:mi>∞</m:mi>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry>poly <m:math overflow="scroll"><m:mrow><m:mo>∈</m:mo><m:msub><m:mi mathvariant="script">V</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:math></entry>
+            </row>
+            <row>
+              <entry>
+6</entry>
+              <entry>SF Moments</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∫</m:mo>
+                    <m:msup>
+                      <m:mi>t</m:mi>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mi>φ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>d</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry>Coiflets</entry>
+            </row>
+          </tbody>
+        
+
+
+</tgroup><caption>Properties of <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> Scaling Functions (SF) and their Fourier Transforms</caption>
+</table><table id="uid3" summary="Properties of M=2 Scaling Coefficients and their Fourier Transforms">
+<tgroup cols="5"><tbody>
+            <row>
+              <entry>Case</entry>
+              <entry>Condition</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>H</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>ω</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>Eigenval.{<emphasis effect="bold">T</emphasis>}</entry>
+            </row>
+            <row>
+              <entry>
+1</entry>
+              <entry>Existence</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:msqrt>
+                      <m:mn>2</m:mn>
+                    </m:msqrt>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>H</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>0</m:mn>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:msqrt>
+                      <m:mn>2</m:mn>
+                    </m:msqrt>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>
+2</entry>
+              <entry>Fundamental</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>n</m:mi>
+                    <m:mo>+</m:mo>
+                    <m:mn>1</m:mn>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>H</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>π</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi> EV </m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>QMF</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>|</m:mo>
+                        <m:mi>H</m:mi>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>+</m:mo>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>|</m:mo>
+                        <m:mi>H</m:mi>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>+</m:mo>
+                          <m:mi>π</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>=</m:mo>
+                    <m:mn>2</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi> EV </m:mi>
+                    <m:mo>≤</m:mo>
+                    <m:mn>1</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+            </row>
+            <row>
+              <entry>
+4</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>h</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>n</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mn>2</m:mn>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>|</m:mo>
+                        <m:mi>H</m:mi>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>+</m:mo>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>|</m:mo>
+                        <m:mi>H</m:mi>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>+</m:mo>
+                          <m:mi>π</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>=</m:mo>
+                    <m:mn>2</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>one <m:math overflow="scroll"><m:mrow><m:mi> EV </m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></entry>
+            </row>
+            <row>
+              <entry/>
+              <entry><m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math> Basis</entry>
+              <entry/>
+              <entry>and <m:math overflow="scroll"><m:mrow><m:mi>H</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo><m:mo>≠</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mo>|</m:mo><m:mi>ω</m:mi><m:mo>|</m:mo><m:mo>≤</m:mo><m:mi>π</m:mi><m:mo>/</m:mo><m:mn>3</m:mn></m:mrow></m:math></entry>
+              <entry>others <m:math overflow="scroll"><m:mrow><m:mo>&lt;</m:mo><m:mn>1</m:mn></m:mrow></m:math></entry>
+            </row>
+            <row>
+              <entry>
+6</entry>
+              <entry>Coiflets</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:msup>
+                      <m:mi>n</m:mi>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry/>
+            </row>
+          </tbody>
+        
+
+</tgroup><caption>Properties of <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> Scaling Coefficients and their Fourier Transforms</caption>
+</table><table id="uid4" summary="Properties of M=2 Wavelets (W) and their Fourier Transforms">
+<tgroup cols="5"><tbody>
+            <row>
+              <entry>Case</entry>
+              <entry>Condition</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>ψ</m:mtext>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>Ψ</m:mtext>
+                    <m:mo>(</m:mo>
+                    <m:mi>ω</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>Signal Space</entry>
+            </row>
+            <row>
+              <entry>
+1</entry>
+              <entry>MRA</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>ψ</m:mtext>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mo>∑</m:mo>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:msqrt>
+                      <m:mn>2</m:mn>
+                    </m:msqrt>
+                    <m:mi>φ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>2</m:mn>
+                      <m:mi>t</m:mi>
+                      <m:mo>-</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mtext>Ψ</m:mtext>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>ω</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mo>∏</m:mo>
+                    <m:mfrac>
+                      <m:mn>1</m:mn>
+                      <m:msqrt>
+                        <m:mn>2</m:mn>
+                      </m:msqrt>
+                    </m:mfrac>
+                    <m:msub>
+                      <m:mi>H</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mfrac>
+                        <m:mi>ω</m:mi>
+                        <m:msup>
+                          <m:mn>2</m:mn>
+                          <m:mi>k</m:mi>
+                        </m:msup>
+                      </m:mfrac>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>distribution</entry>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∫</m:mo>
+                    <m:mi>ϕ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>ψ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>d</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:msup>
+                    <m:mi>L</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:math>
+              </entry>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∫</m:mo>
+                    <m:mi>ψ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>ψ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>t</m:mi>
+                    <m:mo>-</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>d</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mo>(</m:mo>
+                    <m:mi>k</m:mi>
+                    <m:mo>)</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:msup>
+                    <m:mi>L</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:math>
+              </entry>
+            </row>
+            <row>
+              <entry>
+5</entry>
+              <entry>W Moments</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∫</m:mo>
+                    <m:msup>
+                      <m:mi>t</m:mi>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>ψ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>t</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mspace width="0.166667em"/>
+                    <m:mi>d</m:mi>
+                    <m:mi>t</m:mi>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+              <entry>poly <m:math overflow="scroll"><m:mrow><m:mi>n</m:mi><m:mi>o</m:mi><m:mi>t</m:mi><m:mo>∈</m:mo><m:msub><m:mi mathvariant="script">W</m:mi><m:mi>j</m:mi></m:msub></m:mrow></m:math></entry>
+            </row>
+          </tbody>
+        
+
+
+
+
+
+</tgroup><caption>Properties of <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> Wavelets (W) and their Fourier Transforms</caption>
+</table><table id="uid5" summary="Properties of Wavelet Coefficients and their Fourier Transforms">
+<tgroup cols="5"><tbody>
+            <row>
+              <entry>Case</entry>
+              <entry>Condition</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>H</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>ω</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>Eigenval.{<emphasis effect="bold">T</emphasis>}</entry>
+            </row>
+            <row>
+              <entry>
+2</entry>
+              <entry>Fundamental</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>H</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>0</m:mn>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>(</m:mo>
+                        <m:mo>-</m:mo>
+                        <m:mn>1</m:mn>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                      <m:mi>n</m:mi>
+                    </m:msup>
+                    <m:mi>h</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>1</m:mn>
+                      <m:mo>-</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mo>|</m:mo>
+                    </m:mrow>
+                    <m:msub>
+                      <m:mi>H</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mo>(</m:mo>
+                        <m:mi>ω</m:mi>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                      <m:mo>|</m:mo>
+                      <m:mo>=</m:mo>
+                      <m:mo>|</m:mo>
+                      <m:mi>H</m:mi>
+                      <m:mrow>
+                        <m:mo>(</m:mo>
+                        <m:mi>ω</m:mi>
+                        <m:mo>+</m:mo>
+                        <m:mi>π</m:mi>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                      <m:mo>|</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>
+3</entry>
+              <entry>Orthogonal</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mn>2</m:mn>
+                      <m:mi>m</m:mi>
+                      <m:mo>-</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mi>δ</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>m</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mo>|</m:mo>
+                    </m:mrow>
+                    <m:msub>
+                      <m:mi>H</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>+</m:mo>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>|</m:mo>
+                        <m:mi>H</m:mi>
+                        <m:mrow>
+                          <m:mo>(</m:mo>
+                          <m:mi>ω</m:mi>
+                          <m:mo>)</m:mo>
+                        </m:mrow>
+                        <m:mo>|</m:mo>
+                      </m:mrow>
+                      <m:mn>2</m:mn>
+                    </m:msup>
+                    <m:mo>=</m:mo>
+                    <m:mn>2</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>
+5</entry>
+              <entry>Smoothness</entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mo>∑</m:mo>
+                    <m:msup>
+                      <m:mi>n</m:mi>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:msub>
+                      <m:mi>h</m:mi>
+                      <m:mn>1</m:mn>
+                    </m:msub>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>n</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:mn>0</m:mn>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mi>H</m:mi>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>ω</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                    <m:mo>=</m:mo>
+                    <m:msup>
+                      <m:mrow>
+                        <m:mo>(</m:mo>
+                        <m:mi>ω</m:mi>
+                        <m:mo>-</m:mo>
+                        <m:mi>π</m:mi>
+                        <m:mo>)</m:mo>
+                      </m:mrow>
+                      <m:mi>k</m:mi>
+                    </m:msup>
+                    <m:mspace width="0.166667em"/>
+                    <m:mover accent="true">
+                      <m:mi>H</m:mi>
+                      <m:mo>˜</m:mo>
+                    </m:mover>
+                    <m:mrow>
+                      <m:mo>(</m:mo>
+                      <m:mi>ω</m:mi>
+                      <m:mo>)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:math>
+              </entry>
+              <entry>
+                <m:math overflow="scroll">
+                  <m:mrow>
+                    <m:mn>1</m:mn>
+                    <m:mo>,</m:mo>
+                    <m:mfrac>
+                      <m:mn>1</m:mn>
+                      <m:mn>2</m:mn>
+                    </m:mfrac>
+                    <m:mo>,</m:mo>
+                    <m:mfrac>
+                      <m:mn>1</m:mn>
+                      <m:mn>4</m:mn>
+                    </m:mfrac>
+                    <m:mo>,</m:mo>
+                    <m:mo>⋯</m:mo>
+                  </m:mrow>
+                </m:math>
+              </entry>
+            </row>
+          </tbody>
+        
+
+</tgroup><caption>Properties of <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> Wavelet Coefficients and their Fourier Transforms</caption>
+</table><para id="id180806">The different “cases" represent somewhat similar conditions for
+the stated relationships. For example, in Case 1, Table 1, the
+multiresolution conditions are stated in the time and frequency
+domains while in Table 2 the corresponding necessary conditions
+on <m:math overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo>(</m:mo><m:mi>n</m:mi><m:mo>)</m:mo></m:mrow></m:math> are given for a scaling function in <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>1</m:mn></m:msup></m:math>. However,
+the conditions are not sufficient unless general distributions are
+allowed. In Case 1, Table 3, the definition of a wavelet is
+given to span the appropriate multiresolution signal space but
+nothing seems appropriate for Case 1 in Table 4. Clearly the
+organization of these tables are somewhat subjective.</para>
+      <para id="id180850">If we “tighten" the restrictions by adding one more linear
+condition, we get Case 2 which has consequences in Tables 1, 2,
+and 4 but does not guarantee anything better that a
+distribution. Case 3 involves orthogonality, both across scales
+and translations, so there are two rows for Case 3 in the tables
+involving wavelets. Case 4 adds to the orthogonality a
+condition on the frequency response <m:math overflow="scroll"><m:mrow><m:mi>H</m:mi><m:mo>(</m:mo><m:mi>ω</m:mi><m:mo>)</m:mo></m:mrow></m:math> or on the
+eigenvalues of the transition matrix to guarantee an <m:math overflow="scroll"><m:msup><m:mi>L</m:mi><m:mn>2</m:mn></m:msup></m:math> basis
+rather than a tight frame guaranteed for Case 3. Cases 5 and 6
+concern zero moments and scaling function smoothness and
+symmetry.</para>
+      <para id="id180892">In some cases, columns 3 and 4 are equivalent and others, they
+are not. In some categories, a higher numbered case assumes a
+lower numbered case and in others, they do not. These tables
+try to give a structure without the details. It is useful to
+refer to them while reading the earlier chapters and to refer to
+the earlier chapters to see the assumptions and conditions
+behind these tables.</para>
+    </section>
+    <section id="cid2">
+      <title>Types of Wavelet Systems</title>
+      <para id="id180913">Here we try to present a structured list of the various classes of
+wavelet systems in terms of modification and generalizations of the
+basic <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> system. There are some classes not included here because
+the whole subject is still an active research area, producing new
+results daily. However, this list plus the table of contents, index,
+and references will help guide the reader through the maze. The
+relevant section or chapter is given in parenthesis for each topic.</para>
+      <list id="id180935" display="block" list-type="bulleted"><item id="uid7">Signal Expansions   <link target-id="m45096"/>
+<list id="id180951" display="block" list-type="bulleted"><item id="uid8">General Expansion Systems   <link target-id="cid6" document="m45098"/>
+</item><item id="uid9">Multiresolution Systems   <link target-id="m45081"/>
+</item></list></item>
+
+        <item id="uid10">Multiresolution Wavelet Systems   <link target-id="m45081"/>
+<list id="id180999" display="block" list-type="bulleted"><item id="uid11"><m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math> or two-band wavelet systems   <link target-id="m45081"/>-<link target-id="m45098"/>
+</item><item id="uid12"><m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>&gt;</m:mo><m:mn>2</m:mn></m:mrow></m:math> or M-band wavelet systems   <link target-id="cid2" document="m45095"/>
+</item><item id="uid13">wavelet packet systems   <link target-id="cid3" document="m45095"/>
+</item><item id="uid14">multiwavelet systems   <link target-id="cid5" document="m45095"/></item></list></item>
+
+        <item id="uid15">Length of scaling function filter   <link target-id="m45100"/>
+<list id="id181102" display="block" list-type="bulleted"><item id="uid16">Compact support wavelet systems
+</item><item id="uid17">Infinite support wavelet systems
+</item></list></item>
+
+        <item id="uid18">Orthogonality   <link target-id="m45100"/>
+<list id="id181146" display="block" list-type="bulleted"><item id="uid19">Orthogonal or Orthonormal wavelet bases
+</item><item id="uid20">Semiorthogonal systems
+</item><item id="uid21">Biorthogonal systems   <link target-id="cid4" document="m45095"/>
+</item></list></item>
+
+        <item id="uid22">Symmetry
+<list id="id181201" display="block" list-type="bulleted"><item id="uid23">Symmetric scaling functions and wavelets   <link target-id="cid4" document="m45095"/>,<link target-id="cid5" document="m45095"/>
+</item><item id="uid24">Approximately symmetric systems   <link target-id="cid9" document="m45098"/>
+</item><item id="uid25">Minimum phase spectral factorization systems   <link target-id="m45098"/>
+</item><item id="uid26">General scaling functions
+</item></list></item>
+
+        <item id="uid27">Complete and Overcomplete systems   <link target-id="m45090"/>,<link target-id="cid6" document="m45095"/>
+<list id="id181280" display="block" list-type="bulleted"><item id="uid28">Frames
+</item><item id="uid29">Tight frames
+</item><item id="uid30">Redundant systems and transforms   <link target-id="cid6" document="m45095"/>,<link target-id="cid3" document="m45101"/>
+</item><item id="uid31">Adaptive systems and transforms, pursuit methods   <link target-id="cid6" document="m45095"/>
+</item></list></item>
+
+        <item id="uid32">Discrete and continuous signals and transforms
+{analogous Fourier method}   <link target-id="cid8" document="m45095"/>
+<list id="id181355" display="block" list-type="bulleted"><item id="uid33">Discrete Wavelet Transform {Fourier series}  <link target-id="m45096"/>
+</item><item id="uid34">Discrete-time Wavelet Transform {Discrete Fourier transforms}  <link target-id="m45094"/>,<link target-id="m45068"/>
+</item><item id="uid35">Continuous-time Wavelet Transform {Fourier transform or integral}  <link target-id="cid8" document="m45095"/>
+</item></list></item>
+
+        <item id="uid36">Wavelet design   <link target-id="m45098"/>
+<list id="id181419" display="block" list-type="bulleted"><item id="uid37">Max. zero wavelet moments [Daubechies]
+</item><item id="uid38">Max. zero scaling function moments
+</item><item id="uid39">Max. mixture of SF and wavelet moments zero [Coifman]   <link target-id="cid9" document="m45098"/>
+</item><item id="uid40">Max. smooth scaling function or wavelet [Heller, Lang, etc.]
+</item><item id="uid41">Min. scaling variation [Gopinath, Odegard, etc.]
+</item><item id="uid42">Frequency domain criteria
+<list id="id181499" display="block" list-type="bulleted"><item id="uid43">Butterworth [Daubechies]
+</item><item id="uid44">least-squares, constrained LS, Chebyshev
+</item></list></item><item id="uid45">Cosine modulated for M-band systems   <link target-id="cid5" document="m45068"/>
+</item></list></item>
+
+        <item id="uid46">Descriptions   <link target-id="m45081"/>
+<list id="id181558" display="block" list-type="bulleted"><item id="uid47">The signal itself
+</item><item id="uid48">The discrete wavelet transform (expansion coefficients)
+</item><item id="uid49">Time functions at various scales or translations
+</item><item id="uid50">Tiling of the time-frequency/scale plane   <link target-id="cid1" document="m45095"/>
+</item></list></item>
+      </list></section>
+  </content>
+  <bib:file/>
+</document>
