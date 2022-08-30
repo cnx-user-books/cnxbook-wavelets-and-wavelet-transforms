@@ -528,9 +528,7 @@ odd coefficients.</emphasis></para><equation id="uid14">
     </equation>
     <para id="id320775"><emphasis effect="italics">which we then split into even and odd sums and reorder to give:</emphasis></para><equation id="id320781"><m:math overflow="scroll" mode="display">
    <m:mtable>
-    <m:mtd>
-     <m:mtr>   
-
+    <m:mtr><m:mtd><m:mtd>
      <m:mrow>
           <m:munder>
             <m:mo>∑</m:mo>
@@ -586,11 +584,10 @@ odd coefficients.</emphasis></para><equation id="uid14">
             </m:mrow>
           </m:mfenced>
         </m:mrow>
-     </m:mtr>
+     
     </m:mtd>
-    <m:mtd>
-     <m:mtr>
-<m:mrow>
+    </m:mtd></m:mtr><m:mtr><m:mtd><m:mtd>
+     <m:mrow>
           <m:mo>=</m:mo>
           <m:munder>
             <m:mo>∑</m:mo>
@@ -652,12 +649,10 @@ odd coefficients.</emphasis></para><equation id="uid14">
             <m:mo>)</m:mo>
           </m:mrow>
         </m:mrow>
-     </m:mtr>
+     
     </m:mtd>
-    <m:mtd>
-     <m:mtr>
-
-        <m:mrow>
+    </m:mtd></m:mtr><m:mtr><m:mtd><m:mtd>
+     <m:mrow>
           <m:mo>=</m:mo>
           <m:munder>
             <m:mo>∑</m:mo>
@@ -708,9 +703,9 @@ odd coefficients.</emphasis></para><equation id="uid14">
           <m:mn>1</m:mn>
           <m:mo>.</m:mo>
         </m:mrow>
-     </m:mtr>
+     
     </m:mtd>
-   </m:mtable>
+   </m:mtd></m:mtr></m:mtable>
 </m:math>
     </equation><para id="id321121"><emphasis effect="italics">Solving <link target-id="uid14"/> and <link target-id="id320781"/> simultaneously gives <m:math overflow="scroll"><m:mrow><m:msub><m:mi>K</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:msub><m:mi>K</m:mi><m:mn>1</m:mn></m:msub><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>/</m:mo><m:msqrt><m:mn>2</m:mn></m:msqrt></m:mrow></m:math> and our result <link target-id="uid31" document="m45100"/> or <link target-id="uid12"/> for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math>.</emphasis></para><para id="id321188"><emphasis effect="italics">If the same approach is taken with <link target-id="uid22" document="m45095"/> and <link target-id="uid24" document="m45095"/> for <m:math overflow="scroll"><m:mrow><m:mi>M</m:mi><m:mo>=</m:mo><m:mn>3</m:mn></m:mrow></m:math>,
 we have</emphasis></para><equation id="uid17">
